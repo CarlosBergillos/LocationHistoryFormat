@@ -1,0 +1,282 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "title": "Settings",
+    "description": "The root schema comprises the entire JSON document.",
+    "examples": [
+        {
+            "createdTime": "2013-05-15T21:53:59.385Z",
+            "modifiedTime": "2020-07-01T21:27:31.880Z",
+            "historyEnabled": true,
+            "deviceSettings": [
+                {
+                    "deviceTag": 1234567890,
+                    "reportingEnabled": true,
+                    "legalCountryCode": "es",
+                    "devicePrettyName": "ONEPLUS A6013",
+                    "platformType": "ANDROID",
+                    "deviceCreationTime": "2019-01-07T18:13:23.713Z",
+                    "latestLocationReportingSettingChange": {
+                        "reportingEnabledModificationTime": "2019-01-07T18:13:24.673Z"
+                    },
+                    "androidOsLevel": 28,
+                    "deviceSpec": {
+                        "manufacturer": "OnePlus",
+                        "brand": "OnePlus",
+                        "product": "OnePlus6T",
+                        "device": "OnePlus6T",
+                        "model": "ONEPLUS A6013",
+                        "isLowRam": false
+                    }
+                }
+            ],
+            "retentionWindowDays": 2147483647,
+            "hasReportedLocations": true,
+            "hasSetRetention": false
+        }
+    ],
+    "type": "object",
+    "properties": {
+        "createdTime": {
+            "$id": "#/properties/createdTime",
+            "type": "date-time",
+            "title": "Created Time",
+            "description": "Timestamp (as an ISO 8601 string) when location history data was first activated on this account.",
+            "examples": ["2013-05-15T21:53:59.385Z"]
+        },
+        "modifiedTime": {
+            "$id": "#/properties/modifiedTime",
+            "type": "date-time",
+            "title": "Modified Time",
+            "description": "An ISO 8601 string, meaning uncertain.",
+            "examples": ["2020-07-01T21:27:31.880Z"],
+            "helpWanted": "What is this field?"
+        },
+        "historyEnabled": {
+            "$id": "#/properties/historyEnabled",
+            "type": "boolean",
+            "title": "History Enabled",
+            "description": "Whether location history data is currently enabled on this account (not confirmed).",
+            "examples": [true]
+        },
+        "deviceSettings": {
+            "$id": "#/properties/deviceSettings",
+            "type": "array",
+            "title": "Device Settings",
+            "description": "*TODO*",
+            "items": { 
+                "$ref": "#/$defs/deviceSettings"
+            }
+        },
+        "retentionWindowDays": {
+            "$id": "#/properties/retentionWindowDays",
+            "type": "integer",
+            "title": "Retention Window Days",
+            "description": "Number of days the location data is retained for in this account. Maybe related to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.\nShould be ignored if `hasSetRetention` is false.",
+            "examples": [2147483647]
+        },
+        "hasReportedLocations": {
+            "$id": "#/properties/hasReportedLocations",
+            "type": "boolean",
+            "title": "Has Reported Locations",
+            "description": "Whether this device has reported location data at any point.",
+            "examples": [true]
+        },
+        "hasSetRetention": {
+            "$id": "#/properties/hasSetRetention",
+            "type": "boolean",
+            "title": "Has Set Retention",
+            "description": "*TODO* Maybe related to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.",
+            "examples": [false]
+        }
+    },
+    "$defs": {
+        "deviceSettings": {
+            "$id": "#/properties/deviceSettings/items/anyOf/0",
+            "type": "object",
+            "title": "Device Settings",
+            "description": "*TODO*",
+            "examples": [
+                {
+                    "deviceTag": 1234567890,
+                    "reportingEnabled": true,
+                    "legalCountryCode": "es",
+                    "devicePrettyName": "ONEPLUS A6013",
+                    "platformType": "ANDROID",
+                    "deviceCreationTime": "2019-01-07T18:13:23.713Z",
+                    "latestLocationReportingSettingChange": {
+                        "reportingEnabledModificationTime": "2019-01-07T18:13:24.673Z"
+                    },
+                    "androidOsLevel": 28,
+                    "deviceSpec": {
+                        "manufacturer": "OnePlus",
+                        "brand": "OnePlus",
+                        "product": "OnePlus6T",
+                        "device": "OnePlus6T",
+                        "model": "ONEPLUS A6013",
+                        "isLowRam": false
+                    }
+                }
+            ],
+            "required": [
+                "deviceTag",
+                "reportingEnabled",
+                "legalCountryCode",
+                "devicePrettyName",
+                "platformType",
+                "deviceCreationTime",
+                "latestLocationReportingSettingChange",
+                "androidOsLevel",
+                "deviceSpec"
+            ],
+            "properties": {
+                "deviceTag": {
+                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceTag",
+                    "type": "integer",
+                    "title": "Device Tag",
+                    "description": "Integer identifier (specific to Location History) of the device.",
+                    "examples": [1234567890]
+                },
+                "reportingEnabled": {
+                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/reportingEnabled",
+                    "type": "boolean",
+                    "title": "Reporting Enabled",
+                    "description": "*TODO*",
+                    "examples": [
+                        true
+                    ]
+                },
+                "legalCountryCode": {
+                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/legalCountryCode",
+                    "type": "string",
+                    "title": "Legal Country Code",
+                    "description": "Two-letter [ISO 3166 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).",
+                    "examples": ["es"],
+                    "helpWanted": "What is this field about exactly?"
+                },
+                "devicePrettyName": {
+                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/devicePrettyName",
+                    "type": "string",
+                    "title": "Device Pretty Name",
+                    "description": "Pretty name of the device, recommended for user-facing applications.",
+                    "examples": ["ONEPLUS A6013"]
+                },
+                "platformType": {
+                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/platformType",
+                    "type": "string",
+                    "title": "Platform Type",
+                    "description": "Platform of the device. Valid values are: `ANDROID`, `IOS` and `UNKNOWN`.",
+                    "examples": ["ANDROID"],
+                    "enum": ["ANDROID", "IOS", "UNKNOWN"]
+                },
+                "deviceCreationTime": {
+                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceCreationTime",
+                    "type": "string",
+                    "title": "Device Creation Time",
+                    "description": "Timestamp (ISO 8601 string) of the first time this device was used for location history data.",
+                    "examples": ["2019-01-07T18:13:23.713Z"]
+                },
+                "latestLocationReportingSettingChange": {
+                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/latestLocationReportingSettingChange",
+                    "type": "object",
+                    "title": "Latest Location Reporting Setting Change",
+                    "description": "*TODO*",
+                    "examples": [
+                        {
+                            "reportingEnabledModificationTime": "2019-01-07T18:13:24.673Z"
+                        }
+                    ],
+                    "required": [
+                        "reportingEnabledModificationTime"
+                    ],
+                    "properties": {
+                        "reportingEnabledModificationTime": {
+                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/latestLocationReportingSettingChange/properties/reportingEnabledModificationTime",
+                            "type": "string",
+                            "title": "Reporting Enabled Modification Time",
+                            "description": "*TODO*",
+                            "examples": ["2019-01-07T18:13:24.673Z"]
+                        }
+                    }
+                },
+                "androidOsLevel": {
+                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/androidOsLevel",
+                    "type": "integer",
+                    "title": "Android OS Level",
+                    "description": "The version of the device's operating system of the device (in the case of Android devices). Corresponds to the API Level (e.g. 28 is Android 9 *Pie*).",
+                    "examples": [
+                        28
+                    ]
+                },
+                "deviceSpec": {
+                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec",
+                    "type": "object",
+                    "title": "Device Specification",
+                    "description": "*TODO*",
+                    "examples": [
+                        {
+                            "manufacturer": "OnePlus",
+                            "brand": "OnePlus",
+                            "product": "OnePlus6T",
+                            "device": "OnePlus6T",
+                            "model": "ONEPLUS A6013",
+                            "isLowRam": false
+                        }
+                    ],
+                    "required": [
+                        "manufacturer",
+                        "brand",
+                        "product",
+                        "device",
+                        "model",
+                        "isLowRam"
+                    ],
+                    "properties": {
+                        "manufacturer": {
+                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/manufacturer",
+                            "type": "string",
+                            "title": "Manufacturer",
+                            "description": "Manufacturer of the device.",
+                            "examples": ["OnePlus"]
+                        },
+                        "brand": {
+                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/brand",
+                            "type": "string",
+                            "title": "Brand",
+                            "description": "Brand of the device.",
+                            "examples": ["OnePlus"]
+                        },
+                        "product": {
+                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/product",
+                            "type": "string",
+                            "title": "Product",
+                            "description": "Product name of the device.",
+                            "examples": ["OnePlus6T"]
+                        },
+                        "device": {
+                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/device",
+                            "type": "string",
+                            "title": "Device",
+                            "description": "Name of the device.",
+                            "examples": ["OnePlus6T"]
+                        },
+                        "model": {
+                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/model",
+                            "type": "string",
+                            "title": "Model",
+                            "description": "Model of the device.",
+                            "examples": ["ONEPLUS A6013"]
+                        },
+                        "isLowRam": {
+                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/isLowRam",
+                            "type": "boolean",
+                            "title": "Is Low Ram",
+                            "description": "Whether the device is considered low-ram.",
+                            "examples": [false],
+                            "helpWanted": "Is it maybe related to [Google Maps Go](https://support.google.com/maps/answer/7566112)?"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

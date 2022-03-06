@@ -1,0 +1,60 @@
+site_name: Location History Format
+site_url: https://locationhistoryformat.com/
+repo_url: https://github.com/CarlosBergillos/LocationHistoryFormat/
+
+theme:
+  name: material
+  language: en
+  palette:
+    scheme: default
+    primary: white
+    accent: pink
+  features:
+    - navigation.tabs
+    - toc.integrate
+  logo: static/timeline_black_24dp_c.svg
+  favicon: static/timeline_black_24dp_c_favicon.svg
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - css/extra.css
+
+markdown_extensions:
+  - tables
+  - def_list
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/CarlosBergillos
+  generator: false
+  analytics:
+    provider: google
+    property: G-319THE2V0E
+
+copyright: Copyright &copy; 2022 Carlos Bergillos
+
+use_directory_urls: true
+
+nav:
+  - Home: index.md
+  - Guides/Getting Started:
+    - General Structure: guides/general_structure.md
+    - Raw Location Data: guides/raw_location.md
+    - Semantic Location Data: guides/semantic_location.md
+  - Reference:
+    - files_reference/index.md
+    - Records.json: files_reference/records.md
+    - Settings.json: files_reference/settings.md
+  - Contributing: contributing.md
+
+# plugins:
+#   - git-revision-date  # https://github.com/zhaoterryy/mkdocs-git-revision-date-plugin
