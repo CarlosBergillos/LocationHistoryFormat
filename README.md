@@ -6,10 +6,8 @@ Unofficial and collaborative format definition and documentation for Google Loca
 
 
 
-!!! info ""
-
-    This project is not affiliated, endorsed by, or in any way officially connected with Google.
-    Official support for Google products can be found at <https://support.google.com/>.
+> This project is not affiliated, endorsed by, or in any way officially connected with Google.
+> Official support for Google products can be found at <https://support.google.com/>.
 
 
 Google (through its [Takeout service][Google Takeout]) allows users to easily and conveniently download their location history data.
