@@ -1,4 +1,4 @@
-Raw location data is just a list of timestamped location records in chronological order at the most granular level provided and with all the historical data available.
+Raw location data is just a list of timestamped location records in chronological order for all the historical location data available and presumably at the most granular level possible.
 
 This raw location data is found in the `Records.json` file (see [General Structure]).
 Inside this file we can find a single flat `locations` array containing all of the location records:
