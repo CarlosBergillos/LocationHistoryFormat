@@ -83,3 +83,7 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Automatically generated .md files
+docs/reference/*.md
+!docs/reference/index.md
