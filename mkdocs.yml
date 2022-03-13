@@ -1,6 +1,8 @@
 site_name: Location History Format
 site_url: https://locationhistoryformat.com/
-repo_url: https://github.com/CarlosBergillos/LocationHistoryFormat/
+repo_url: https://github.com/CarlosBergillos/LocationHistoryFormat
+repo_name: ""
+edit_uri: ""
 
 theme:
   name: material
@@ -11,6 +13,7 @@ theme:
     accent: pink
   features:
     - navigation.tabs
+    - navigation.indexes
     - toc.integrate
   logo: static/timeline_black_24dp_c.svg
   favicon: static/timeline_black_24dp_c_favicon.svg
@@ -30,6 +33,7 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.caret
 
 extra:
   social:
@@ -56,5 +60,6 @@ nav:
     - Settings.json: files_reference/settings.md
   - Contributing: contributing.md
 
-# plugins:
-#   - git-revision-date  # https://github.com/zhaoterryy/mkdocs-git-revision-date-plugin
+plugins:
+  - search
+  - git-revision-date
