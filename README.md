@@ -23,7 +23,7 @@ The goals of this project are two-fold:
 These format definitions are given in the form of [JSON schemas], which can be used, for example, for automatic validation of JSON files and to aid in the development of parsers.
 These files can be found in the [schemas folder][Schemas] in the repository.
 
-- **Provide accessible and developer-friendly documentation for these formats.** *TODO* how to interpret and what to expect from these files and its contents ([locationhistoryformat.com][Homepage]).
+- **Provide accessible and user-friendly documentation for these formats.** *TODO* how to interpret and what to expect from these files and its contents ([locationhistoryformat.com][Homepage]).
 
 An effort is being made to keep this information accurate and up-to-date, but due to its nature, the information provided by this project might be inaccurate and/or out of date.
 Google has repeatedly made modifications to the format throughout the years without prior warning.
@@ -37,7 +37,7 @@ See [Contributing].
 
 ## License
 
-*TODO*
+This project is licensed under the terms of the [MIT License][License].
 
 
 [Homepage]: https://locationhistoryformat.com
@@ -45,3 +45,4 @@ See [Contributing].
 [JSON schemas]: https://json-schema.org
 [Schemas]: https://github.com/CarlosBergillos/LocationHistoryFormat/tree/main/schemas
 [Contributing]: https://www.locationhistoryformat.com/contributing
+[License]: https://github.com/CarlosBergillos/LocationHistoryFormat/blob/main/LICENSE
