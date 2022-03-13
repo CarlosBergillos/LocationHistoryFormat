@@ -87,3 +87,6 @@ cython_debug/
 # Automatically generated .md files
 docs/reference/*.md
 !docs/reference/index.md
+
+# Static schema files
+docs/schemas/*
