@@ -1,5 +1,5 @@
 site_name: Location History Format
-site_url: https://locationhistoryformat.com/
+site_url: https://locationhistoryformat.com
 repo_url: https://github.com/CarlosBergillos/LocationHistoryFormat
 repo_name: ""
 edit_uri: ""
@@ -50,16 +50,17 @@ use_directory_urls: true
 
 nav:
   - Home: index.md
-  - Guides/Getting Started:
+  - Guides:
     - General Structure: guides/general_structure.md
     - Raw Location Data: guides/raw_location.md
     - Semantic Location Data: guides/semantic_location.md
   - Reference:
-    - files_reference/index.md
-    - Records.json: files_reference/records.md
-    - Settings.json: files_reference/settings.md
+    - reference/index.md
+    - Records.json: reference/records.md
+    - Settings.json: reference/settings.md
   - Contributing: contributing.md
 
 plugins:
   - search
   - git-revision-date
+  - macros
