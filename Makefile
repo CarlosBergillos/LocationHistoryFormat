@@ -1,5 +1,5 @@
 SOURCES_DIR = ./schemas/
-EXPORTS_DIR = ./docs/files_reference/
+EXPORTS_DIR = ./docs/reference/
 
 SOURCES = \
 	settings:=Settings.schema.json \

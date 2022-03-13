@@ -38,6 +38,6 @@ From this, the most essential fields are:
 For more information on the other possible fields see the full [format definition][Location Record].
 
 [General Structure]: general_structure.md
-[Location Record]: ../files_reference/records.md#location-record
+[Location Record]: ../reference/records.md#location-record
 [ISO 8601]: https://en.wikipedia.org/wiki/ISO_8601
 [UTC]: https://en.wikipedia.org/wiki/Coordinated_Universal_Time
