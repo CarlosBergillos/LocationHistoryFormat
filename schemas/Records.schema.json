@@ -32,19 +32,8 @@
                 "activeWifiScan": {
                     "type": "object",
                     "title": "Active Wi-Fi Scan",
-                    "description": "*TODO*",
-                    "properties": {
-                        "accessPoints": {
-                            "type": "array",
-                            "title": "Access Points",
-                            "description": "List of Wi-Fi scans consisting of access points.",
-                            "items": { 
-                                "$ref": "#/$defs/accessPoint"
-                            },
-                            "examples": []
-                        }
-                    },
-                    "examples": []
+                    "description": "Information about the access points found in a Wi-Fi scan done by the device and associated with this location record.",
+                    "$ref": "#/$defs/wifiScan"
                 },
                 "activity": {
                     "type": "array",
@@ -64,7 +53,8 @@
                                 }
                             },
                             "timestamp": {
-                                "type": "date-time",
+                                "type": "string",
+                                "format":"date-time",
                                 "title": "Timestamp",
                                 "description": "Timestamp of the activity (as an ISO 8601 string).",
                                 "examples": ["2022-01-12T17:18:24.190Z"]
@@ -88,10 +78,10 @@
                 "deviceDesignation": {
                     "type": "string",
                     "title": "Device Designation",
-                    "description": "Common values are: `PRIMARY`, `UNKNOWN`.",
-                    "examples": [],
+                    "description": "Common values found are: `PRIMARY`, `UNKNOWN`.",
+                    "examples": ["PRIMARY"],
                     "enum": ["PRIMARY", "UNKNOWN"],
-                    "helpWanted": "Are there other possible values for `deviceDesignation`? Or you have more information?"
+                    "helpWanted": "The meaning of this field is uncertain. Are other values possible?"
                 },
                 "deviceTag": {
                     "type": "integer",
@@ -100,17 +90,20 @@
                     "examples": [1234567890]
                 },
                 "deviceTimestamp": {
-                    "type": "date-time",
+                    "type": "string",
+                    "format":"date-time",
                     "title": "Device Timestamp",
-                    "description": "*TODO*",
-                    "examples": []
+                    "description": "",
+                    "examples": [],
+                    "helpWanted": "The meaning of this field is uncertain."
                 },
                 "formFactor": {
                     "type": "string",
                     "title": "Form Factor",
-                    "description": "Form factor (device type) from which the record originated.\nCommon values are: `PHONE`.",
+                    "description": "Form factor (device type) from which the location record originated.\nCommon values are: `PHONE`.",
                     "examples": ["PHONE"],
-                    "enum": ["PHONE"]
+                    "enum": ["PHONE"],
+                    "helpWanted": "What are other possible values?"
                 },
                 "heading": {
                     "type": "integer",
@@ -123,9 +116,10 @@
                 "inferredLocation": {
                     "type": "object",
                     "title": "Inferred Location",
-                    "description": "*TODO*",
+                    "description": "",
                     "$ref": "#/$defs/locationRecord",
-                    "examples": []
+                    "examples": [],
+                    "helpWanted": "The meaning of this field is uncertain."
                 },
                 "latitudeE7": {
                     "type": "integer",
@@ -138,7 +132,7 @@
                 "locationMetadata": {
                     "type": "array",
                     "title": "Location Metadata",
-                    "description": "A repeated list of Wi-Fi scans consisting of access points.",
+                    "description": "Additional location metadata. List of different Wi-Fi scans associated with this location record.",
                     "items": { 
                         "$ref": "#/$defs/locationMetadata"
                     },
@@ -161,7 +155,7 @@
                 "placeId": {
                     "type": "string",
                     "title": "Place ID",
-                    "description": "Google Maps Place ID of the location.\n\nFor more information see: [Google Maps Platform - Place IDs](https://developers.google.com/maps/documentation/places/web-service/place-id).",
+                    "description": "Google Maps [Place ID](https://developers.google.com/maps/documentation/places/web-service/place-id) of the location.",
                     "examples": []
                 },
                 "platformType": {
@@ -172,10 +166,12 @@
                     "enum": ["ANDROID", "IOS", "UNKNOWN"]
                 },
                 "serverTimestamp": {
-                    "type": "date-time",
+                    "type": "string",
+                    "format":"date-time",
                     "title": "Server Timestamp",
-                    "description": "*TODO*",
-                    "examples": []
+                    "description": "",
+                    "examples": [],
+                    "helpWanted": "The meaning of this field is uncertain."
                 },
                 "source": {
                     "type": "string",
@@ -185,16 +181,18 @@
                     "enum": ["WIFI", "CELL", "GPS", "UNKNOWN"]
                 },
                 "timestamp": {
-                    "type": "date-time",
+                    "type": "string",
+                    "format":"date-time",
                     "title": "Timestamp",
                     "description": "Timestamp of the record (as an ISO 8601 string).",
                     "examples": ["2022-01-12T17:18:24.190Z"],
                     "added": "around January 2022"
                 },
                 "timestampMs": {
-                    "type": "integer",
+                    "type": "string",
                     "title": "Timestamp (Milliseconds)",
                     "description": "Timestamp of the record as a [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) in milliseconds.",
+                    "examples": ["1636403752674"],
                     "deprecated": true,
                     "removed": "around January 2022",
                     "replacedBy": "#/$defs/locationRecord/properties/timestamp"
@@ -224,99 +222,8 @@
                     "type": "string",
                     "title": "Activity Type",
                     "description": "Type of activity detected.",
-                    "examples": ["STILL"],
-                    "oneOf": [
-                        {
-                            "type": "string",
-                            "const": "EXITING_VEHICLE",
-                            "title": "Exiting Vehicle",
-                            "description": "The device is exiting a vehicle."
-                        },
-                        {
-                            "type": "string",
-                            "const": "IN_BUS",
-                            "title": "In Bus",
-                            "description": "The device is in a bus. This is a sub-activity of `IN_VEHICLE`."
-                        },
-                        {
-                            "type": "string",
-                            "const": "IN_CAR",
-                            "title": "In Car",
-                            "description": "The device is in a car. This is a sub-activity of `IN_VEHICLE`."
-                        },
-                        {
-                            "type": "string",
-                            "const": "IN_FOUR_WHEELER_VEHICLE",
-                            "title": "In Four-Wheeler Vehicle",
-                            "description": "The device is in a four-wheeler vehicle. This is a sub-activity of `IN_VEHICLE`."
-                        },
-                        {
-                            "type": "string",
-                            "const": "IN_RAIL_VEHICLE",
-                            "title": "In Rail Vehicle",
-                            "description": "The device is in a rail vehicle. This is a sub-activity of `IN_VEHICLE`."
-                        },
-                        {
-                            "type": "string",
-                            "const": "IN_ROAD_VEHICLE",
-                            "title": "In Road Vehicle",
-                            "description": "The device is in a road vehicle. This is a sub-activity of `IN_VEHICLE`."
-                        },
-                        {
-                            "type": "string",
-                            "const": "IN_TWO_WHEELER_VEHICLE",
-                            "title": "In Two-Wheeler Vehicle",
-                            "description": "The device is in a two-wheeler vehicle. This is a sub-activity of `IN_VEHICLE`."
-                        },
-                        {
-                            "type": "string",
-                            "const": "IN_VEHICLE",
-                            "title": "In Vehicle",
-                            "description": "The device is in a vehicle, such as a car."
-                        },
-                        {
-                            "type": "string",
-                            "const": "ON_BICYCLE",
-                            "title": "On Bicycle",
-                            "description": "The device is on a bicycle."
-                        },
-                        {
-                            "type": "string",
-                            "const": "ON_FOOT",
-                            "title": "On Foot",
-                            "description": "The device is on a user who is walking or running."
-                        },
-                        {
-                            "type": "string",
-                            "const": "RUNNING",
-                            "title": "Running",
-                            "description": "The device is on a user who is running. This is a sub-activity of `ON_FOOT`."
-                        },
-                        {
-                            "type": "string",
-                            "const": "STILL",
-                            "title": "Still",
-                            "description": "The device is still (not moving)."
-                        },
-                        {
-                            "type": "string",
-                            "const": "TILTING",
-                            "title": "Tilting",
-                            "description": "The device angle relative to gravity changed significantly. This often occurs when a device is picked up from a desk or a user who is sitting stands up."
-                        },
-                        {
-                            "type": "string",
-                            "const": "WALKING",
-                            "title": "Walking",
-                            "description": "The device is on a user who is walking. This is a sub-activity of `ON_FOOT`."
-                        },
-                        {
-                            "type": "string",
-                            "const": "UNKNOWN",
-                            "title": "Unknown",
-                            "description": "Unable to detect the current activity."
-                        }
-                      ]
+                    "$ref": "#/$defs/activityType",
+                    "examples": ["STILL"]
                 },
                 "confidence": {
                     "type": "integer",
@@ -336,45 +243,168 @@
                 }
             }
         },
+        "activityType": {
+            "type": "string",
+            "title": "Activity Type",
+            "description": "Type of activity detected. Descriptions partially based on: <https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity>",
+            "examples": ["STILL"],
+            "oneOf": [
+                {
+                    "type": "string",
+                    "const": "EXITING_VEHICLE",
+                    "title": "Exiting Vehicle",
+                    "description": "The device is exiting a vehicle."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_BUS",
+                    "title": "In Bus",
+                    "description": "The device is in a bus. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_CAR",
+                    "title": "In Car",
+                    "description": "The device is in a car. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_FOUR_WHEELER_VEHICLE",
+                    "title": "In Four-Wheeler Vehicle",
+                    "description": "The device is in a four-wheeler vehicle. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_RAIL_VEHICLE",
+                    "title": "In Rail Vehicle",
+                    "description": "The device is in a rail vehicle. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_ROAD_VEHICLE",
+                    "title": "In Road Vehicle",
+                    "description": "The device is in a road vehicle. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_TWO_WHEELER_VEHICLE",
+                    "title": "In Two-Wheeler Vehicle",
+                    "description": "The device is in a two-wheeler vehicle. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_VEHICLE",
+                    "title": "In Vehicle",
+                    "description": "The device is in a vehicle, such as a car."
+                },
+                {
+                    "type": "string",
+                    "const": "ON_BICYCLE",
+                    "title": "On Bicycle",
+                    "description": "The device is on a bicycle."
+                },
+                {
+                    "type": "string",
+                    "const": "ON_FOOT",
+                    "title": "On Foot",
+                    "description": "The device is on a user who is walking or running."
+                },
+                {
+                    "type": "string",
+                    "const": "RUNNING",
+                    "title": "Running",
+                    "description": "The device is on a user who is running. This is a sub-activity of `ON_FOOT`."
+                },
+                {
+                    "type": "string",
+                    "const": "STILL",
+                    "title": "Still",
+                    "description": "The device is still (not moving)."
+                },
+                {
+                    "type": "string",
+                    "const": "TILTING",
+                    "title": "Tilting",
+                    "description": "The device angle relative to gravity changed significantly. This often occurs when a device is picked up from a desk or a user who is sitting stands up."
+                },
+                {
+                    "type": "string",
+                    "const": "WALKING",
+                    "title": "Walking",
+                    "description": "The device is on a user who is walking. This is a sub-activity of `ON_FOOT`."
+                },
+                {
+                    "type": "string",
+                    "const": "UNKNOWN",
+                    "title": "Unknown",
+                    "description": "Unable to detect the current activity."
+                }
+            ]
+        },
+        "accessPoints": {
+            "type": "array",
+            "title": "Access Points",
+            "description": "List of Wi-Fi scans consisting of access points.",
+            "items": { 
+                "$ref": "#/$defs/accessPoint"
+            },
+            "examples": []
+        },
         "accessPoint": {
             "type": "object",
             "title": "Access Point",
-            "description": "*TODO*",
+            "description": "Information about a specific wireless access point or router.",
             "properties": {
                 "mac": {
                     "type": "string",
                     "title": "MAC Address",
-                    "description": "MAC Address of the access point as an integer. *TODO*, how to convert to regular representation?",
+                    "description": "MAC address of the access point as an integer. *TODO*, how to convert to regular representation?",
                     "examples": []
                 },
                 "strength": {
                     "type": "integer",
                     "title": "Strength",
-                    "description": "Strength of the signal in dBm (decibels per milliwatt).",
+                    "description": "Strength of the signal in dBm (decibels per milliwatt) of the access point.",
                     "examples": [-51]
                 },
                 "frequencyMhz": {
                     "type": "integer",
                     "title": "Frequency (MHz)",
-                    "description": "Frequency of the signal in MHz.",
+                    "description": "Frequency of the signal (in MHz) that the access point is using.",
                     "examples": [2462]
+                }
+            }
+        },
+        "wifiScan": {
+            "type": "object",
+            "title": "Wi-Fi Scan",
+            "description": "Information about the access points found in a Wi-Fi scan done by the device.",
+            "properties": {
+                "accessPoints": {
+                    "type": "object",
+                    "title": "Access Points",
+                    "description": "List of Wi-Fi access points found with the scan.",
+                    "$ref": "#/$defs/accessPoint"
                 }
             }
         },
         "locationMetadata": {
             "type": "object",
             "title": "Location Metadata",
-            "description": "Location metadata.",
+            "description": "Information about a Wi-Fi scan done by the device at a given timestamp.",
             "properties": {
                 "timestamp": {
-                    "type": "date-time",
+                    "type": "string",
+                    "format":"date-time",
                     "title": "Timestamp",
                     "description": "Timestamp of the location metadata (as an ISO 8601 string).",
                     "examples": ["2022-01-12T17:18:24.190Z"]
                 },
                 "wifiScan": {
                     "type": "object",
-                    "title": "Wi-Fi Scan"
+                    "title": "Wi-Fi Scan",
+                    "description": "Information about the access points found in a Wi-Fi scan done by the device.",
+                    "$ref": "#/$defs/wifiScan"
                 }
             }
         }
