@@ -12,9 +12,12 @@ Unofficial and collaborative format definition and documentation for Google Loca
 
 Google (through its [Takeout service][Google Takeout]) allows users to easily and conveniently download their location history data.
 Unfortunately Google has not provided proper official documentation for these files, so it can sometimes be difficult to navigate the structure of the files and understand the meaning of its fields.
-
 This project attempts to fill that gap and do the job that Google should have done.
-With this, the goals of this project are two-fold:
+
+
+## Goals
+
+The goals of this project are two-fold:
 
 - **Provide a standarized format definition/specification describing the format and structure of the files.**
 These format definitions are given in the form of [JSON schemas], which can be used, for example, for automatic validation of JSON files and to aid in the development of parsers.
@@ -28,7 +31,17 @@ Google has repeatedly made modifications to the format throughout the years with
 Contributions are very welcomed, if you notice errors, out-of-date information, or missing information, you can help to improve it, see [Contributing].
 
 
+## Contributing
+
+See [Contributing].
+
+
+## License
+
+*TODO*
+
+
 [Google Takeout]: https://takeout.google.com/settings/takeout
 [JSON schemas]: https://json-schema.org
 [Schemas]: https://github.com/CarlosBergillos/LocationHistoryFormat/tree/main/schemas
-[Contributing]: contributing.md
+[Contributing]: ./contributing.md
