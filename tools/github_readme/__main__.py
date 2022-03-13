@@ -1,5 +1,8 @@
 import re
 
+from ..common import site_url, repo_url
+
+
 MAIN_INDEX_PATH  ="./docs/index.md"
 GITHUB_README_PATH = "./README.md"
 BASE_URL = "https://www.locationhistoryformat.com/"
@@ -7,6 +10,11 @@ DISCLAIMER_HEADER = f"<!-- NOTE: Don't modify README.md file directly. Modify {M
 
 
 def main():
+    config_maps = {
+        'config.site_url': site_url(),
+        'config.repo_url': repo_url(),
+    }
+
     with open(MAIN_INDEX_PATH, 'r') as inp, open(GITHUB_README_PATH, 'w') as out:
         out.write(DISCLAIMER_HEADER + "\n\n")
         lines = iter(inp.readlines())
@@ -17,7 +25,10 @@ def main():
             line = re.sub(r"!\[.*\]\(.*\)", "", line) 
 
             # adapt local URLs
-            line = re.sub(r"\./([0-9A-Za-z/]+)\.md", rf"{BASE_URL}\1", line)
+            line = re.sub(r"\./([0-9A-Za-z/_]+)\.md", rf"{BASE_URL}\1", line)
+
+            # replace config macros
+            line = re.sub(r"{{ ([0-9A-Za-z._]+) }}", lambda match: config_maps[match.group(1)], line)
 
             # adapt admonitions
             if line.startswith('!!!'):
@@ -30,8 +41,6 @@ def main():
                         out.write("> " + line[4:])
                     else:
                         break
-                    
-                # continue
 
             if original_line == line or line != '\n':
                 out.write(line)

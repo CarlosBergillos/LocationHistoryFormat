@@ -5,22 +5,13 @@ from queue import LifoQueue
 
 from .markdown import MDWriter
 from .jsonschema import JSONSchema
+from ..common import repo_url
 
 import pandas as pd
-import yaml
 
 
 def human_to_slugcase(text):
     return text.lower().replace(' ', '-')
-
-
-def repo_url(path='./mkdocs.yml'):
-    yaml.add_multi_constructor('tag:yaml.org,2002:python/name', lambda loader, suffix, node: None, Loader=yaml.SafeLoader)
-
-    with open(path, 'r') as f:
-        config = yaml.safe_load(f)
-    
-    return config['repo_url']
 
 
 def _property_row(schema, queue):
