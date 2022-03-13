@@ -98,6 +98,18 @@
     font-size: .8rem;
 }
 
+.md-header__source {
+    width: auto;
+}
+
+.md-source__icon svg {
+    margin-top: 0.7rem;
+}
+
+.md-source__repository {
+    width: 0;
+}
+
 .md-footer__title {
     font-size: .7rem;
 }
