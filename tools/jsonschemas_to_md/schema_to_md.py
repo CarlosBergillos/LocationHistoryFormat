@@ -7,8 +7,6 @@ from .markdown import MDWriter
 from .jsonschema import JSONSchema
 from ..common import repo_url
 
-import pandas as pd
-
 
 def human_to_slugcase(text):
     return text.lower().replace(' ', '-')
@@ -97,9 +95,7 @@ def schema_object_to_md(schema, md, queue):
         print(f"\tWARNING: No fields defined for '{schema.title}'")
         return
 
-    df = pd.DataFrame.from_records(rows)
-    df.set_index('Field', drop=True, inplace=True)
-    md.push_table(df, class_='definitions')
+    md.push_table(rows, class_='definitions')
 
 
 def schema_oneOf_to_md(schema, md, queue):
@@ -114,7 +110,7 @@ def schema_oneOf_to_md(schema, md, queue):
 
         for obj in sorted(schema.oneOf, key=lambda b: b['const']):
             rows.append({
-                'Field': f"`{obj['const']}`",
+                schema.title: f"`{obj['const']}`",
                 'Description': obj['description'],
             })
         
@@ -122,10 +118,7 @@ def schema_oneOf_to_md(schema, md, queue):
             print(f"\tWARNING: No fields defined for '{schema.title}'")
             return
 
-        df = pd.DataFrame.from_records(rows)
-        df.set_index('Field', drop=True, inplace=True)
-        df.index.name = schema.title
-        md.push_table(df, class_='definitions')
+        md.push_table(rows, class_='definitions')
 
 
 def block_link(title):

@@ -27,15 +27,22 @@ class MDWriter:
     def push_comment(self, text):
         self.raw += f"<!---\n{text}\n-->\n\n"
     
-    def push_table(self, table, class_=None):
-        # table = table.applymap(lambda x: x.replace('\n', '<br>'))
-        table.replace({None: ''}, inplace=True)
-        table = table.applymap(lambda x: x.replace('\n', '<p style="margin: 10px 0;"></p>'))
+    def push_table(self, rows, class_=None):
+        def clean_value(v):
+            if v is None:
+                return ''
+            
+            # v = v.replace('\n', '<br>')
+            v = v.replace('\n', '<p style="margin: 10px 0;"></p>')
+        
+            return v
+
+        rows = [{k: clean_value(v) for k, v in row.items()} for row in rows]
 
         if class_ is not None:
             self.raw +=f"<div class=\"{class_}\"></div>\n\n"  # note we cannot add a class to the table, we create a separate 'sentinel' div.
 
-        self.raw += tabulate(table, headers="keys", showindex=True, tablefmt="pipe")
+        self.raw += tabulate(rows, headers="keys", showindex=False, tablefmt="pipe")
         self.raw += f"\n\n"
     
     def push_admonition(self, text, type="info", title=""):

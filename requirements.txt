@@ -1,0 +1,7 @@
+mkdocs==1.2.3
+mkdocs-git-revision-date-plugin==0.3.1
+mkdocs-macros-plugin==0.6.4
+mkdocs-material==8.1.11
+mkdocs-material-extensions==1.0.3
+PyYAML==6.0
+tabulate==0.8.9
