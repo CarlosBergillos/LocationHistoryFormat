@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft/2020-12/schema",
     "title": "Settings",
-    "description": "The root schema comprises the entire JSON document.",
+    "description": "Information about the Google account settings referring to Location History, information about the devices associated, and other auxiliary metadata.",
     "examples": [
         {
             "createdTime": "2013-05-15T21:53:59.385Z",
@@ -38,14 +38,16 @@
     "properties": {
         "createdTime": {
             "$id": "#/properties/createdTime",
-            "type": "date-time",
+            "type": "string",
+            "format":"date-time",
             "title": "Created Time",
             "description": "Timestamp (as an ISO 8601 string) when location history data was first activated on this account.",
             "examples": ["2013-05-15T21:53:59.385Z"]
         },
         "modifiedTime": {
             "$id": "#/properties/modifiedTime",
-            "type": "date-time",
+            "type": "string",
+            "format":"date-time",
             "title": "Modified Time",
             "description": "An ISO 8601 string, meaning uncertain.",
             "examples": ["2020-07-01T21:27:31.880Z"],
@@ -55,14 +57,14 @@
             "$id": "#/properties/historyEnabled",
             "type": "boolean",
             "title": "History Enabled",
-            "description": "Whether location history data is currently enabled on this account (not confirmed).",
+            "description": "Whether Location History is enabled on this Google account (controlled in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page).",
             "examples": [true]
         },
         "deviceSettings": {
             "$id": "#/properties/deviceSettings",
             "type": "array",
             "title": "Device Settings",
-            "description": "*TODO*",
+            "description": "List of devices associated with the Location History information.",
             "items": { 
                 "$ref": "#/$defs/deviceSettings"
             }
@@ -71,14 +73,14 @@
             "$id": "#/properties/retentionWindowDays",
             "type": "integer",
             "title": "Retention Window Days",
-            "description": "Number of days the location data is retained for in this account. Maybe related to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.\nShould be ignored if `hasSetRetention` is false.",
+            "description": "Number of days the Location History information is retained for in this Google account. Maybe related to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.\nShould be ignored if `hasSetRetention` is false.",
             "examples": [2147483647]
         },
         "hasReportedLocations": {
             "$id": "#/properties/hasReportedLocations",
             "type": "boolean",
             "title": "Has Reported Locations",
-            "description": "Whether this device has reported location data at any point.",
+            "description": "Whether this device has reported location information at any point.",
             "examples": [true]
         },
         "hasSetRetention": {
@@ -94,7 +96,7 @@
             "$id": "#/properties/deviceSettings/items/anyOf/0",
             "type": "object",
             "title": "Device Settings",
-            "description": "*TODO*",
+            "description": "Information about a device associated with the Google Location History account.",
             "examples": [
                 {
                     "deviceTag": 1234567890,
@@ -140,7 +142,7 @@
                     "$id": "#/properties/deviceSettings/items/anyOf/0/properties/reportingEnabled",
                     "type": "boolean",
                     "title": "Reporting Enabled",
-                    "description": "*TODO*",
+                    "description": "Whether this device is configured to report Location History information (controlled in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page).",
                     "examples": [
                         true
                     ]
@@ -151,7 +153,7 @@
                     "title": "Legal Country Code",
                     "description": "Two-letter [ISO 3166 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).",
                     "examples": ["es"],
-                    "helpWanted": "What is this field about exactly?"
+                    "helpWanted": "The meaning of this field is uncertain."
                 },
                 "devicePrettyName": {
                     "$id": "#/properties/deviceSettings/items/anyOf/0/properties/devicePrettyName",
@@ -171,6 +173,7 @@
                 "deviceCreationTime": {
                     "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceCreationTime",
                     "type": "string",
+                    "format":"date-time",
                     "title": "Device Creation Time",
                     "description": "Timestamp (ISO 8601 string) of the first time this device was used for location history data.",
                     "examples": ["2019-01-07T18:13:23.713Z"]
@@ -202,7 +205,7 @@
                     "$id": "#/properties/deviceSettings/items/anyOf/0/properties/androidOsLevel",
                     "type": "integer",
                     "title": "Android OS Level",
-                    "description": "The version of the device's operating system of the device (in the case of Android devices). Corresponds to the API Level (e.g. 28 is Android 9 *Pie*).",
+                    "description": "The version of the device's operating system of the device (only applies to Android devices). Corresponds to the API Level (e.g. 28 is Android 9 *Pie*).",
                     "examples": [
                         28
                     ]
@@ -211,7 +214,7 @@
                     "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec",
                     "type": "object",
                     "title": "Device Specification",
-                    "description": "*TODO*",
+                    "description": "Technical information and specifications about a device.",
                     "examples": [
                         {
                             "manufacturer": "OnePlus",
