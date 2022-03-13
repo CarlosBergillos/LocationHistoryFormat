@@ -3,7 +3,7 @@ This semantic information is the same information that can be seen in the *Timel
 Instead of individual raw location records, here the information is aggregated and summarized as a sequence of *place visits* and *activity segments* each with a start time and an end time.
 
 
-![](../static/semantic_example.png)
+![Example screenshot of the Timeline page on the Google Maps website.](../static/semantic_example.png)
 
 
 This semantic data can be found inside the `Semantic Location History` folder.
