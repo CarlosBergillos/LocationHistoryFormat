@@ -1,8 +1,10 @@
 site_name: Location History Format
 site_url: https://locationhistoryformat.com
 repo_url: https://github.com/CarlosBergillos/LocationHistoryFormat
-repo_name: ""
+repo_name: "LocationHistoryFormat"
 edit_uri: ""
+docs_dir: docs
+remote_branch: gh-pages
 
 theme:
   name: material
@@ -15,8 +17,8 @@ theme:
     - navigation.tabs
     - navigation.indexes
     - toc.integrate
-  logo: static/timeline_black_24dp_c.svg
-  favicon: static/timeline_black_24dp_c_favicon.svg
+  logo: static/timeline_blue_24dp.svg
+  favicon: static/timeline_blue_24dp_favicon.svg
   icon:
     repo: fontawesome/brands/github
 
