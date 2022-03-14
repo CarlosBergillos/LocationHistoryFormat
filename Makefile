@@ -6,7 +6,7 @@ SOURCES = \
 	settings:=Settings.schema.json \
 	records:=Records.schema.json
 
-TOOL_JSONSCHEMA2MD = $(wildcard ./tools/jsonschemas_to_md/*.py)
+TOOL_JSONSCHEMA2MD = $(wildcard ./tools/jsonschema_to_md/*.py)
 TOOL_GITHUBREADME = $(wildcard ./tools/github_readme/*.py)
 
 SOURCES_NAMES = $(foreach x,$(SOURCES),$(lastword $(subst :=, ,$x)))
@@ -22,7 +22,7 @@ STATIC_SCHEMAS_FILES := $(addprefix $(STATIC_SCHEMAS_DIR),$(SOURCES_NAMES))
 
 .SECONDEXPANSION:
 $(EXPORTS_DIR)%.md: $(SOURCES_DIR)$$(SRC_%) $(TOOL_JSONSCHEMA2MD)
-	python -m tools.jsonschemas_to_md $< -o $@
+	python -m tools.jsonschema_to_md $< -o $@
 
 $(STATIC_SCHEMAS_DIR):
 	mkdir -p $(STATIC_SCHEMAS_DIR)
