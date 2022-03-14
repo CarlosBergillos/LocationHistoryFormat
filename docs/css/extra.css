@@ -194,6 +194,23 @@ article img {
     box-shadow: var(--md-shadow-z1);
 }
 
+
+/* sass
+@include break-to-device(mobile) {
+  article img {
+      margin: 0 px2rem(-16px);
+      max-width: calc(100% + 32px)!important;  / ** not needed if we could style parent p ** /
+      box-shadow: none;
+} */
+@media screen and (max-width: 719px) {
+    article img {
+        margin: 0 -16px;
+        max-width: calc(100% + 32px)!important;  /** not needed if we could style parent p **/
+        box-shadow: none;
+    }
+}
+
+
 [dir=ltr] .md-typeset blockquote {
     border-left: 3px solid var(--md-default-fg-color--lighter);
     /* background-color: #fafafa; */
