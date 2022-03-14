@@ -1,4 +1,5 @@
 {
+    "$id": "https://locationhistoryformat.com/schemas/Settings.schema.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema",
     "title": "Settings",
     "description": "Information about the Google account settings referring to Location History, information about the devices associated, and other auxiliary metadata.",
@@ -37,7 +38,6 @@
     "type": "object",
     "properties": {
         "createdTime": {
-            "$id": "#/properties/createdTime",
             "type": "string",
             "format":"date-time",
             "title": "Created Time",
@@ -45,7 +45,6 @@
             "examples": ["2013-05-15T21:53:59.385Z"]
         },
         "modifiedTime": {
-            "$id": "#/properties/modifiedTime",
             "type": "string",
             "format":"date-time",
             "title": "Modified Time",
@@ -54,14 +53,12 @@
             "helpWanted": "What is this field?"
         },
         "historyEnabled": {
-            "$id": "#/properties/historyEnabled",
             "type": "boolean",
             "title": "History Enabled",
             "description": "Whether Location History is enabled on this Google account (controlled in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page).",
             "examples": [true]
         },
         "deviceSettings": {
-            "$id": "#/properties/deviceSettings",
             "type": "array",
             "title": "Device Settings",
             "description": "List of devices associated with the Location History information.",
@@ -70,21 +67,18 @@
             }
         },
         "retentionWindowDays": {
-            "$id": "#/properties/retentionWindowDays",
             "type": "integer",
             "title": "Retention Window Days",
             "description": "Number of days the Location History information is retained for in this Google account. Maybe related to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.\nShould be ignored if `hasSetRetention` is false.",
             "examples": [2147483647]
         },
         "hasReportedLocations": {
-            "$id": "#/properties/hasReportedLocations",
             "type": "boolean",
             "title": "Has Reported Locations",
             "description": "Whether this device has reported location information at any point.",
             "examples": [true]
         },
         "hasSetRetention": {
-            "$id": "#/properties/hasSetRetention",
             "type": "boolean",
             "title": "Has Set Retention",
             "description": "*TODO* Maybe related to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.",
@@ -93,7 +87,6 @@
     },
     "$defs": {
         "deviceSettings": {
-            "$id": "#/properties/deviceSettings/items/anyOf/0",
             "type": "object",
             "title": "Device Settings",
             "description": "Information about a device associated with the Google Location History account.",
@@ -119,27 +112,14 @@
                     }
                 }
             ],
-            "required": [
-                "deviceTag",
-                "reportingEnabled",
-                "legalCountryCode",
-                "devicePrettyName",
-                "platformType",
-                "deviceCreationTime",
-                "latestLocationReportingSettingChange",
-                "androidOsLevel",
-                "deviceSpec"
-            ],
             "properties": {
                 "deviceTag": {
-                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceTag",
                     "type": "integer",
                     "title": "Device Tag",
                     "description": "Integer identifier (specific to Location History) of the device.",
                     "examples": [1234567890]
                 },
                 "reportingEnabled": {
-                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/reportingEnabled",
                     "type": "boolean",
                     "title": "Reporting Enabled",
                     "description": "Whether this device is configured to report Location History information (controlled in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page).",
@@ -148,7 +128,6 @@
                     ]
                 },
                 "legalCountryCode": {
-                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/legalCountryCode",
                     "type": "string",
                     "title": "Legal Country Code",
                     "description": "Two-letter [ISO 3166 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).",
@@ -156,14 +135,12 @@
                     "helpWanted": "The meaning of this field is uncertain."
                 },
                 "devicePrettyName": {
-                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/devicePrettyName",
                     "type": "string",
                     "title": "Device Pretty Name",
                     "description": "Pretty name of the device, recommended for user-facing applications.",
                     "examples": ["ONEPLUS A6013"]
                 },
                 "platformType": {
-                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/platformType",
                     "type": "string",
                     "title": "Platform Type",
                     "description": "Platform of the device. Valid values are: `ANDROID`, `IOS` and `UNKNOWN`.",
@@ -171,7 +148,6 @@
                     "enum": ["ANDROID", "IOS", "UNKNOWN"]
                 },
                 "deviceCreationTime": {
-                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceCreationTime",
                     "type": "string",
                     "format":"date-time",
                     "title": "Device Creation Time",
@@ -179,7 +155,6 @@
                     "examples": ["2019-01-07T18:13:23.713Z"]
                 },
                 "latestLocationReportingSettingChange": {
-                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/latestLocationReportingSettingChange",
                     "type": "object",
                     "title": "Latest Location Reporting Setting Change",
                     "description": "*TODO*",
@@ -188,12 +163,8 @@
                             "reportingEnabledModificationTime": "2019-01-07T18:13:24.673Z"
                         }
                     ],
-                    "required": [
-                        "reportingEnabledModificationTime"
-                    ],
                     "properties": {
                         "reportingEnabledModificationTime": {
-                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/latestLocationReportingSettingChange/properties/reportingEnabledModificationTime",
                             "type": "string",
                             "title": "Reporting Enabled Modification Time",
                             "description": "*TODO*",
@@ -202,7 +173,6 @@
                     }
                 },
                 "androidOsLevel": {
-                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/androidOsLevel",
                     "type": "integer",
                     "title": "Android OS Level",
                     "description": "The version of the device's operating system of the device (only applies to Android devices). Corresponds to the API Level (e.g. 28 is Android 9 *Pie*).",
@@ -211,7 +181,6 @@
                     ]
                 },
                 "deviceSpec": {
-                    "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec",
                     "type": "object",
                     "title": "Device Specification",
                     "description": "Technical information and specifications about a device.",
@@ -225,52 +194,38 @@
                             "isLowRam": false
                         }
                     ],
-                    "required": [
-                        "manufacturer",
-                        "brand",
-                        "product",
-                        "device",
-                        "model",
-                        "isLowRam"
-                    ],
                     "properties": {
                         "manufacturer": {
-                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/manufacturer",
                             "type": "string",
                             "title": "Manufacturer",
                             "description": "Manufacturer of the device.",
                             "examples": ["OnePlus"]
                         },
                         "brand": {
-                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/brand",
                             "type": "string",
                             "title": "Brand",
                             "description": "Brand of the device.",
                             "examples": ["OnePlus"]
                         },
                         "product": {
-                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/product",
                             "type": "string",
                             "title": "Product",
                             "description": "Product name of the device.",
                             "examples": ["OnePlus6T"]
                         },
                         "device": {
-                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/device",
                             "type": "string",
                             "title": "Device",
                             "description": "Name of the device.",
                             "examples": ["OnePlus6T"]
                         },
                         "model": {
-                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/model",
                             "type": "string",
                             "title": "Model",
                             "description": "Model of the device.",
                             "examples": ["ONEPLUS A6013"]
                         },
                         "isLowRam": {
-                            "$id": "#/properties/deviceSettings/items/anyOf/0/properties/deviceSpec/properties/isLowRam",
                             "type": "boolean",
                             "title": "Is Low Ram",
                             "description": "Whether the device is considered low-ram.",
