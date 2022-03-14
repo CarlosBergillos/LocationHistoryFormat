@@ -1,4 +1,5 @@
 {
+    "$id": "https://locationhistoryformat.com/schemas/Records.schema.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema",
     "title": "Records",
     "description": "Raw location history data from the user's account.",
@@ -178,7 +179,7 @@
                     "title": "Source",
                     "description": "Source (technology) that provided the location information for this record.\nCommon values are: `WIFI`, `CELL`, `GPS`, `UNKNOWN` (note: sometimes found in lowercase).",
                     "examples": ["WIFI"],
-                    "enum": ["WIFI", "CELL", "GPS", "UNKNOWN"]
+                    "enum": ["WIFI",  "wifi", "CELL", "cell", "GPS", "gps", "UNKNOWN", "unknown"]
                 },
                 "timestamp": {
                     "type": "string",
