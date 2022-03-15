@@ -13,11 +13,13 @@ This project attempts to fill that gap and do the job that Google should have do
 
 The goals of this project are two-fold:
 
-- **Provide a standarized format definition/specification describing the format and structure of the files.**
+- **Provide a standardized format definition describing the structure and contents of the files.**
 These format definitions are given in the form of [JSON schemas], which can be used, for example, for automatic validation of JSON files and to aid in the development of parsers.
 These files can be found in the [schemas folder][Schemas] in the repository.
 
-- **Provide accessible and user-friendly documentation for these formats.** *TODO* how to interpret and what to expect from these files and its contents ([locationhistoryformat.com][Homepage]).
+- **Provide accessible and user-friendly documentation for these formats.**
+The documentation is presented in a public site ([locationhistoryformat.com][Homepage]) which provides basic guides and reference pages detailing the structure and fields of the files.
+The reference pages are automatically built from the JSON schemas, presenting the information in a much more readable way.
 
 
 ## Disclaimer
@@ -33,7 +35,8 @@ Google has repeatedly made modifications to the format throughout the years with
 ## Contributing
 
 Contributions are welcome!
-If you notice errors, out-of-date information, or missing information, you can help improve it, see [Contributing].
+If you notice errors, out-of-date information, or missing information, you can help improve it.
+See [Contributing].
 
 
 ## License
