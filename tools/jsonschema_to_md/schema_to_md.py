@@ -12,7 +12,35 @@ def human_to_slugcase(text):
     return text.lower().replace(" ", "-")
 
 
+class ValidationError(Exception):
+    def __init__(self, missing, schema):
+        print(schema.refd_schema.key)
+        if schema.refd_schema:
+            message = f"Missing '{missing}' in '{schema.path}' or '{schema.refd_schema.path}'"
+        else:
+            message = f"Missing '{missing}' in '{schema.path}'"
+
+        super().__init__(message)
+
+
+def _validate_schema(schema):
+    if schema.title is None:
+        raise ValidationError("title", schema)
+
+    if schema.type is None:
+        raise ValidationError("type", schema)
+
+    if schema.type == "array":
+        if schema.item_schema.title is None:
+            raise ValidationError("title", schema.item_schema)
+
+        if schema.item_schema.type is None:
+            raise ValidationError("type", schema.item_schema)
+
+
 def _property_row(schema, queue):
+    _validate_schema(schema)
+
     type_text = ""
     type_link = ""
     info_text = ""
@@ -83,6 +111,8 @@ def _property_row(schema, queue):
 
 def schema_object_to_md(schema, md, queue):
     print(f"\tBuilding '{schema.title}'")
+    _validate_schema(schema)
+
     md.push_heading(2, schema.title)
     md.push_paragraph(schema.description)
 
@@ -100,6 +130,8 @@ def schema_object_to_md(schema, md, queue):
 
 def schema_oneOf_to_md(schema, md, queue):
     print(f"\tBuilding '{schema.title}'")
+    _validate_schema(schema)
+
     md.push_heading(2, schema.title)
     md.push_paragraph(schema.description)
 
@@ -155,7 +187,7 @@ class JSONSchemaRenderer:
 
         repo_file_url = repo_url() + "/tree/main/schemas/" + schema_file_name
         md.push_admonition(
-            f"This page is automatically generated from [`{schema_file_name}`]({repo_file_url}).", type="info"
+            f"This page has been automatically generated from [`{schema_file_name}`]({repo_file_url}).", type="info"
         )
 
         self.blocks.put("#")
@@ -163,6 +195,7 @@ class JSONSchemaRenderer:
         while not self.blocks.empty():
             path = self.blocks.get()
             schema = self.schema.get(path)
+            _validate_schema(schema)
 
             if schema.primary_path in self.visited:
                 print(f"\tSkipping '{path}' (already visited)")

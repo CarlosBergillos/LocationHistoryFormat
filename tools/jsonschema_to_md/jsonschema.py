@@ -5,6 +5,9 @@ class Empty:
     def __getattr__(self, _):
         return None
 
+    def __bool__(self):
+        return False
+
 
 class JSONSchema:
     def __init__(self, raw_schema, key=None, path="#", root_schema=None):
