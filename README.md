@@ -30,7 +30,7 @@ Official support for Google products can be found at <https://support.google.com
 
 An effort is being made to keep the information provided by this project accurate and up-to-date,
 but due to its nature, the information provided might be inaccurate and/or out-of-date.
-Google has repeatedly made modifications to the format throughout the years without prior warning.
+Google has repeatedly made modifications to the format throughout the years.
 
 
 ## Contributing
