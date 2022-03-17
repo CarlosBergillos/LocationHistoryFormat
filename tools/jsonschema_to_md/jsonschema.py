@@ -50,23 +50,23 @@ class JSONSchema:
 
     @property
     def type(self):
-        return self.raw_schema.get("type") or self.refd_schema.type
+        return self.raw_schema.get("type", self.refd_schema.type)
 
     @property
     def format(self):
-        return self.raw_schema.get("format") or self.refd_schema.format
+        return self.raw_schema.get("format", self.refd_schema.format)
 
     @property
     def title(self):
-        return self.raw_schema.get("title") or self.refd_schema.title
+        return self.raw_schema.get("title", self.refd_schema.title)
 
     @property
     def description(self):
-        return self.raw_schema.get("description") or self.refd_schema.description
+        return self.raw_schema.get("description", self.refd_schema.description)
 
     @property
     def examples(self):
-        return self.raw_schema.get("examples") or self.refd_schema.example or []
+        return self.raw_schema.get("examples", self.refd_schema.example or [])
 
     @property
     def example(self):
@@ -82,15 +82,15 @@ class JSONSchema:
 
     @property
     def oneOf(self):
-        return self.raw_schema.get("oneOf") or self.refd_schema.oneOf
+        return self.raw_schema.get("oneOf", self.refd_schema.oneOf)
 
     @property
     def ref(self):
-        return self.raw_schema.get("$ref") or self.refd_schema.ref
+        return self.raw_schema.get("$ref", self.refd_schema.ref)
 
     @property
     def raw_properties(self):
-        return self.raw_schema.get("properties") or self.refd_schema.raw_properties or {}
+        return self.raw_schema.get("properties", self.refd_schema.raw_properties or {})
 
     @property
     def properties_keys(self):

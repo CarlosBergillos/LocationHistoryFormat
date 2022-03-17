@@ -13,29 +13,27 @@ def human_to_slugcase(text):
 
 
 class ValidationError(Exception):
-    def __init__(self, missing, schema):
+    def __init__(self, missing_field, schema):
         print(schema.refd_schema.key)
         if schema.refd_schema:
-            message = f"Missing '{missing}' in '{schema.path}' or '{schema.refd_schema.path}'"
+            message = f"Missing '{missing_field}' in '{schema.path}' or '{schema.refd_schema.path}'"
         else:
-            message = f"Missing '{missing}' in '{schema.path}'"
+            message = f"Missing '{missing_field}' in '{schema.path}'"
 
         super().__init__(message)
 
 
 def _validate_schema(schema):
-    if schema.title is None:
-        raise ValidationError("title", schema)
+    required_fields = ["type", "title", "description"]
 
-    if schema.type is None:
-        raise ValidationError("type", schema)
+    for field in required_fields:
+        if getattr(schema, field) is None:
+            raise ValidationError(field, schema)
 
     if schema.type == "array":
-        if schema.item_schema.title is None:
-            raise ValidationError("title", schema.item_schema)
-
-        if schema.item_schema.type is None:
-            raise ValidationError("type", schema.item_schema)
+        for field in required_fields:
+            if getattr(schema.item_schema, field) is None:
+                raise ValidationError(field, schema.item_schema)
 
 
 def _property_row(schema, queue):
