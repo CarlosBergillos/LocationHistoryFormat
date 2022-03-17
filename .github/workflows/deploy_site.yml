@@ -14,5 +14,5 @@ jobs:
       - run: |
           pip install -r requirements.txt
           make clean
-          make all
+          make deploy
           mkdocs gh-deploy --force

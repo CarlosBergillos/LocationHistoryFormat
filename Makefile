@@ -18,7 +18,7 @@ EXPORTED_DOCS := $(addprefix $(EXPORTS_DIR),$(EXPORTED_DOCS))
 SOURCES_FILES := $(addprefix $(SOURCES_DIR),$(SOURCES_NAMES))
 STATIC_SCHEMAS_FILES := $(addprefix $(STATIC_SCHEMAS_DIR),$(SOURCES_NAMES))
 
-.PHONY: all clean jsonschema2md staticschemas
+.PHONY: build deploy clean jsonschema2md staticschemas
 
 .SECONDEXPANSION:
 $(EXPORTS_DIR)%.md: $(SOURCES_DIR)$$(SRC_%) $(TOOL_JSONSCHEMA2MD)
@@ -37,7 +37,9 @@ jsonschema2md: $(EXPORTED_DOCS)
 
 staticschemas: $(STATIC_SCHEMAS_DIR) | $(STATIC_SCHEMAS_FILES)
 
-all: jsonschema2md README.md staticschemas
+build: jsonschema2md README.md
+
+deploy: jsonschema2md README.md staticschemas
 
 clean:
 	rm $(EXPORTED_DOCS) -f
