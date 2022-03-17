@@ -64,17 +64,19 @@
 }
 
 .md-typeset h1 {
-    font-size: 1rem;
+    color: var(--md-typeset-color);
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
 .md-typeset h2 {
-    font-size: .8rem;
+    font-size: 1rem;
     font-weight: 400;
 }
 
 .md-typeset h3 {
-    font-size: .7rem;
+    font-size: 0.9rem;
+    font-weight: 400;
 }
 
 .md-typeset dd {
