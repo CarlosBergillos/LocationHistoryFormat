@@ -98,7 +98,11 @@ def _property_row(schema, queue):
     if "helpWanted" in schema.raw_schema:
         help_wanted_msg = ""
         help_wanted_msg += schema.raw_schema["helpWanted"].replace("\n", " ")
-        help_wanted_msg += " Contributions to improve this are welcomed."
+
+        section_link = repo_url(
+            file_path="/schemas/" + schema.file_name, line_start=schema.file_line_start, line_end=schema.file_line_end
+        )
+        help_wanted_msg += f" Contributions to improve this [are welcomed]({section_link})."
 
         info_text += "\n\n"
         info_text += f'<span class="mdx-help">:octicons-tag-16: **Help Wanted:**</span> *{help_wanted_msg}*'
@@ -167,10 +171,7 @@ class JSONSchemaRenderer:
         print(f"Processing schema '{schema_path}'")
         schema_path = Path(schema_path)
 
-        with open(schema_path, "r") as f:
-            raw_schema = json.load(f)
-
-        self.schema = JSONSchema(raw_schema)
+        self.schema = JSONSchema.from_file(schema_path)
 
         self.blocks = LifoQueue()
         self.visited = set()
@@ -185,7 +186,7 @@ class JSONSchemaRenderer:
         )
         md.push_heading(1, f"**`{file_name}`** format definition")
 
-        repo_file_url = repo_url() + "/tree/main/schemas/" + schema_file_name
+        repo_file_url = repo_url(file_path="/schemas/" + schema_file_name)
         md.push_admonition(
             f"This page has been automatically generated from [`{schema_file_name}`]({repo_file_url}).", type="info"
         )

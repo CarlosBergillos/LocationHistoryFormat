@@ -1,4 +1,7 @@
 import json
+from pathlib import Path
+
+from json_source_map import calculate
 
 
 class Empty:
@@ -10,7 +13,7 @@ class Empty:
 
 
 class JSONSchema:
-    def __init__(self, raw_schema, key=None, path="#", root_schema=None):
+    def __init__(self, raw_schema, key=None, path="#", root_schema=None, file_path=None, source_map=None):
         self.raw_schema = raw_schema
         self.key = key
         self.path = path
@@ -18,6 +21,11 @@ class JSONSchema:
         self.root_schema = root_schema or self
         self.refd_schema = Empty()
         self.item_schema = Empty()
+        self.file_path = Path(file_path) if file_path is not None else self.root_schema.file_path
+        self.file_name = self.file_path.name
+        self.source_map = source_map
+        self.file_line_start = self.root_schema.source_map.get(self.path[1:]).value_start.line + 1
+        self.file_line_end = self.root_schema.source_map.get(self.path[1:]).value_end.line + 1
 
         if self.ref is not None:
             self.refd_schema = self.get(self.ref)
@@ -28,6 +36,17 @@ class JSONSchema:
                 raise ValueError("Type 'array' in schema must have an 'items' object.")
 
             self.item_schema = self.get(self.path + "/items")
+
+    @classmethod
+    def from_file(cls, file_path):
+        with open(file_path, "r") as f:
+            raw_text = f.read()
+            f.seek(0)
+            raw_schema = json.load(f)
+
+        schema = cls(raw_schema, file_path=file_path, source_map=calculate(raw_text))
+
+        return schema
 
     @property
     def type(self):
