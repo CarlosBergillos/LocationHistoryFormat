@@ -102,7 +102,7 @@ def _property_row(schema, queue):
         section_link = repo_url(
             file_path="/schemas/" + schema.file_name, line_start=schema.file_line_start, line_end=schema.file_line_end
         )
-        help_wanted_msg += f" Contributions to improve this [are welcomed]({section_link})."
+        help_wanted_msg += f" Contributions to improve this [are welcome]({section_link})."
 
         info_text += "\n\n"
         info_text += f'<span class="mdx-help">:octicons-tag-16: **Help Wanted:**</span> *{help_wanted_msg}*'
