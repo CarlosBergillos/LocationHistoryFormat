@@ -2,7 +2,7 @@
 
 Unofficial and collaborative format definition and documentation for Google Location History files.
 
-![Example of Location History data on a map.](./static/hero.png)
+![Example of Location History data on a map.](./static/images/hero.png)
 
 Google (through its [Takeout service][Google Takeout]) allows users to easily and conveniently download their Location History data.
 Unfortunately Google has not provided proper official documentation for these files, so it can sometimes be difficult to navigate the structure of the files and understand the meaning of its fields.
