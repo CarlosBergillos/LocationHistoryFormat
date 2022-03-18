@@ -30,21 +30,21 @@ A typical Location History extraction from [Google Takeout] will look something 
 From here, the most relevant files and folders are:
 
 <ic-file>**[Records.json]**</ic-file>
-:   This file contains all of the raw location history data.
-    See [Raw Location Data] for more information.
+:   This file contains all available raw Location History data.
+    See [Raw Location History Data] for more information.
 
 <ic-file>**[Settings.json]**</ic-file>
 :   This file contains additional auxiliary metadata, like information about the devices used and account settings.
 
 
-<ic-folder>**[Semantic Location Data]**</ic-folder>
-:   This folder contains higher-level information about the user's activity and movements.
+<ic-folder>**[Semantic Location History][Semantic Location History Data]**</ic-folder>
+:   This folder contains higher-level information about the user's inferred activity and movements.
     There is one subfolder for each year of data, and inside each subfolder one file for each month.
-    See [Semantic Location Data] for more information.
+    See [Semantic Location History Data] for more information.
 
 
 [Google Takeout]: https://takeout.google.com/settings/takeout
-[Raw Location Data]: raw_location.md
-[Semantic Location Data]: semantic_location.md
+[Raw Location History Data]: raw_location.md
+[Semantic Location History Data]: semantic_location.md
 [Records.json]: ../reference/records.md
 [Settings.json]: ../reference/settings.md
