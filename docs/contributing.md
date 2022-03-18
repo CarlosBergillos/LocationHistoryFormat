@@ -1,26 +1,15 @@
 # Contributing
 
 Open collaboration is fundamental for this project, a single person can't encounter and document all edge cases of the files.
-Moreover, the format is constantly changing, so updates will frequently be needed.
+Additionally, Google periodically updates the format and structure of the files without prior warning,
+so updates to the format definitions will also be needed periodically but might be easy to miss.
 
-Versioning difficulties:
+All source code, documentation files, and schemas can be found in the project's [GitHub repository][Repo].
+If you notice incorrect, out-of-date, or missing information, you can help by [creating a new issue][Issues] or [creating a pull request][Pull Requests].
 
-- There is no known versioning system or version clues for the file format,
-so it is difficult to spot and accurately document when changes to the format happen.
-- Changes to the exported data is usually not rolled out at the same time for all Google users
-
-- Sensitive data.
-
-These facts makes formalizing and keeping track of changes a difficult and unique challenge.
-
-Due to the Sensitive information, proof is not required, and it would be useless anyway. So good faith and 'rigurosity' is expected from contributors.
-
-
-<!-- ## How to Contribute
-
-All source code, documentation files, and schemas can be found on the [GitHub repository][Repo].
-
-Help can be divided into two main groups: -->
+Note that Google's Location History data presents unique challenges that make spotting, formalizing, and accurately keeping track of the changes to the format significantly difficult.
+In particular, there is no known versioning system for the file format (or other indirect versioning clues),
+and changes to the format of the extracted files are usually not rolled out at the same time for all Google users.
 
 
 ## Improving the JSON Schemas
@@ -41,33 +30,34 @@ One of `"object"`, `"array"`, `"string"`, `"number"`, `"boolean"`, `"null"`.
 Can make use of common basic Markdown syntax.
 It can be an empty string if no information is known (in which case a `helpWanted` field should be present).
 
-It addition to other basic JSON Schema fields, the following non-standard fields are also supported:
+In addition to other basic JSON Schema fields, the following non-standard fields are also supported:
 
 - `added`:
-Estimated date that this object/property was added to the format.
-Example value: `"around January 2022"`.
+Estimated approximate date that this object/property was added to the format.
+Example: `"around January 2022"`.
 
 - `removed`:
-Estimated date that this object/property was removed from the format.
-Example value: `"around January 2022"`.
+Estimated approximate date that this object/property was removed from the format.
+Example: `"around January 2022"`.
 
 - `helpWanted`:
 Short description to inform that the information provided for this object/property is incomplete and help from the community is welcome.
-Example value: `"The meaning of this field is uncertain. Are other values possible?"`
+Example: `"The meaning of this field is uncertain. Are other values possible?"`
 
-To convert the schema files to Markdown files (which are then used for the documentation site)
+To convert the JSON Schema files to Markdown files (which are then used for the documentation site)
 a custom Python script is used (see [`tools/jsonschema_to_md/`][tools/jsonschema_to_md/]).
 
 !!! info
 
-    Not all standard JSON Schema language features are supported when building the site, (and there is no intention on supporting all),
-    only support for those required has been added.
+    Not all standard JSON Schema language features are supported when building the site
+    (and it is not in the scope of this project to build a complete JSON Schema to Markdown generator).
     If you miss some JSON Schema feature in the Markdown generator [create a new issue][Issues] or a pull request.
+
 
 ## Improving the Guides
 
 To improve the documentation guides provided in this site modify the Markdown files found in the [`docs/guides/`][docs/guides/] folder and submit a pull request.
-Most common Markdown syntax can be used in the files, plus additional syntax extensions provided by the [Material for MkDocs] theme.
+Most common Markdown syntax is supported, plus additional syntax extensions provided by the [Material for MkDocs] theme.
 
 
 ## Testing Locally
@@ -98,10 +88,9 @@ mkdocs serve
 ```
 
 
-## Reporting an Issue
-
 [Repo]: {{ config.repo_url }}
 [Issues]: {{ config.repo_url }}/issues
+[Pull Requests]: {{ config.repo_url }}/pulls
 [schemas/]: {{ config.repo_url }}/tree/main/schemas
 [docs/guides/]: {{ config.repo_url }}/tree/main/docs/guides
 [docs/reference/]: {{ config.repo_url }}/tree/main/docs/reference
