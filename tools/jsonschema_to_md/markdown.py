@@ -26,6 +26,9 @@ class MDWriter:
         else:
             self.raw += f"{text}\n\n"
 
+    def push_codeblock(self, text, language=None, title=None):
+        self.raw += f"```{language or ''} title=\"{title or ''}\"\n{text}\n```\n\n"
+
     def push_comment(self, text):
         self.raw += f"<!---\n{text}\n-->\n\n"
 

@@ -36,6 +36,35 @@ def _validate_schema(schema):
                 raise ValidationError(field, schema.item_schema)
 
 
+def _example_text(example, simple=False):
+    def json_text(d, simple):
+        if not simple:
+            return json.dumps(d, indent=4)
+
+        new_d = {}
+        for key, value in d.items():
+            if isinstance(value, list):
+                new_d[key] = "$$arr$$"
+            elif isinstance(value, dict):
+                new_d[key] = "$$obj$$"
+            else:
+                new_d[key] = value
+
+        text = json.dumps(new_d, indent=4)
+        text = text.replace('"$$obj$$"', "{...}")
+        text = text.replace('"$$arr$$"', "[...]")
+
+        return text
+
+    if example is None:
+        return None
+
+    if isinstance(example, dict):
+        return json_text(example, simple=simple)
+
+    return json.dumps(example)
+
+
 def _property_row(schema, queue):
     _validate_schema(schema)
 
@@ -45,18 +74,18 @@ def _property_row(schema, queue):
     key_text = f"`{schema.key}`"
 
     if schema.type == "object":
-        queue.put(schema.path)
+        queue.put(schema.primary_path)
         type_link = block_link(schema.refd_schema.title or schema.title)
 
     if schema.type == "array":
         key_text = f"`{schema.key}[]`"
 
         if schema.item_schema.type == "object":
-            queue.put(schema.item_schema.path)
+            queue.put(schema.item_schema.primary_path)
             type_link = block_link(schema.item_schema.refd_schema.title or schema.item_schema.title)
 
     if schema.oneOf:
-        queue.put(schema.path)
+        queue.put(schema.primary_path)
         type_link = block_link(schema.title)
 
     if schema.type == "array":
@@ -91,7 +120,7 @@ def _property_row(schema, queue):
 
     if schema.example and schema.type != "object":
         info_text += "\n\n"
-        info_text += f"*Example:* `{schema.example}`"
+        info_text += f"*Example:* `{_example_text(schema.example)}`"
 
     if "helpWanted" in schema.raw_schema:
         help_wanted_msg = ""
@@ -106,7 +135,7 @@ def _property_row(schema, queue):
         info_text += f'<span class="mdx-help">:octicons-tag-16: **Help Wanted:**</span> *{help_wanted_msg}*'
 
     return {
-        "Field": key_text,
+        "Property": key_text,
         "Description": info_text,
     }
 
@@ -116,7 +145,25 @@ def schema_object_to_md(schema, md, queue):
     _validate_schema(schema)
 
     md.push_heading(2, schema.title)
-    md.push_paragraph(schema.description)
+
+    info_text = schema.description
+
+    if "helpWanted" in schema.raw_schema:
+        help_wanted_msg = ""
+        help_wanted_msg += schema.raw_schema["helpWanted"].replace("\n", " ")
+
+        section_link = repo_url(
+            file_path="/schemas/" + schema.file_name, line_start=schema.file_line_start, line_end=schema.file_line_end
+        )
+        help_wanted_msg += f" Contributions to improve this [are welcome]({section_link})."
+
+        info_text += "\n\n"
+        info_text += f'<span class="mdx-help">:octicons-tag-16: **Help Wanted:**</span> *{help_wanted_msg}*'
+
+    md.push_paragraph(info_text)
+
+    # if schema.example:
+    #     md.push_codeblock(_example_text(schema.example), 'json', 'Example')
 
     rows = []
 

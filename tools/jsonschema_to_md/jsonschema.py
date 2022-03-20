@@ -66,19 +66,14 @@ class JSONSchema:
 
     @property
     def examples(self):
-        return self.raw_schema.get("examples", self.refd_schema.example or [])
+        return self.raw_schema.get("examples", self.refd_schema.examples or [])
 
     @property
     def example(self):
         if not self.examples:
             return None
 
-        example = self.examples[0]
-
-        if isinstance(example, dict):
-            return json.dumps(example, indent=4)
-
-        return json.dumps(example)
+        return self.examples[0]
 
     @property
     def oneOf(self):
