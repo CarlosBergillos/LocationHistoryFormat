@@ -2,7 +2,7 @@
     "$id": "https://locationhistoryformat.com/schemas/Settings.schema.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema",
     "title": "Settings",
-    "description": "Information about the Google account settings referring to Location History, information about the devices associated, and other auxiliary metadata.",
+    "description": "The `Settings.json` file in a Google Takeout Location History extraction. Contains information about the Google account settings related to Location History, information about the devices associated, and other auxiliary metadata.",
     "examples": [
         {
             "createdTime": "2013-05-15T21:53:59.385Z",
@@ -41,16 +41,15 @@
             "type": "string",
             "format":"date-time",
             "title": "Created Time",
-            "description": "Timestamp (as an ISO 8601 string) when location history data was first activated on this account.",
+            "description": "Timestamp (as an ISO 8601 string) when Location History was first available on this Google account.",
             "examples": ["2013-05-15T21:53:59.385Z"]
         },
         "modifiedTime": {
             "type": "string",
             "format":"date-time",
             "title": "Modified Time",
-            "description": "An ISO 8601 string, meaning uncertain.",
-            "examples": ["2020-07-01T21:27:31.880Z"],
-            "helpWanted": "What is this field?"
+            "description": "Timestamp (as an ISO 8601 string) when any Location History setting was last modified on this Google account.",
+            "examples": ["2020-07-01T21:27:31.880Z"]
         },
         "historyEnabled": {
             "type": "boolean",
@@ -61,7 +60,7 @@
         "deviceSettings": {
             "type": "array",
             "title": "Device Settings",
-            "description": "List of devices associated with the Location History information.",
+            "description": "List of devices associated with the Location History information on this Google account.",
             "items": { 
                 "$ref": "#/$defs/deviceSettings"
             }
@@ -69,19 +68,19 @@
         "retentionWindowDays": {
             "type": "integer",
             "title": "Retention Window Days",
-            "description": "Number of days the Location History information is retained for in this Google account. Maybe related to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.\nShould be ignored if `hasSetRetention` is false.",
-            "examples": [2147483647]
+            "description": "Number of days the Location History information is retained in this Google account. Corresponds to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.\nThis value should be ignored if `hasSetRetention` is false.",
+            "examples": [540]
         },
         "hasReportedLocations": {
             "type": "boolean",
             "title": "Has Reported Locations",
-            "description": "Whether this device has reported location information at any point.",
+            "description": "Whether this Google account has any reported Location History information.",
             "examples": [true]
         },
         "hasSetRetention": {
             "type": "boolean",
             "title": "Has Set Retention",
-            "description": "*TODO* Maybe related to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.",
+            "description": "Whether this Google account has configured the auto-delete setting (retention) for the Location History data. Corresponds to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.\nSee also `retentionWindowDays`.",
             "examples": [false]
         }
     },
@@ -151,13 +150,14 @@
                     "type": "string",
                     "format":"date-time",
                     "title": "Device Creation Time",
-                    "description": "Timestamp (ISO 8601 string) of the first time this device was used for location history data.",
+                    "description": "Timestamp (as an ISO 8601 string) of the first time this device was available for Location History reporting on this Google account.",
                     "examples": ["2019-01-07T18:13:23.713Z"]
                 },
                 "latestLocationReportingSettingChange": {
                     "type": "object",
                     "title": "Latest Location Reporting Setting Change",
-                    "description": "*TODO*",
+                    "description": "Information on the latest change(s) to Location History settings on this Google account.",
+                    "helpWanted": "Are properties other than `reportingEnabledModificationTime` possible?",
                     "examples": [
                         {
                             "reportingEnabledModificationTime": "2019-01-07T18:13:24.673Z"
@@ -167,7 +167,7 @@
                         "reportingEnabledModificationTime": {
                             "type": "string",
                             "title": "Reporting Enabled Modification Time",
-                            "description": "*TODO*",
+                            "description": "Time that Location History reporting was enabled or disabled for the last time on this Google account.",
                             "examples": ["2019-01-07T18:13:24.673Z"]
                         }
                     }
@@ -175,7 +175,7 @@
                 "androidOsLevel": {
                     "type": "integer",
                     "title": "Android OS Level",
-                    "description": "The version of the device's operating system of the device (only applies to Android devices). Corresponds to the API Level (e.g. 28 is Android 9 *Pie*).",
+                    "description": "The version of the device's operating system (only applies to Android devices). Corresponds to the API Level (e.g. 28 is Android 9 *Pie*).",
                     "examples": [
                         28
                     ]
@@ -183,56 +183,62 @@
                 "deviceSpec": {
                     "type": "object",
                     "title": "Device Specification",
-                    "description": "Technical information and specifications about a device.",
-                    "examples": [
-                        {
-                            "manufacturer": "OnePlus",
-                            "brand": "OnePlus",
-                            "product": "OnePlus6T",
-                            "device": "OnePlus6T",
-                            "model": "ONEPLUS A6013",
-                            "isLowRam": false
-                        }
-                    ],
-                    "properties": {
-                        "manufacturer": {
-                            "type": "string",
-                            "title": "Manufacturer",
-                            "description": "Manufacturer of the device.",
-                            "examples": ["OnePlus"]
-                        },
-                        "brand": {
-                            "type": "string",
-                            "title": "Brand",
-                            "description": "Brand of the device.",
-                            "examples": ["OnePlus"]
-                        },
-                        "product": {
-                            "type": "string",
-                            "title": "Product",
-                            "description": "Product name of the device.",
-                            "examples": ["OnePlus6T"]
-                        },
-                        "device": {
-                            "type": "string",
-                            "title": "Device",
-                            "description": "Name of the device.",
-                            "examples": ["OnePlus6T"]
-                        },
-                        "model": {
-                            "type": "string",
-                            "title": "Model",
-                            "description": "Model of the device.",
-                            "examples": ["ONEPLUS A6013"]
-                        },
-                        "isLowRam": {
-                            "type": "boolean",
-                            "title": "Is Low Ram",
-                            "description": "Whether the device is considered low-ram.",
-                            "examples": [false],
-                            "helpWanted": "Is it maybe related to [Google Maps Go](https://support.google.com/maps/answer/7566112)?"
-                        }
-                    }
+                    "description": "Technical information and specifications about the device.",
+                    "$ref": "#/$defs/deviceSpec"
+                }
+            }
+        },
+        "deviceSpec": {
+            "type": "object",
+            "title": "Device Specification",
+            "description": "Technical information and specifications about a device.",
+            "examples": [
+                {
+                    "manufacturer": "OnePlus",
+                    "brand": "OnePlus",
+                    "product": "OnePlus6T",
+                    "device": "OnePlus6T",
+                    "model": "ONEPLUS A6013",
+                    "isLowRam": false
+                }
+            ],
+            "properties": {
+                "manufacturer": {
+                    "type": "string",
+                    "title": "Manufacturer",
+                    "description": "Manufacturer of the device.",
+                    "examples": ["OnePlus"]
+                },
+                "brand": {
+                    "type": "string",
+                    "title": "Brand",
+                    "description": "Brand of the device.",
+                    "examples": ["OnePlus"]
+                },
+                "product": {
+                    "type": "string",
+                    "title": "Product",
+                    "description": "Product name of the device.",
+                    "examples": ["OnePlus6T"]
+                },
+                "device": {
+                    "type": "string",
+                    "title": "Device",
+                    "description": "Name of the device.",
+                    "examples": ["OnePlus6T"]
+                },
+                "model": {
+                    "type": "string",
+                    "title": "Model",
+                    "description": "Model of the device.",
+                    "examples": ["ONEPLUS A6013"]
+                },
+                "isLowRam": {
+                    "type": "boolean",
+                    "title": "Is Low Ram",
+                    "description": "Whether the device is considered low-ram.",
+                    "examples": [false],
+                    "helpWanted": "Is it maybe related to [Google Maps Go](https://support.google.com/maps/answer/7566112)?"
                 }
             }
         }

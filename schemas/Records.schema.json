@@ -2,7 +2,7 @@
     "$id": "https://locationhistoryformat.com/schemas/Records.schema.json",
     "$schema": "http://json-schema.org/draft/2020-12/schema",
     "title": "Records",
-    "description": "Raw location history data from the user's account.",
+    "description": "The `Records.json` file in a Google Takeout Location History extraction. Contains raw Location History information from the user's account.",
     "type": "object",
     "properties": {
         "locations": {
@@ -57,7 +57,7 @@
                                 "type": "string",
                                 "format":"date-time",
                                 "title": "Timestamp",
-                                "description": "Timestamp of the activity (as an ISO 8601 string).",
+                                "description": "Timestamp (as an ISO 8601 string) of the activity.",
                                 "examples": ["2022-01-12T17:18:24.190Z"]
                             }
                         }
@@ -185,7 +185,7 @@
                     "type": "string",
                     "format":"date-time",
                     "title": "Timestamp",
-                    "description": "Timestamp of the record (as an ISO 8601 string).",
+                    "description": "Timestamp (as an ISO 8601 string) of the record.",
                     "examples": ["2022-01-12T17:18:24.190Z"],
                     "added": "around January 2022"
                 },
@@ -237,9 +237,34 @@
                 "extra": {
                     "type": "object",
                     "title": "Extra Activity Information",
-                    "description": "*TODO*",
+                    "description": "Generic object containing extra information about an activity, in the form of a property with a type, a name, and a value. So far only the property with name `vehicle_personal_confidence` has been encountered.",
+                    "examples": [
+                        {
+                            "type": "VALUE",
+                            "name": "vehicle_personal_confidence",
+                            "intVal": 100
+                        }
+                    ],
                     "properties": {
-
+                        "type": {
+                            "type": "string",
+                            "title": "Type",
+                            "description": "Type of the property.",
+                            "examples": ["VALUE"]
+                        },
+                        "name": {
+                            "type": "string",
+                            "title": "Name",
+                            "description": "Name of the property.",
+                            "examples": ["vehicle_personal_confidence"]
+                        },
+                        "intVal": {
+                            "type": "integer",
+                            "title": "Integer Value",
+                            "description": "Integer value of the property.",
+                            "examples": [100]
+                        }
+              
                     }
                 }
             }
@@ -359,7 +384,7 @@
                 "mac": {
                     "type": "string",
                     "title": "MAC Address",
-                    "description": "MAC address of the access point as an integer. *TODO*, how to convert to regular representation?",
+                    "description": "MAC address of the access point as an integer. MAC addresses typically consist of 48 bits (6 bytes), so it is likely the value found here needs to be interpreted as a 6 byte integer (which when converted to its hexadecimal representation results in a more typical representation for MAC addresses).",
                     "examples": []
                 },
                 "strength": {
@@ -398,7 +423,7 @@
                     "type": "string",
                     "format":"date-time",
                     "title": "Timestamp",
-                    "description": "Timestamp of the location metadata (as an ISO 8601 string).",
+                    "description": "Timestamp (as an ISO 8601 string) of the location metadata.",
                     "examples": ["2022-01-12T17:18:24.190Z"]
                 },
                 "wifiScan": {
