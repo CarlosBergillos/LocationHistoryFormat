@@ -20,29 +20,35 @@ Ideally contributors should be familiar with the structure of JSON Schema files.
 
 All documented objects and properties should at least have the following fields:
 
-- `title`:
+- **`title`**:
 In most cases it is just a "humanized" version of the key.
 
-- `type`:
+- **`type`**:
 One of `"object"`, `"array"`, `"string"`, `"number"`, `"boolean"`, `"null"`.
 
-- `description`:
+- **`description`**:
 Can make use of common basic Markdown syntax.
 It can be an empty string if no information is known (in which case a `helpWanted` field should be present).
 
 In addition to other basic JSON Schema fields, the following non-standard fields are also supported:
 
-- `added`:
-Estimated approximate date that this object/property was added to the format.
-Example: `"around January 2022"`.
 
-- `removed`:
-Estimated approximate date that this object/property was removed from the format.
-Example: `"around January 2022"`.
-
-- `helpWanted`:
+- **`helpWanted`**:
 Short description to inform that the information provided for this object/property is incomplete and help from the community is welcome.
 Example: `"The meaning of this field is uncertain. Are other values possible?"`
+
+- **`added`**:
+Approximate date that this object/property was added to the format, if known.
+Example: `"around January 2022"`.
+
+- **`removed`**:
+Approximate date that this object/property was removed from the format, if known.
+Example: `"around January 2022"`.
+
+- **`replacedBy`**:
+For objects/properties that have been removed, the URI-reference of the new object/property that replaced it, if it applies.
+Example: `"#/$defs/locationRecord/properties/timestamp"`
+
 
 To convert the JSON Schema files to Markdown files (which are then used for the documentation site)
 a custom Python script is used (see [`tools/jsonschema_to_md/`][tools/jsonschema_to_md/]).
