@@ -14,7 +14,6 @@ def human_to_slugcase(text):
 
 class ValidationError(Exception):
     def __init__(self, missing_field, schema):
-        print(schema.refd_schema.key)
         if schema.refd_schema:
             message = f"Missing '{missing_field}' in '{schema.path}' or '{schema.refd_schema.path}'"
         else:
@@ -31,6 +30,9 @@ def _validate_schema(schema):
             raise ValidationError(field, schema)
 
     if schema.type == "array":
+        if not schema.item_schema:
+            raise ValidationError("items", schema)
+
         for field in required_fields:
             if getattr(schema.item_schema, field) is None:
                 raise ValidationError(field, schema.item_schema)
@@ -251,10 +253,10 @@ class JSONSchemaRenderer:
 
             if schema.type == "object":
                 schema_object_to_md(schema, md, self.blocks)
-            elif schema.oneOf:
+            elif schema.oneOf is not None:
                 schema_oneOf_to_md(schema, md, self.blocks)
             else:
-                raise ValueError()
+                raise ValueError(f"Could not parse block {schema.path}")
 
         if output_path is None:
             return md.raw

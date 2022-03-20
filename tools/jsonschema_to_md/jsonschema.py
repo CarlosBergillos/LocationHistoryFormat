@@ -32,10 +32,10 @@ class JSONSchema:
             self.primary_path = self.ref
 
         if self.type == "array":
-            if "items" not in self.raw_schema:
-                raise ValueError("Type 'array' in schema must have an 'items' object.")
-
-            self.item_schema = self.get(self.path + "/items")
+            try:
+                self.item_schema = self.get(self.primary_path + "/items")
+            except ValueError:
+                self.item_schema = Empty()
 
     @classmethod
     def from_file(cls, file_path):
@@ -93,10 +93,7 @@ class JSONSchema:
 
     @property
     def properties_schemas(self):
-        try:
-            return [self.get(self.path + "/properties/" + key) for key in self.properties_keys]
-        except ValueError:
-            return [self.get(self.refd_schema.path + "/properties/" + key) for key in self.properties_keys]
+        return [self.get(self.primary_path + "/properties/" + key) for key in self.properties_keys]
 
     def get(self, path):
         base, path_ = path.split("#")

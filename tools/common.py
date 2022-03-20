@@ -2,9 +2,9 @@ import yaml
 
 
 def _get_from_config(key, configpath="./mkdocs.yml"):
-    yaml.add_multi_constructor(
-        "tag:yaml.org,2002:python/name", lambda loader, suffix, node: None, Loader=yaml.SafeLoader
-    )
+    noop = lambda loader, suffix, node: None
+    yaml.add_multi_constructor("tag:yaml.org,2002:python/name", noop, Loader=yaml.SafeLoader)
+    yaml.add_multi_constructor("!ENV", noop, Loader=yaml.SafeLoader)
 
     with open(configpath, "r") as f:
         config = yaml.safe_load(f)
