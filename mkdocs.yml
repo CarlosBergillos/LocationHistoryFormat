@@ -44,7 +44,7 @@ extra:
   generator: false
   analytics:
     provider: google
-    property: G-319THE2V0E
+    property: !ENV [GOOGLE_ANALYTICS_KEY, 'G-319THE2V0E']
 
 copyright: Copyright &copy; 2022 Carlos Bergillos
 
