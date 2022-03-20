@@ -115,10 +115,12 @@
                     "maximum": 359
                 },
                 "inferredLocation": {
-                    "type": "object",
+                    "type": "array",
                     "title": "Inferred Location",
                     "description": "",
-                    "$ref": "#/$defs/locationRecord",
+                    "items": {
+                        "$ref": "#/$defs/locationRecord"
+                    },
                     "examples": [],
                     "helpWanted": "The meaning of this field is uncertain."
                 },
@@ -398,6 +400,12 @@
                     "title": "Frequency (MHz)",
                     "description": "Frequency of the signal (in MHz) that the access point is using.",
                     "examples": [2462]
+                },
+                "isConnected": {
+                    "type": "boolean",
+                    "title": "Is Connected",
+                    "description": "Whether the device that scanned the access point is connected to it.",
+                    "examples": [true]  
                 }
             }
         },
@@ -407,10 +415,10 @@
             "description": "Information about the access points found in a Wi-Fi scan done by the device.",
             "properties": {
                 "accessPoints": {
-                    "type": "object",
+                    "type": "array",
                     "title": "Access Points",
                     "description": "List of Wi-Fi access points found with the scan.",
-                    "$ref": "#/$defs/accessPoint"
+                    "$ref": "#/$defs/accessPoints"
                 }
             }
         },
