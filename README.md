@@ -2,7 +2,7 @@
 
 # Location History Format
 
-Unofficial and collaborative format definition and documentation for Google Location History files.
+Collaborative format definition and documentation for Google Location History files.
 
 
 Google (through its [Takeout service][Google Takeout]) allows users to easily and conveniently download their Location History data.

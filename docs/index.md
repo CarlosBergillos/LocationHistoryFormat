@@ -1,6 +1,6 @@
 # Location History Format
 
-Unofficial and collaborative format definition and documentation for Google Location History files.
+Collaborative format definition and documentation for Google Location History files.
 
 ![Example of Location History data on a map.](./static/images/hero.png)
 
