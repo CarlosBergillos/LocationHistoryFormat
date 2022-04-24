@@ -1,0 +1,25 @@
+{% if type_text is not none %}
+	<div class="bold" markdown="1">{{ type_text }}</div>
+{% endif %}
+{% if schema.raw_schema['added'] is defined %}
+	<div class="mdx-added" markdown="1">:octicons-tag-24: *Added {{ schema.raw_schema['added'] }}.*</div>
+{% endif %}
+{% if schema.raw_schema['removed'] is defined %}
+	<div class="mdx-removed" markdown="1">:octicons-tag-24: *Removed {{ schema.raw_schema['removed'] }}.*
+	{% if schema.raw_schema['replacedBy'] is defined %}
+		Replaced by `{{ schema.get(schema.raw_schema['replacedBy']).key }}`.
+	{% endif %}
+	</div>
+{% endif %}
+{% for desc in schema.description.split('\n') %}
+	<div markdown="1">{{ desc }}</div>
+{% endfor %}
+{% if schema.example is not none and schema.type not in ['object', 'array'] %}
+	<div markdown="1">*Example:* `{{ example_text(schema.example) }}`</div>
+{% endif %}
+{% if schema.raw_schema['helpWanted'] is defined %}
+	<div markdown="1">
+		<span class="mdx-help">:octicons-tag-16: **Help Wanted:**</span>
+		*{{ schema.raw_schema['helpWanted'] }} Contributions to improve this [are welcome]({{ schema_repo_link(schema) }}).*
+	</div>
+{% endif %}

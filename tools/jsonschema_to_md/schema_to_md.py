@@ -3,9 +3,14 @@ import re
 from pathlib import Path
 from queue import LifoQueue
 
+import jinja2
+
 from ..common import repo_url
 from .jsonschema import JSONSchema
-from .markdown import MDWriter
+from .markdown import MDCodeBlock, MDWriter
+
+template_loader = jinja2.FileSystemLoader(searchpath=Path(__file__).parent / "templates/")
+template_env = jinja2.Environment(loader=template_loader, autoescape=False, trim_blocks=True, lstrip_blocks=True)
 
 
 def human_to_slugcase(text):
@@ -67,12 +72,40 @@ def _example_text(example, simple=False):
     return json.dumps(example)
 
 
+def _schema_repo_link(schema):
+    return repo_url(
+        file_path="/schemas/" + schema.file_name, line_start=schema.file_line_start, line_end=schema.file_line_end
+    )
+
+
+def _info_block(schema, type_text=None):
+    template = template_env.get_template("info-block.jinja")
+    functions = {
+        "example_text": _example_text,
+        "schema_repo_link": _schema_repo_link,
+    }
+
+    raw = template.render(schema=schema, type_text=type_text, **functions)
+    raw = "\n".join([line.strip("\t") for line in raw.split("\n")])  # strip indents line by line
+
+    return raw
+
+
+def _info_cell(schema, type_text=None):
+    info_block = _info_block(schema, type_text=type_text)
+    template = template_env.get_template("info-cell.jinja")
+
+    raw = template.render(schema=schema, info_block=info_block)
+    raw = "\n".join([line.strip("\t") for line in raw.split("\n")])  # strip indents line by line
+
+    return raw
+
+
 def _property_row(schema, queue):
     _validate_schema(schema)
 
     type_text = ""
     type_link = ""
-    info_text = ""
     key_text = f"`{schema.key}`"
 
     if schema.type == "object":
@@ -100,45 +133,11 @@ def _property_row(schema, queue):
     elif schema.format:
         type_text += f"&nbsp;&nbsp;(`{schema.format}`)"
 
-    info_text += f'<span class="bold">{type_text}</span>'
-
-    if "added" in schema.raw_schema:
-        info_text += "\n"
-        info_text += f"<span class=\"mdx-added\">:octicons-tag-24: *Added {schema.raw_schema['added']}.*</span>"
-
-    if "removed" in schema.raw_schema:
-        info_text += "\n"
-        info_text += f"<span class=\"mdx-removed\">:octicons-tag-24: *Removed {schema.raw_schema['removed']}.*"
-
-        if "replacedBy" in schema.raw_schema:
-            replaced_by = schema.get(schema.raw_schema["replacedBy"])
-
-            info_text += f" Replaced by `{replaced_by.key}`."
-
-        info_text += "</span>"
-
-    info_text += "\n\n"
-    info_text += schema.description or ""
-
-    if schema.example and schema.type != "object":
-        info_text += "\n\n"
-        info_text += f"*Example:* `{_example_text(schema.example)}`"
-
-    if "helpWanted" in schema.raw_schema:
-        help_wanted_msg = ""
-        help_wanted_msg += schema.raw_schema["helpWanted"].replace("\n", " ")
-
-        section_link = repo_url(
-            file_path="/schemas/" + schema.file_name, line_start=schema.file_line_start, line_end=schema.file_line_end
-        )
-        help_wanted_msg += f" Contributions to improve this [are welcome]({section_link})."
-
-        info_text += "\n\n"
-        info_text += f'<span class="mdx-help">:octicons-tag-16: **Help Wanted:**</span> *{help_wanted_msg}*'
+    info_cell = _info_cell(schema, type_text=type_text)
 
     return {
         "Property": key_text,
-        "Description": info_text,
+        "Description": info_cell,
     }
 
 
@@ -148,24 +147,13 @@ def schema_object_to_md(schema, md, queue):
 
     md.push_heading(2, schema.title)
 
-    info_text = schema.description
+    info_block = _info_block(schema)
 
-    if "helpWanted" in schema.raw_schema:
-        help_wanted_msg = ""
-        help_wanted_msg += schema.raw_schema["helpWanted"].replace("\n", " ")
+    md.push_paragraph(info_block)
 
-        section_link = repo_url(
-            file_path="/schemas/" + schema.file_name, line_start=schema.file_line_start, line_end=schema.file_line_end
-        )
-        help_wanted_msg += f" Contributions to improve this [are welcome]({section_link})."
-
-        info_text += "\n\n"
-        info_text += f'<span class="mdx-help">:octicons-tag-16: **Help Wanted:**</span> *{help_wanted_msg}*'
-
-    md.push_paragraph(info_text)
-
-    # if schema.example:
-    #     md.push_codeblock(_example_text(schema.example), 'json', 'Example')
+    if schema.example is not None:
+        codeblock = MDCodeBlock(_example_text(schema.example), language="json")
+        md.push_admonition(codeblock, type="example", title="Example", collapsible=True, start_expanded=False)
 
     rows = []
 
@@ -188,16 +176,19 @@ def schema_oneOf_to_md(schema, md, queue):
 
     rows = []
 
-    if not all(("const" in b for b in schema.oneOf)):
-        raise NotImplementedError("Only const values are currently supported in 'oneOf'.")
+    if all((s.const is not None for s in schema.oneOf)):
+        for one_schema in sorted(schema.oneOf, key=lambda s: s.const):
+            _validate_schema(one_schema)
 
-    for obj in sorted(schema.oneOf, key=lambda b: b["const"]):
-        rows.append(
-            {
-                schema.title: f"`{obj['const']}`",
-                "Description": obj["description"],
-            }
-        )
+            rows.append(
+                {
+                    schema.title: f"`{one_schema.const}`",
+                    "Description": _info_cell(one_schema),
+                }
+            )
+    else:
+        for one_schema in schema.oneOf:
+            rows.append(_property_row(one_schema, queue))
 
     if not rows:
         print(f"\tWARNING: No fields defined for '{schema.title}'")
@@ -214,7 +205,7 @@ class JSONSchemaRenderer:
     def __init__(self):
         self.blocks = LifoQueue()
 
-    def render_md(self, schema_path, output_path):
+    def render_md(self, schema_path, output_path, file_alias=None):
         print(f"Processing schema '{schema_path}'")
         schema_path = Path(schema_path)
 
@@ -226,7 +217,7 @@ class JSONSchemaRenderer:
         md = MDWriter()
 
         schema_file_name = schema_path.name
-        file_name = schema_file_name.replace(".schema.json", ".json")
+        file_name = file_alias or schema_file_name.replace(".schema.json", ".json")
 
         md.push_comment(
             f"Don't modify this file directly.\nThis file is automatically generated from '{schema_file_name}'."
@@ -251,10 +242,10 @@ class JSONSchemaRenderer:
 
             self.visited.add(schema.primary_path)
 
-            if schema.type == "object":
-                schema_object_to_md(schema, md, self.blocks)
-            elif schema.oneOf is not None:
+            if schema.oneOf is not None:
                 schema_oneOf_to_md(schema, md, self.blocks)
+            elif schema.type == "object":
+                schema_object_to_md(schema, md, self.blocks)
             else:
                 raise ValueError(f"Could not parse block {schema.path}")
 

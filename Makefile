@@ -6,7 +6,7 @@ SOURCES = \
 	settings:=Settings.schema.json \
 	records:=Records.schema.json
 
-TOOL_JSONSCHEMA2MD = $(wildcard ./tools/jsonschema_to_md/*.py)
+TOOL_JSONSCHEMA2MD = $(wildcard ./tools/jsonschema_to_md/*.py) $(wildcard ./tools/jsonschema_to_md/templates/*.jinja)
 TOOL_GITHUBREADME = $(wildcard ./tools/github_readme/*.py)
 
 SOURCES_NAMES = $(foreach x,$(SOURCES),$(lastword $(subst :=, ,$x)))

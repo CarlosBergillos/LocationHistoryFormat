@@ -1,0 +1,10 @@
+{% if schema.raw_schema['extra_color'] is defined %}
+	<div class="info-color" style="background-color: {{ schema.raw_schema['extra_color'] }};"></div>
+{% endif %}
+{% if schema.raw_schema['extra_icon'] is defined %}
+	<img class="info-icon" src="../../static/icons/{{ schema.raw_schema['extra_icon'] }}"/>
+{% endif %}
+<div class="info-block">
+	{{ info_block }}
+</div>
+{{ ' {: class="info-cell" }' }}

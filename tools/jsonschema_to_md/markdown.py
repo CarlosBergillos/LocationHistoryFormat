@@ -80,9 +80,7 @@ class MDTable(MDElement):
             if v is None:
                 return ""
 
-            # v = v.replace('\n', '<br>')
-            v = v.replace("\n", '<p style="margin: 10px 0;"></p>')
-
+            v = v.strip().replace("\n", "")
             return v
 
         raw = ""

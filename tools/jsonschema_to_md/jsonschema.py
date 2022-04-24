@@ -77,7 +77,16 @@ class JSONSchema:
 
     @property
     def oneOf(self):
-        return self.raw_schema.get("oneOf", self.refd_schema.oneOf)
+        oneOf = self.raw_schema.get("oneOf", self.refd_schema.oneOf)
+
+        if oneOf is None:
+            return None
+
+        return [self.get(self.primary_path + "/oneOf/" + str(i)) for i in range(len(oneOf))]
+
+    @property
+    def const(self):
+        return self.raw_schema.get("const", self.refd_schema.const)
 
     @property
     def ref(self):
@@ -104,7 +113,18 @@ class JSONSchema:
             if not part:
                 continue
 
-            raw_schema = raw_schema.get(part)
+            if isinstance(raw_schema, dict):
+                raw_schema = raw_schema.get(part)
+            elif isinstance(raw_schema, list):
+                try:
+                    idx = int(part)
+                except ValueError:
+                    raise ValueError(f"Path '{path}' encountered an array but part is not an integer.")
+
+                try:
+                    raw_schema = raw_schema[idx]
+                except ValueError:
+                    raise ValueError(f"Index {idx} out of range in path '{path}'.")
 
             if raw_schema is None:
                 raise ValueError(f"Did not find '{path}' in schema.")

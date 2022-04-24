@@ -10,6 +10,38 @@
     font-weight: 700!important;
 }
 
+.info-cell {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    padding: 0!important;
+}
+
+.info-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75em;
+    padding: 0.9375em 1.25em;
+}
+
+.info-icon {
+    color: #0008;
+    flex: 0 0 auto;
+    border: none;
+    box-shadow: none;
+    opacity: 0.6;
+    padding: 0.9375em 0 0.9375em 1.25em;
+}
+
+.info-color {
+    width: 0.25rem;
+    flex: 0 0 auto;
+    background-color: red;
+}
+
 .mdx-added {
     /* background-color: rgba(0,184,212,.1); */
     color: #00b8d4;
@@ -96,6 +128,13 @@
     left: 0.5rem!important;
 }
 
+.md-typeset :is(.admonition-title,summary):after {
+    top: 0.45em!important;
+    height: .8rem!important;
+    right: 0.2rem!important;
+}
+
+
 .md-header__title {
     font-size: .8rem;
 }
@@ -160,6 +199,7 @@ table>thead>tr>th {
 
 table td, table th {
     min-width: 214px;
+    position: relative;
 }
 
 .definitions+* table>tbody>tr td:first-child {
@@ -199,13 +239,13 @@ article img {
 
 /* sass
 @include break-to-device(mobile) {
-  article img {
+  article img:not(.info-icon) {
       margin: 0 px2rem(-16px);
       max-width: calc(100% + 32px)!important;  / ** not needed if we could style parent p ** /
       box-shadow: none;
 } */
 @media screen and (max-width: 719px) {
-    article img {
+    article img:not(.info-icon) {
         margin: 0 -16px;
         max-width: calc(100% + 32px)!important;  /** not needed if we could style parent p **/
         box-shadow: none;
@@ -263,4 +303,8 @@ code ic-folder, code ic-file {
 code ic-folder::before, code ic-file::before {
     transform: translate(-2px, 2px);
     margin-right: 4px;
+}
+
+:target {
+    background-color: yellow!important;
 }
