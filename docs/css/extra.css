@@ -305,6 +305,6 @@ code ic-folder::before, code ic-file::before {
     margin-right: 4px;
 }
 
-:target {
-    background-color: yellow!important;
+:target{
+    background-color: #ff05!important;
 }
