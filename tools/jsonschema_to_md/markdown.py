@@ -1,38 +1,81 @@
+from copy import copy
+
 from tabulate import tabulate
 
 
-class MDWriter:
+class MDElement:
+    INDENT = "\t"
+
     def __init__(self):
-        self.raw = ""
+        self.indents = 0
 
-    def push_heading(self, level, text):
+    @property
+    def md(self):
+        return ""
+
+    def unindent(self):
+        new = copy(self)
+        new.indents -= 1
+        return new
+
+    def indent(self):
+        new = copy(self)
+        new.indents += 1
+        return new
+
+
+class MDHeading(MDElement):
+    def __init__(self, level, text):
         assert level <= 6
-        self.raw += f"{'#' * level} {text}\n\n"
+        self.level = level
+        self.text = text
 
-    def push_paragraph(self, text, indent=False, block=False):
-        if not text:
-            text = "-"
+    @property
+    def md(self):
+        return f"{'#' * self.level} {self.text}\n\n"
 
-        if indent:
-            if block:
-                text = text.replace("\n", "\n\t> ")
-                text = text.replace(
-                    "> \t<", "\t"
-                )  # admonition contents should not have '>', so we have flagged them with '<'.
-                self.raw += f":\t> {text}\n\n"
-            else:
-                text = text.replace("\n", "\n\t")
-                self.raw += f":\t{text}\n\n"
-        else:
-            self.raw += f"{text}\n\n"
 
-    def push_codeblock(self, text, language=None, title=None):
-        self.raw += f"```{language or ''} title=\"{title or ''}\"\n{text}\n```\n\n"
+class MDParagraph(MDElement):
+    def __init__(self, text, indents=0):
+        self.text = text
+        self.indents = indents
 
-    def push_comment(self, text):
-        self.raw += f"<!---\n{text}\n-->\n\n"
+    @property
+    def md(self):
+        ind = self.INDENT * self.indents
+        return ind + self.text.replace("\n", "\n" + ind) + "\n\n"
 
-    def push_table(self, rows, class_=None):
+
+class MDCodeBlock(MDElement):
+    def __init__(self, text, language=None, title=None, indents=0):
+        self.text = text
+        self.language = language
+        self.title = title
+        self.indents = indents
+
+    @property
+    def md(self):
+        ind = self.INDENT * self.indents
+        text = ind + self.text.replace("\n", "\n" + ind)
+        return f"{ind}```{self.language or ''} title=\"{self.title or ''}\"\n{text}\n{ind}```\n\n"
+
+
+class MDComment(MDElement):
+    def __init__(self, text):
+        self.text = text
+
+    @property
+    def md(self):
+        return f"<!---\n{self.text}\n-->\n\n"
+
+
+class MDTable(MDElement):
+    def __init__(self, rows, class_=None):
+        self.rows = rows
+        self.class_ = class_
+
+    @property
+    def md(self):
         def clean_value(v):
             if v is None:
                 return ""
@@ -42,13 +85,57 @@ class MDWriter:
 
             return v
 
-        rows = [{k: clean_value(v) for k, v in row.items()} for row in rows]
+        raw = ""
 
-        if class_ is not None:
-            self.raw += f'<div class="{class_}"></div>\n\n'  # note we cannot add a class to the table, we create a separate 'sentinel' div.
+        rows = [{k: clean_value(v) for k, v in row.items()} for row in self.rows]
 
-        self.raw += tabulate(rows, headers="keys", showindex=False, tablefmt="pipe")
-        self.raw += f"\n\n"
+        if self.class_ is not None:
+            raw += f'<div class="{self.class_}"></div>\n\n'  # note we cannot add a class to the table, we create a separate 'sentinel' div.
 
-    def push_admonition(self, text, type="info", title=""):
-        self.raw += f'!!! {type} "{title}"\n\n\t{text}\n\n'
+        raw += tabulate(rows, headers="keys", showindex=False, tablefmt="pipe")
+        raw += f"\n\n"
+
+        return raw
+
+
+class MDWriter:
+    def __init__(self):
+        self.raw = ""
+
+    def push_heading(self, level, text):
+        heading = MDHeading(level, text)
+        self.raw += heading.md
+
+    def push_paragraph(self, text):
+        paragraph = MDParagraph(text)
+        self.raw += paragraph.md
+
+    def push_codeblock(self, text, language=None, title=None):
+        codeblock = MDCodeBlock(text=text, language=language, title=None)
+        self.raw += codeblock.md
+
+    def push_comment(self, text):
+        comment = MDComment(text)
+        self.raw += comment.md
+
+    def push_table(self, rows, class_=None):
+        table = MDTable(rows, class_)
+        self.raw += table.md
+
+    def push_admonition(self, content, type="info", title="", collapsible=False, start_expanded=False):
+        if isinstance(content, str):
+            text = MDParagraph(content).indent().md
+        elif isinstance(content, MDElement):
+            text = content.indent().md
+        else:
+            raise NotImplementedError(())
+
+        if collapsible:
+            if start_expanded:
+                start = "???+"
+            else:
+                start = "???"
+        else:
+            start = "!!!"
+
+        self.raw += f'{start} {type} "{title}"\n\n{text}\n\n'
