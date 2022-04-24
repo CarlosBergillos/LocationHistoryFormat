@@ -13,10 +13,6 @@ template_loader = jinja2.FileSystemLoader(searchpath=Path(__file__).parent / "te
 template_env = jinja2.Environment(loader=template_loader, autoescape=False, trim_blocks=True, lstrip_blocks=True)
 
 
-def human_to_slugcase(text):
-    return text.lower().replace(" ", "-")
-
-
 class ValidationError(Exception):
     def __init__(self, missing_field, schema):
         if schema.refd_schema:
@@ -77,12 +73,37 @@ def _schema_repo_link(schema):
         file_path="/schemas/" + schema.file_name, line_start=schema.file_line_start, line_end=schema.file_line_end
     )
 
+def _fragment_id(schema, force_defs=False):
+    # force_defs=True is useful when we know the link should direct to a new block (and not the in-table property)
+    # the defs path doesn't need to exist in the schema, but it can still exist in the Html.
+
+    if force_defs:
+        fragment_id = f"/$defs/{schema.key}"
+    else:
+        fragment_id = schema.path.removeprefix("#")
+
+        if fragment_id == '':
+            fragment_id = '/'
+
+    return fragment_id
+
+
+def _schema_link(schema, use_title=False, force_defs=False):
+    fragment_id = _fragment_id(schema, force_defs=force_defs)
+
+    if use_title:
+        return f"[{schema.title}](#{fragment_id})"
+    else:
+        return f"[`{schema.key}`](#{fragment_id})"
+
 
 def _info_block(schema, type_text=None):
     template = template_env.get_template("info-block.jinja")
     functions = {
         "example_text": _example_text,
+        "schema_link": _schema_link,
         "schema_repo_link": _schema_repo_link,
+        "process_description": _process_description,
     }
 
     raw = template.render(schema=schema, type_text=type_text, **functions)
@@ -101,6 +122,20 @@ def _info_cell(schema, type_text=None):
     return raw
 
 
+def _process_description(root_schema, description):
+    def reflink(match):
+        use_title = bool(match.group(1))
+        path = match.group(2)
+        schema = root_schema.get(path)
+
+        return _schema_link(schema, use_title=use_title)
+
+    # replace references like '[#/$defs/activitySegment]' with a link to the object/property.
+    # if it starts with a !, e.g. '![#/$defs/activitySegment]' then use title for the link instead of the key (via use_title=True).
+    description = re.sub(r"(!)?\[(#\/[^\s\[\]]*)\]", reflink, description)
+
+    return description
+
 def _property_row(schema, queue):
     _validate_schema(schema)
 
@@ -110,18 +145,18 @@ def _property_row(schema, queue):
 
     if schema.type == "object":
         queue.put(schema.primary_path)
-        type_link = block_link(schema.refd_schema.title or schema.title)
+        type_link = _schema_link(schema.refd_schema or schema, use_title=True, force_defs=True)
 
     if schema.type == "array":
         key_text = f"`{schema.key}[]`"
 
         if schema.item_schema.type == "object":
             queue.put(schema.item_schema.primary_path)
-            type_link = block_link(schema.item_schema.refd_schema.title or schema.item_schema.title)
+            type_link = _schema_link(schema.item_schema.refd_schema or schema.item_schema, use_title=True)
 
     if schema.oneOf:
         queue.put(schema.primary_path)
-        type_link = block_link(schema.title)
+        type_link = _schema_link(schema.refd_schema or schema, use_title=True, force_defs=True)
 
     if schema.type == "array":
         type_text += f"array of: `{schema.item_schema.type}`"
@@ -136,7 +171,7 @@ def _property_row(schema, queue):
     info_cell = _info_cell(schema, type_text=type_text)
 
     return {
-        "Property": key_text,
+        "Property": key_text + f" {{ id=\"{_fragment_id(schema)}\" }}",
         "Description": info_cell,
     }
 
@@ -145,10 +180,9 @@ def schema_object_to_md(schema, md, queue):
     print(f"\tBuilding '{schema.title}'")
     _validate_schema(schema)
 
-    md.push_heading(2, schema.title)
+    md.push_heading(2, schema.title, id=_fragment_id(schema, force_defs=True))
 
     info_block = _info_block(schema)
-
     md.push_paragraph(info_block)
 
     if schema.example is not None:
@@ -171,12 +205,15 @@ def schema_oneOf_to_md(schema, md, queue):
     print(f"\tBuilding '{schema.title}'")
     _validate_schema(schema)
 
-    md.push_heading(2, schema.title)
-    md.push_paragraph(schema.description)
+    md.push_heading(2, schema.title, id=_fragment_id(schema, force_defs=True))
+    
+    info_block = _info_block(schema)
+    md.push_paragraph(info_block)
 
     rows = []
 
-    if all((s.const is not None for s in schema.oneOf)):
+    if all(s.const is not None for s in schema.oneOf):
+        # Special case where all options are const.
         for one_schema in sorted(schema.oneOf, key=lambda s: s.const):
             _validate_schema(one_schema)
 
@@ -184,6 +221,18 @@ def schema_oneOf_to_md(schema, md, queue):
                 {
                     schema.title: f"`{one_schema.const}`",
                     "Description": _info_cell(one_schema),
+                }
+            )
+    elif all((s.type == "object" and len(s.properties_keys) == 1 for s in schema.oneOf)) and (
+        len(schema.oneOf) == len(set(s.properties_keys[0] for s in schema.oneOf))
+    ):
+        # Special case where all options are objects with one distinct key.
+        for one_schema in sorted(schema.oneOf, key=lambda s: s.properties_keys[0]):
+            row = _property_row(one_schema.properties_schemas[0], queue)
+            rows.append(
+                {
+                    'Single Property': row['Property'],
+                    "Description": row['Description'],
                 }
             )
     else:
@@ -195,10 +244,6 @@ def schema_oneOf_to_md(schema, md, queue):
         return
 
     md.push_table(rows, class_="definitions")
-
-
-def block_link(title):
-    return f"[{title}](#{human_to_slugcase(title)})"
 
 
 class JSONSchemaRenderer:

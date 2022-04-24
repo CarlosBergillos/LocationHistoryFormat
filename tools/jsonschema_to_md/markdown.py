@@ -25,14 +25,21 @@ class MDElement:
 
 
 class MDHeading(MDElement):
-    def __init__(self, level, text):
+    def __init__(self, level, text, id=None):
         assert level <= 6
         self.level = level
         self.text = text
+        self.id = id
 
     @property
     def md(self):
-        return f"{'#' * self.level} {self.text}\n\n"
+        md = f"{'#' * self.level} {self.text}"
+        
+        if self.id is not None:
+            md += f" {{ id=\"{self.id}\" }}"
+
+        md += "\n\n"
+        return md
 
 
 class MDParagraph(MDElement):
@@ -100,8 +107,8 @@ class MDWriter:
     def __init__(self):
         self.raw = ""
 
-    def push_heading(self, level, text):
-        heading = MDHeading(level, text)
+    def push_heading(self, level, text, id=None):
+        heading = MDHeading(level=level, text=text, id=id)
         self.raw += heading.md
 
     def push_paragraph(self, text):

@@ -7,12 +7,12 @@
 {% if schema.raw_schema['removed'] is defined %}
 	<div class="mdx-removed" markdown="1">:octicons-tag-24: *Removed {{ schema.raw_schema['removed'] }}.*
 	{% if schema.raw_schema['replacedBy'] is defined %}
-		Replaced by `{{ schema.get(schema.raw_schema['replacedBy']).key }}`.
+		Replaced by {{ schema_link(schema.get(schema.raw_schema['replacedBy'])) }}.
 	{% endif %}
 	</div>
 {% endif %}
 {% for desc in schema.description.split('\n') %}
-	<div markdown="1">{{ desc }}</div>
+	<div markdown="1">{{ process_description(schema.root_schema, desc) }}</div>
 {% endfor %}
 {% if schema.example is not none and schema.type not in ['object', 'array'] %}
 	<div markdown="1">*Example:* `{{ example_text(schema.example) }}`</div>

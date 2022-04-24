@@ -105,7 +105,11 @@ class JSONSchema:
         return [self.get(self.primary_path + "/properties/" + key) for key in self.properties_keys]
 
     def get(self, path):
-        base, path_ = path.split("#")
+        try:
+            base, path_ = path.split("#")
+        except:
+            raise ValueError(f"Could not split by '#' path '{path}'.")
+
         parts = path_.split("/")
 
         raw_schema = self.root_schema.raw_schema
