@@ -4,7 +4,7 @@ from pathlib import Path
 from json_source_map import calculate
 
 
-class Empty:
+class EmptyJSONSchema:
     def __getattr__(self, _):
         return None
 
@@ -19,8 +19,8 @@ class JSONSchema:
         self.path = path
         self.primary_path = path
         self.root_schema = root_schema or self
-        self.refd_schema = Empty()
-        self.item_schema = Empty()
+        self.refd_schema = EmptyJSONSchema()
+        self.item_schema = EmptyJSONSchema()
         self.file_path = Path(file_path) if file_path is not None else self.root_schema.file_path
         self.file_name = self.file_path.name
         self.source_map = source_map
@@ -35,7 +35,7 @@ class JSONSchema:
             try:
                 self.item_schema = self.get(self.primary_path + "/items")
             except ValueError:
-                self.item_schema = Empty()
+                self.item_schema = EmptyJSONSchema()
 
     @classmethod
     def from_file(cls, file_path):
@@ -112,10 +112,29 @@ class JSONSchema:
 
         parts = path_.split("/")
 
+        in_schema_container = False
         raw_schema = self.root_schema.raw_schema
+        key = "$root"
+
         for part in parts:
             if not part:
                 continue
+
+            if in_schema_container:
+                key = part
+            else:
+                key += "/" + part
+
+            if (
+                not in_schema_container
+                and isinstance(raw_schema, dict)
+                and raw_schema.get("type") == "object"
+                and (part in ["properties", "$defs"])
+            ):
+                in_schema_container = True
+
+            else:
+                in_schema_container = False
 
             if isinstance(raw_schema, dict):
                 raw_schema = raw_schema.get(part)
@@ -132,7 +151,5 @@ class JSONSchema:
 
             if raw_schema is None:
                 raise ValueError(f"Did not find '{path}' in schema.")
-
-        key = path.split("/")[-1]
 
         return JSONSchema(raw_schema, key, path, root_schema=self.root_schema)

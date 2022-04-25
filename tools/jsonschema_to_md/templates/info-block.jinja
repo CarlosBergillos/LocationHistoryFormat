@@ -1,4 +1,3 @@
-<span class="bold" style="color: var(--md-code-fg-color);">{{ schema.title }}</span>
 {% if schema.example is not none and schema.type not in ['object', 'array'] %}
 	{% set example = '<span style="margin-left: 2em; float: right;">*Example:* `' + example_text(schema.example) + '`</span>' %}
 {% endif %}
