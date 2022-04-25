@@ -1,5 +1,9 @@
+<span class="bold" style="color: var(--md-code-fg-color);">{{ schema.title }}</span>
+{% if schema.example is not none and schema.type not in ['object', 'array'] %}
+	{% set example = '<span style="margin-left: 2em; float: right;">*Example:* `' + example_text(schema.example) + '`</span>' %}
+{% endif %}
 {% if type_text is not none %}
-	<div class="bold" markdown="1">{{ type_text }}</div>
+	<div markdown="1" style="width: 100%;"><span class="bold">{{ type_text }}</span>{{ example }}</div>
 {% endif %}
 {% if schema.raw_schema['added'] is defined %}
 	<div class="mdx-added" markdown="1">:octicons-tag-24: *Added {{ schema.raw_schema['added'] }}.*</div>
@@ -12,11 +16,10 @@
 	</div>
 {% endif %}
 {% for desc in schema.description.split('\n') %}
+{% if desc|length > 0 %}
 	<div markdown="1">{{ process_description(schema.root_schema, desc) }}</div>
-{% endfor %}
-{% if schema.example is not none and schema.type not in ['object', 'array'] %}
-	<div markdown="1">*Example:* `{{ example_text(schema.example) }}`</div>
 {% endif %}
+{% endfor %}
 {% if schema.raw_schema['helpWanted'] is defined %}
 	<div markdown="1">
 		<span class="mdx-help">:octicons-tag-16: **Help Wanted:**</span>
