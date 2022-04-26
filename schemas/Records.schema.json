@@ -9,14 +9,14 @@
             "type": "array",
             "title": "Locations",
             "description": "List of all location records available, in chronological order.",
-            "items": { 
+            "items": {
                 "$ref": "#/$defs/locationRecord"
             },
             "examples": []
         }
     },
     "required": [
-      "locations"
+        "locations"
     ],
     "$defs": {
         "locationRecord": {
@@ -43,7 +43,9 @@
                     "type": "integer",
                     "title": "Accuracy",
                     "description": "Approximate accuracy radius of the location measurement, in meters. A lower value means better precision.",
-                    "examples": [20]
+                    "examples": [
+                        20
+                    ]
                 },
                 "activeWifiScan": {
                     "type": "object",
@@ -163,10 +165,12 @@
                             },
                             "timestamp": {
                                 "type": "string",
-                                "format":"date-time",
+                                "format": "date-time",
                                 "title": "Timestamp",
                                 "description": "Timestamp (as an ISO 8601 string) of the activity.",
-                                "examples": ["2022-01-12T17:18:24.190Z"]
+                                "examples": [
+                                    "2022-01-12T17:18:24.190Z"
+                                ]
                             }
                         }
                     }
@@ -175,31 +179,42 @@
                     "type": "integer",
                     "title": "Altitude",
                     "description": "Altitude above the WGS84 reference ellipsoid, in meters.",
-                    "examples": [150]
+                    "examples": [
+                        150
+                    ]
                 },
                 "batteryCharging": {
                     "type": "boolean",
                     "title": "Battery Charging",
                     "description": "Whether the device was charging its battery or not at the time of the record.",
-                    "examples": [true]
+                    "examples": [
+                        true
+                    ]
                 },
                 "deviceDesignation": {
                     "type": "string",
                     "title": "Device Designation",
                     "description": "Common values found are: `PRIMARY`, `UNKNOWN`.",
-                    "examples": ["PRIMARY"],
-                    "enum": ["PRIMARY", "UNKNOWN"],
+                    "examples": [
+                        "PRIMARY"
+                    ],
+                    "enum": [
+                        "PRIMARY",
+                        "UNKNOWN"
+                    ],
                     "helpWanted": "The meaning of this field is uncertain. Are other values possible?"
                 },
                 "deviceTag": {
                     "type": "integer",
                     "title": "Device Tag",
                     "description": "Integer identifier (specific to Location History) associated with the device that uploaded the location. Refer to `deviceSettings` in Settings.json for information about the device with this `deviceTag`.",
-                    "examples": [1234567890]
+                    "examples": [
+                        1234567890
+                    ]
                 },
                 "deviceTimestamp": {
                     "type": "string",
-                    "format":"date-time",
+                    "format": "date-time",
                     "title": "Device Timestamp",
                     "description": "",
                     "examples": [],
@@ -209,15 +224,21 @@
                     "type": "string",
                     "title": "Form Factor",
                     "description": "Form factor (device type) from which the location record originated.\nCommon values are: `PHONE`.",
-                    "examples": ["PHONE"],
-                    "enum": ["PHONE"],
+                    "examples": [
+                        "PHONE"
+                    ],
+                    "enum": [
+                        "PHONE"
+                    ],
                     "helpWanted": "What are other possible values?"
                 },
                 "heading": {
                     "type": "integer",
                     "title": "Heading",
                     "description": "Heading in degrees east of true north, from 0 to 359.",
-                    "examples": [270],
+                    "examples": [
+                        270
+                    ],
                     "minimum": 0,
                     "maximum": 359
                 },
@@ -235,7 +256,9 @@
                     "type": "integer",
                     "title": "Latitude",
                     "description": "Latitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).",
-                    "examples": [414216106],
+                    "examples": [
+                        414216106
+                    ],
                     "minimum": -900000000,
                     "maximum": 900000000
                 },
@@ -243,7 +266,7 @@
                     "type": "array",
                     "title": "Location Metadata",
                     "description": "Additional location metadata. List of different Wi-Fi scans associated with this location record.",
-                    "items": { 
+                    "items": {
                         "$ref": "#/$defs/locationMetadata"
                     },
                     "examples": []
@@ -252,7 +275,9 @@
                     "type": "integer",
                     "title": "Longitude",
                     "description": "Longitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).",
-                    "examples": [21684775],
+                    "examples": [
+                        21684775
+                    ],
                     "minimum": -1800000000,
                     "maximum": 1800000000
                 },
@@ -260,24 +285,34 @@
                     "type": "integer",
                     "title": "OS Level",
                     "description": "The version of the device's operating system that provided this record. In Android devices, this corresponds to the API Level (e.g. 28 is Android 9 *Pie*).",
-                    "examples": [28]
+                    "examples": [
+                        28
+                    ]
                 },
                 "placeId": {
                     "type": "string",
                     "title": "Place ID",
                     "description": "Google Maps [Place ID](https://developers.google.com/maps/documentation/places/web-service/place-id) of the location.",
-                    "examples": ["ChIJk_s92NyipBIRUMnDG8Kq2Js"]
+                    "examples": [
+                        "ChIJk_s92NyipBIRUMnDG8Kq2Js"
+                    ]
                 },
                 "platformType": {
                     "type": "string",
                     "title": "Platform Type",
                     "description": "Platform of the device that provided this record. Valid values are: `ANDROID`, `IOS` and `UNKNOWN`.",
-                    "examples": ["ANDROID"],
-                    "enum": ["ANDROID", "IOS", "UNKNOWN"]
+                    "examples": [
+                        "ANDROID"
+                    ],
+                    "enum": [
+                        "ANDROID",
+                        "IOS",
+                        "UNKNOWN"
+                    ]
                 },
                 "serverTimestamp": {
                     "type": "string",
-                    "format":"date-time",
+                    "format": "date-time",
                     "title": "Server Timestamp",
                     "description": "",
                     "examples": [],
@@ -287,22 +322,37 @@
                     "type": "string",
                     "title": "Source",
                     "description": "Source (technology) that provided the location information for this record.\nCommon values are: `WIFI`, `CELL`, `GPS`, `UNKNOWN` (note: sometimes found in lowercase).",
-                    "examples": ["WIFI"],
-                    "enum": ["WIFI",  "wifi", "CELL", "cell", "GPS", "gps", "UNKNOWN", "unknown"]
+                    "examples": [
+                        "WIFI"
+                    ],
+                    "enum": [
+                        "WIFI",
+                        "wifi",
+                        "CELL",
+                        "cell",
+                        "GPS",
+                        "gps",
+                        "UNKNOWN",
+                        "unknown"
+                    ]
                 },
                 "timestamp": {
                     "type": "string",
-                    "format":"date-time",
+                    "format": "date-time",
                     "title": "Timestamp",
                     "description": "Timestamp (as an ISO 8601 string) of the record.",
-                    "examples": ["2022-01-12T17:18:24.190Z"],
+                    "examples": [
+                        "2022-01-12T17:18:24.190Z"
+                    ],
                     "added": "around January 2022"
                 },
                 "timestampMs": {
                     "type": "string",
                     "title": "Timestamp (Milliseconds)",
                     "description": "Timestamp of the record as a [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) in milliseconds.",
-                    "examples": ["1636403752674"],
+                    "examples": [
+                        "1636403752674"
+                    ],
                     "deprecated": true,
                     "removed": "around January 2022",
                     "replacedBy": "#/$defs/locationRecord/properties/timestamp"
@@ -311,14 +361,18 @@
                     "type": "integer",
                     "title": "Velocity",
                     "description": "Measured velocity (ground speed) in meters per second.",
-                    "examples": [10],
+                    "examples": [
+                        10
+                    ],
                     "minimum": 0
                 },
                 "verticalAccurac": {
                     "type": "integer",
                     "title": "Vertical Accuracy",
                     "description": "Calculated accuracy of the location's altitude measurement, in meters. A lower value means better precision.",
-                    "examples": [10],
+                    "examples": [
+                        10
+                    ],
                     "minimum": 0
                 }
             }
@@ -339,13 +393,17 @@
                     "title": "Activity Type",
                     "description": "Type of activity detected.",
                     "$ref": "#/$defs/activityType",
-                    "examples": ["STILL"]
+                    "examples": [
+                        "STILL"
+                    ]
                 },
                 "confidence": {
                     "type": "integer",
                     "title": "Confidence",
                     "description": "Value from 0 to 100 indicating the likelihood that the user is performing this activity.\nThe larger the value, the more consistent the data used to perform the classification is with the detected activity. \nMultiple activities may have high confidence values. For example, the `ON_FOOT` may have a confidence of 100 while the `RUNNING` activity may have a confidence of 95. The sum of the confidences of all detected activities for a classification does not have to be <= 100 since some activities are not mutually exclusive (for example, you can be walking while in a bus) and some activities are hierarchical (`ON_FOOT` is a generalization of `WALKING` and `RUNNING`).",
-                    "examples": [100],
+                    "examples": [
+                        100
+                    ],
                     "minimum": 0,
                     "maximum": 100
                 },
@@ -365,21 +423,26 @@
                             "type": "string",
                             "title": "Type",
                             "description": "Type of the property.",
-                            "examples": ["VALUE"]
+                            "examples": [
+                                "VALUE"
+                            ]
                         },
                         "name": {
                             "type": "string",
                             "title": "Name",
                             "description": "Name of the property.",
-                            "examples": ["vehicle_personal_confidence"]
+                            "examples": [
+                                "vehicle_personal_confidence"
+                            ]
                         },
                         "intVal": {
                             "type": "integer",
                             "title": "Integer Value",
                             "description": "Integer value of the property.",
-                            "examples": [100]
+                            "examples": [
+                                100
+                            ]
                         }
-              
                     }
                 }
             }
@@ -388,7 +451,9 @@
             "type": "string",
             "title": "Activity Type",
             "description": "Type of activity detected. Descriptions partially based on: <https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity>",
-            "examples": ["STILL"],
+            "examples": [
+                "STILL"
+            ],
             "oneOf": [
                 {
                     "type": "string",
@@ -486,7 +551,7 @@
             "type": "array",
             "title": "Access Points",
             "description": "List of Wi-Fi scans consisting of access points.",
-            "items": { 
+            "items": {
                 "$ref": "#/$defs/accessPoint"
             },
             "examples": [
@@ -530,25 +595,33 @@
                     "type": "string",
                     "title": "MAC Address",
                     "description": "MAC address of the access point as an integer. MAC addresses typically consist of 48 bits (6 bytes), so it is likely the value found here needs to be interpreted as a 6 byte integer (which when converted to its hexadecimal representation results in a more typical representation for MAC addresses).",
-                    "examples": ["220676014124647"]
+                    "examples": [
+                        "220676014124647"
+                    ]
                 },
                 "strength": {
                     "type": "integer",
                     "title": "Strength",
                     "description": "Strength of the signal in dBm (decibels per milliwatt) of the access point.",
-                    "examples": [-34]
+                    "examples": [
+                        -34
+                    ]
                 },
                 "frequencyMhz": {
                     "type": "integer",
                     "title": "Frequency (MHz)",
                     "description": "Frequency of the signal (in MHz) that the access point is using.",
-                    "examples": [2437]
+                    "examples": [
+                        2437
+                    ]
                 },
                 "isConnected": {
                     "type": "boolean",
                     "title": "Is Connected",
                     "description": "Whether the device that scanned the access point is connected to it.",
-                    "examples": [true]  
+                    "examples": [
+                        true
+                    ]
                 }
             }
         },
@@ -598,10 +671,12 @@
             "properties": {
                 "timestamp": {
                     "type": "string",
-                    "format":"date-time",
+                    "format": "date-time",
                     "title": "Timestamp",
                     "description": "Timestamp (as an ISO 8601 string) of the location metadata.",
-                    "examples": ["2022-01-12T17:18:24.190Z"]
+                    "examples": [
+                        "2022-01-12T17:18:24.190Z"
+                    ]
                 },
                 "wifiScan": {
                     "type": "object",
