@@ -4,7 +4,8 @@ EXPORTS_DIR = ./docs/reference/
 
 SOURCES = \
 	settings:=Settings.schema.json \
-	records:=Records.schema.json
+	records:=Records.schema.json \
+	semantic:=Semantic.schema.json
 
 TOOL_JSONSCHEMA2MD = $(wildcard ./tools/jsonschema_to_md/*.py) $(wildcard ./tools/jsonschema_to_md/templates/*.jinja)
 TOOL_GITHUBREADME = $(wildcard ./tools/github_readme/*.py)

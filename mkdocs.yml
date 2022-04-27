@@ -63,6 +63,7 @@ nav:
     - reference/index.md
     - Records.json: reference/records.md
     - Settings.json: reference/settings.md
+    - Semantic Location History: reference/semantic.md
   - Contributing: contributing.md
 
 plugins:
