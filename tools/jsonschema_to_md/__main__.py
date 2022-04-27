@@ -14,6 +14,7 @@ def main():
     )
     parser.add_argument("input", help="Input JSON schema.", type=str)
     parser.add_argument("-o", "--output", help="Path for the output Markdown file.", type=str)
+    parser.add_argument("-t", "--title", help="Title for the output Markdown file.", type=str)
 
     args = parser.parse_args()
 
@@ -24,8 +25,9 @@ def main():
     md_filename = json_filename + ".md"
 
     out = args.output or md_filename
+    title = args.title
 
-    JSONSchemaRenderer().render_md(inp, out)
+    JSONSchemaRenderer().render_md(inp, out, title=title)
 
 
 if __name__ == "__main__":
