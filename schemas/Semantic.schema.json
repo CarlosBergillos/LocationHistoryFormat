@@ -227,7 +227,8 @@
                     "description": "Distance traveled during the activity, in meters.",
                     "examples": [
                         292
-                    ]
+                    ],
+                    "minimum": 0
                 },
                 "activityType": {
                     "type": "string",
@@ -438,17 +439,19 @@
                         "distanceMeters": {
                             "type": "number",
                             "title": "Distance in meters",
-                            "description": "Total distance of the path, in meters.",
+                            "description": "Distance traveled with the path, in meters.",
                             "examples": [
                                 2413.400132766728
-                            ]
+                            ],
+                            "minimum": 0
                         }
                     }
                 },
                 "transitPath": {
                     "type": "object",
                     "title": "Transit Path",
-                    "description": ""
+                    "description": "Path taken in a public transit system, such as a bus or a metro.",
+                    "$ref": "#/$defs/transitPath"
                 },
                 "lastEditedTimestamp": {
                     "type": "string",
@@ -481,7 +484,7 @@
                 "placeConfidence": {
                     "type": "string",
                     "title": "Place Confidence",
-                    "description": ". One of: `LOW_CONFIDENCE`, `MEDIUM_CONFIDENCE`, `HIGH_CONFIDENCE`, `USER_CONFIRMED`.",
+                    "description": "Categorized confidence for this place visit. One of: `LOW_CONFIDENCE`, `MEDIUM_CONFIDENCE`, `HIGH_CONFIDENCE` or `USER_CONFIRMED`.",
                     "examples": [
                         "HIGH"
                     ],
@@ -500,7 +503,8 @@
                         95
                     ],
                     "minimum": 0,
-                    "maximum": 100
+                    "maximum": 100,
+                    "helpWanted": "Is this related to [#/$defs/placeVisit/properties/placeConfidence]? What are their differences?"
                 },
                 "editConfirmationStatus": {
                     "type": "string",
@@ -523,7 +527,7 @@
                     "name": "La Sagrada Familia",
                     "semanticType": "TYPE_SEARCHED_ADDRESS",
                     "sourceInfo": {
-                      "deviceTag": 1234567890
+                        "deviceTag": 1234567890
                     },
                     "locationConfidence": 87.07311,
                     "calibratedProbability": 76.20023
@@ -577,15 +581,10 @@
                 "semanticType": {
                     "type": "string",
                     "title": "Semantic Type",
-                    "description": "",
+                    "description": "Place type based on semantic information specific to the user.",
+                    "$ref": "#/$defs/semanticType",
                     "examples": [
                         "TYPE_HOME"
-                    ],
-                    "enum" : [
-                        "TYPE_HOME",
-                        "TYPE_WORK",
-                        "TYPE_SEARCHED_ADDRESS",
-                        "TYPE_ALIASED_LOCATION"
                     ]
                 },
                 "locationConfidence": {
@@ -688,7 +687,7 @@
                 "probability": {
                     "type": "number",
                     "title": "Probability",
-                    "description": "Probability (or confidence) that is correct, in the range 0 to 100.",
+                    "description": "Probability (or confidence) that the activity type is correct, in the range 0 to 100.",
                     "examples": [
                         95.93904614448547
                     ],
@@ -1002,6 +1001,231 @@
                     "extra_icon": "material_activities/paragliding_24dp.svg"
                 }
             ]
+        },
+        "semanticType": {
+            "type": "string",
+            "title": "Semantic Type",
+            "description": "Place type based on semantic information specific to the user.",
+            "examples": [
+                "TYPE_HOME"
+            ],
+            "oneOf": [
+                {
+                    "type": "string",
+                    "const": "TYPE_HOME",
+                    "title": "Type Home",
+                    "description": "The place has been designated as 'Home' by the user. See: [Set or change your home & work addresses](https://support.google.com/maps/answer/3093979?hl=en).",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "material_semantic_types/home_circled_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "TYPE_WORK",
+                    "title": "Type Work",
+                    "description": "The place has been designated as 'Work' by the user. See: [Set or change your home & work addresses](https://support.google.com/maps/answer/3093979?hl=en).",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "material_semantic_types/work_circled_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "TYPE_SEARCHED_ADDRESS",
+                    "title": "Type Searched Address",
+                    "description": "The user has searched for this place in the past.",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "material_semantic_types/schedule_circled_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "TYPE_ALIASED_LOCATION",
+                    "title": "Type Aliased Location",
+                    "description": "The place has been given a private label by the user. See: [Give a place a private label](https://support.google.com/maps/answer/6257830?hl=en).",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "material_semantic_types/label_circled_24dp.svg"
+                }
+            ]
+        },
+        "transitPath": {
+            "type": "object",
+            "title": "Transit Path",
+            "description": "A path taken in a public transit system, such as a bus or a metro. Note that it does not describe an entire transit line, but only a specific journey a user does in a transit line.",
+            "examples": [
+                {
+                    "transitStops": [
+                        {
+                            "latitudeE7": 414083140,
+                            "longitudeE7": 21704000,
+                            "placeId": "ChIJWey1zMWipBIRiNQSzpI4EDQ",
+                            "address": "08025 Barcelona\nEspaña",
+                            "name": "Sant Antoni Maria Claret-Lepant"
+                        },
+                        {
+                            "latitudeE7": 414066427,
+                            "longitudeE7": 21681608,
+                            "placeId": "ChIJ3Wr_xsaipBIRctQDPNF0IHM",
+                            "address": "08025 Barcelona\nEspaña",
+                            "name": "Sant Antoni Maria Claret - Sardenya"
+                        },
+                        {
+                            "latitudeE7": 414049343,
+                            "longitudeE7": 21659001,
+                            "placeId": "ChIJh2lnv8CipBIRpH0ym2Bxo68",
+                            "address": "08025 Barcelona\nEspaña",
+                            "name": "Sant Antoni Maria Claret - Nàpols"
+                        }
+                    ],
+                    "name": "H8",
+                    "hexRgbColor": "009EE0",
+                    "linePlaceId": "ChIJQVEUoLuipBIRJO37wI4yyBs",
+                    "stopTimesInfo": [
+                        {
+                            "scheduledDepartureTimestamp": "2022-03-03T12:42:00Z",
+                            "realtimeDepartureTimestamp": "2022-03-03T12:43:37Z"
+                        },
+                        {
+                            "scheduleArrivalTimestamp": "2022-03-03T12:44:01Z",
+                            "scheduledDepartureTimestamp": "2022-03-03T12:44:01Z",
+                            "realtimeArrivalTimestamp": "2022-03-03T12:45:38Z",
+                            "realtimeDepartureTimestamp": "2022-03-03T12:45:38Z"
+                        },
+                        {
+                            "scheduleArrivalTimestamp": "2022-03-03T12:46:03Z",
+                            "scheduledDepartureTimestamp": "2022-03-03T12:46:03Z",
+                            "realtimeArrivalTimestamp": "2022-03-03T12:47:40Z",
+                            "realtimeDepartureTimestamp": "2022-03-03T12:47:40Z"
+                        },
+                        {
+                            "scheduleArrivalTimestamp": "2022-03-03T12:48:00Z",
+                            "scheduledDepartureTimestamp": "2022-03-03T12:48:00Z",
+                            "realtimeArrivalTimestamp": "2022-03-03T12:49:37Z",
+                            "realtimeDepartureTimestamp": "2022-03-03T12:49:37Z"
+                        }
+                    ],
+                    "source": "INFERRED",
+                    "confidence": 0.9155850640140931,
+                    "distanceMeters": 2341.0
+                }
+            ],
+            "properties": {
+                "transitStops": {
+                    "type": "array",
+                    "title": "Transit Stops",
+                    "description": "List of locations of the transit stops used.",
+                    "items": {
+                        "$ref": "#/$defs/location"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "description": "Name of the transit line.",
+                    "examples": [
+                        "H8"
+                    ]
+                },
+                "hexRgbColor": {
+                    "type": "string",
+                    "title": "Hexadecimal RGB Color",
+                    "description": "Color of the transit line in hexadecimal in the form *RRGGBB*.",
+                    "examples": [
+                        "009EE0"
+                    ]
+                },
+                "linePlaceId": {
+                    "type": "string",
+                    "title": "Line Place ID",
+                    "description": "Google Maps [Place ID](https://developers.google.com/maps/documentation/places/web-service/place-id) of the transit line.",
+                    "examples": [
+                        "ChIJQVEUoLuipBIRJO37wI4yyBs"
+                    ]
+                },
+                "stopTimesInfo": {
+                    "type": "array",
+                    "title": "Stop Times Info",
+                    "description": "Time information (departure and arrival times, both real and scheduled) for each transit stop used.",
+                    "items": {
+                        "type": "object",
+                        "title": "Stop Time Info",
+                        "description": "Departure and/or arrival time information (both real and scheduled) for a stop at a transit line.",
+                        "examples": [
+                            {
+                                "scheduleArrivalTimestamp": "2022-03-03T12:44:01Z",
+                                "scheduledDepartureTimestamp": "2022-03-03T12:44:01Z",
+                                "realtimeArrivalTimestamp": "2022-03-03T12:45:38Z",
+                                "realtimeDepartureTimestamp": "2022-03-03T12:45:38Z"
+                            }
+                        ],
+                        "properties": {
+                            "scheduleArrivalTimestamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "title": "Schedule Arrival Timestamp",
+                                "description": "",
+                                "examples": [
+                                    "2022-03-03T12:44:01Z"
+                                ]
+                            },
+                            "scheduledDepartureTimestamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "title": "Scheduled Departure Timestamp",
+                                "description": "",
+                                "examples": [
+                                    "2022-03-03T12:44:01Z"
+                                ]
+                            },
+                            "realtimeArrivalTimestamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "title": "Realtime Arrival Timestamp",
+                                "description": "",
+                                "examples": [
+                                    "2022-03-03T12:45:38Z"
+                                ]
+                            },
+                            "realtimeDepartureTimestamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "title": "Realtime Departure Timestamp",
+                                "description": "",
+                                "examples": [
+                                    "2022-03-03T12:45:38Z"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "source": {
+                    "type": "string",
+                    "title": "Source",
+                    "description": "Source of the location data of the transit path. Either `BACKFILLED` or `INFERRED`.",
+                    "examples": [
+                        "INFERRED"
+                    ],
+                    "enum": [
+                        "BACKFILLED",
+                        "INFERRED"
+                    ]
+                },
+                "confidence": {
+                    "type": "number",
+                    "title": "Confidence",
+                    "description": "",
+                    "examples": [
+                        0.9155850640140931
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "distanceMeters": {
+                    "type": "number",
+                    "title": "Distance in meters",
+                    "description": "Distance traveled with the transit path, in meters.",
+                    "examples": [
+                        396.34176716755843
+                    ],
+                    "minimum": 0
+                }
+            }
         },
         "waypoint": {
             "type": "object",

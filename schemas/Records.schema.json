@@ -8,7 +8,7 @@
         "locations": {
             "type": "array",
             "title": "Locations",
-            "description": "List of all location records available, in chronological order.",
+            "description": "List of all available location records, in chronological order.",
             "items": {
                 "$ref": "#/$defs/locationRecord"
             },
