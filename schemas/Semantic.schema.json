@@ -710,7 +710,7 @@
                     "title": "Moving",
                     "description": "",
                     "extra_color": "#03a9f4",
-                    "extra_icon": "material_activities/moving_24dp.svg"
+                    "extra_icon": "activity_types/moving_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -718,7 +718,7 @@
                     "title": "Still",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/man_24dp.svg"
+                    "extra_icon": "activity_types/man_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -726,7 +726,7 @@
                     "title": "Walking",
                     "description": "",
                     "extra_color": "#03a9f4",
-                    "extra_icon": "material_activities/directions_walk_24dp.svg"
+                    "extra_icon": "activity_types/directions_walk_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -734,7 +734,7 @@
                     "title": "Cycling",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/directions_bike_24dp.svg"
+                    "extra_icon": "activity_types/directions_bike_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -742,7 +742,7 @@
                     "title": "Flying",
                     "description": "",
                     "extra_color": "#3f51b5",
-                    "extra_icon": "material_activities/local_airport_24dp.svg"
+                    "extra_icon": "activity_types/local_airport_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -750,7 +750,7 @@
                     "title": "Running",
                     "description": "",
                     "extra_color": "#c2185b",
-                    "extra_icon": "material_activities/directions_run_24dp.svg"
+                    "extra_icon": "activity_types/directions_run_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -758,7 +758,7 @@
                     "title": "On a bus",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/directions_bus_24dp.svg"
+                    "extra_icon": "activity_types/directions_bus_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -766,7 +766,7 @@
                     "title": "On a train",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/directions_railway_24dp.svg"
+                    "extra_icon": "activity_types/directions_railway_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -774,7 +774,7 @@
                     "title": "On the subway",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/subway_24dp.svg"
+                    "extra_icon": "activity_types/subway_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -782,7 +782,7 @@
                     "title": "On a tram",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/tram_24dp.svg"
+                    "extra_icon": "activity_types/tram_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -790,7 +790,7 @@
                     "title": "On a ferry",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/directions_boat_24dp.svg"
+                    "extra_icon": "activity_types/directions_boat_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -798,7 +798,7 @@
                     "title": "In a cable car",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/moving_24dp.svg"
+                    "extra_icon": "activity_types/moving_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -806,7 +806,7 @@
                     "title": "On a funicular",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/moving_24dp.svg"
+                    "extra_icon": "activity_types/moving_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -814,7 +814,7 @@
                     "title": "Hiking",
                     "description": "",
                     "extra_color": "#c2185b",
-                    "extra_icon": "material_activities/hiking_24dp.svg"
+                    "extra_icon": "activity_types/hiking_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -822,7 +822,7 @@
                     "title": "Kayaking",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/kayaking_24dp.svg"
+                    "extra_icon": "activity_types/kayaking_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -830,7 +830,7 @@
                     "title": "Kitesurfing",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/kitesurfing_24dp.svg"
+                    "extra_icon": "activity_types/kitesurfing_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -838,7 +838,7 @@
                     "title": "Rowing",
                     "description": "",
                     "extra_color": "#c2185b",
-                    "extra_icon": "material_activities/rowing_24dp.svg"
+                    "extra_icon": "activity_types/rowing_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -846,7 +846,7 @@
                     "title": "Sailing",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/sailing_24dp.svg"
+                    "extra_icon": "activity_types/sailing_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -854,7 +854,7 @@
                     "title": "Skating",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/ice_skating_24dp.svg"
+                    "extra_icon": "activity_types/ice_skating_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -862,7 +862,7 @@
                     "title": "Skiing",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/downhill_skiing_24dp.svg"
+                    "extra_icon": "activity_types/downhill_skiing_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -870,7 +870,7 @@
                     "title": "Skateboarding",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/skateboarding_24dp.svg"
+                    "extra_icon": "activity_types/skateboarding_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -878,7 +878,7 @@
                     "title": "Sledding",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/sledding_24dp.svg"
+                    "extra_icon": "activity_types/sledding_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -886,7 +886,7 @@
                     "title": "Snowboarding",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/snowboarding_24dp.svg"
+                    "extra_icon": "activity_types/snowboarding_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -894,7 +894,7 @@
                     "title": "Snowmobiling",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/snowmobile_24dp.svg"
+                    "extra_icon": "activity_types/snowmobile_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -902,7 +902,7 @@
                     "title": "Snowshoeing",
                     "description": "",
                     "extra_color": "#c2185b",
-                    "extra_icon": "material_activities/snowshoeing_24dp.svg"
+                    "extra_icon": "activity_types/snowshoeing_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -910,7 +910,7 @@
                     "title": "Surfing",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/surfing_24dp.svg"
+                    "extra_icon": "activity_types/surfing_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -918,7 +918,7 @@
                     "title": "Swimming",
                     "description": "",
                     "extra_color": "#c2185b",
-                    "extra_icon": "material_activities/pool_24dp.svg"
+                    "extra_icon": "activity_types/pool_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -926,7 +926,7 @@
                     "title": "Nordic walking",
                     "description": "",
                     "extra_color": "#c2185b",
-                    "extra_icon": "material_activities/nordic_walking_24dp.svg"
+                    "extra_icon": "activity_types/nordic_walking_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -934,7 +934,7 @@
                     "title": "Driving",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/directions_car_24dp.svg"
+                    "extra_icon": "activity_types/directions_car_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -942,7 +942,7 @@
                     "title": "Motorcycling",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/motorcycle_24dp.svg"
+                    "extra_icon": "activity_types/motorcycle_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -950,7 +950,7 @@
                     "title": "Boating",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/directions_boat_24dp.svg"
+                    "extra_icon": "activity_types/directions_boat_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -958,7 +958,7 @@
                     "title": "By wheelchair",
                     "description": "",
                     "extra_color": "#03a9f4",
-                    "extra_icon": "material_activities/accessible_forward_24dp.svg"
+                    "extra_icon": "activity_types/accessible_forward_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -966,7 +966,7 @@
                     "title": "Horseback riding",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/moving_24dp.svg"
+                    "extra_icon": "activity_types/moving_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -974,7 +974,7 @@
                     "title": "In a gondola lift",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/moving_24dp.svg"
+                    "extra_icon": "activity_types/moving_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -982,7 +982,7 @@
                     "title": "Catching Pok\u00e9mon",
                     "description": "",
                     "extra_color": "#db4437",
-                    "extra_icon": "material_activities/catching_pokemon_24dp.svg"
+                    "extra_icon": "activity_types/catching_pokemon_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -990,7 +990,7 @@
                     "title": "In a taxi",
                     "description": "",
                     "extra_color": "#01579b",
-                    "extra_icon": "material_activities/local_taxi_24dp.svg"
+                    "extra_icon": "activity_types/local_taxi_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -998,7 +998,7 @@
                     "title": "Paragliding",
                     "description": "",
                     "extra_color": "#4db6ac",
-                    "extra_icon": "material_activities/paragliding_24dp.svg"
+                    "extra_icon": "activity_types/paragliding_24dp.svg"
                 }
             ]
         },
@@ -1016,7 +1016,7 @@
                     "title": "Type Home",
                     "description": "The place has been designated as 'Home' by the user. See: [Set or change your home & work addresses](https://support.google.com/maps/answer/3093979?hl=en).",
                     "extra_color": "#03a9f4",
-                    "extra_icon": "material_semantic_types/home_circled_24dp.svg"
+                    "extra_icon": "semantic_types/home_circled_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -1024,7 +1024,7 @@
                     "title": "Type Work",
                     "description": "The place has been designated as 'Work' by the user. See: [Set or change your home & work addresses](https://support.google.com/maps/answer/3093979?hl=en).",
                     "extra_color": "#03a9f4",
-                    "extra_icon": "material_semantic_types/work_circled_24dp.svg"
+                    "extra_icon": "semantic_types/work_circled_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -1032,7 +1032,7 @@
                     "title": "Type Searched Address",
                     "description": "The user has searched for this place in the past.",
                     "extra_color": "#03a9f4",
-                    "extra_icon": "material_semantic_types/schedule_circled_24dp.svg"
+                    "extra_icon": "semantic_types/schedule_circled_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -1040,7 +1040,7 @@
                     "title": "Type Aliased Location",
                     "description": "The place has been given a private label by the user. See: [Give a place a private label](https://support.google.com/maps/answer/6257830?hl=en).",
                     "extra_color": "#03a9f4",
-                    "extra_icon": "material_semantic_types/label_circled_24dp.svg"
+                    "extra_icon": "semantic_types/label_circled_24dp.svg"
                 }
             ]
         },
