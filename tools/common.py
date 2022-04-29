@@ -1,3 +1,4 @@
+import requests
 import yaml
 
 
@@ -29,3 +30,16 @@ def repo_url(configpath="./mkdocs.yml", file_path=None, line_start=None, line_en
                 url += "-L" + str(line_end)
 
     return url
+
+
+def download_text(url, encoding="utf-8"):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+
+    return r.content.decode(encoding)
+
+
+def save_text(text, output_path, encoding="utf-8"):
+    with open(output_path, "w", encoding=encoding) as f:
+        f.write(text)
