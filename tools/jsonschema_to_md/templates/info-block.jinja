@@ -21,7 +21,7 @@
 {% endfor %}
 {% if schema.raw_schema['helpWanted'] is defined %}
 	<div markdown="1">
-		<span class="mdx-help">:octicons-tag-16: **Help Wanted:**</span>
-		*{{ schema.raw_schema['helpWanted'] }} Contributions to improve this [are welcome]({{ schema_repo_link(schema) }}).*
+		<span class="mdx-help">:octicons-tag-16: **Help Wanted:** </span>
+		*{{ process_description(schema.root_schema, schema.raw_schema['helpWanted']) }} Contributions to improve this [are welcome]({{ schema_repo_link(schema) }}).*
 	</div>
 {% endif %}
