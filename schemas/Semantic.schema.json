@@ -10,7 +10,6 @@
     ],
     "properties": {
         "timelineObjects": {
-            "$id": "#/properties/timelineObjects",
             "type": "array",
             "title": "Timeline Objects",
             "description": "List of all available semantic information, in chronological order. Each item in the list is either an ![#/$defs/activitySegment] or a ![#/$defs/placeVisit], encapsulated in a generic ![#/properties/timelineObjects/items].",
@@ -25,7 +24,10 @@
                             "activitySegment": {
                                 "$ref": "#/$defs/activitySegment"
                             }
-                        }
+                        },
+                        "required": [
+                            "activitySegment"
+                        ]
                     },
                     {
                         "type": "object",
@@ -33,7 +35,10 @@
                             "placeVisit": {
                                 "$ref": "#/$defs/placeVisit"
                             }
-                        }
+                        },
+                        "required": [
+                            "placeVisit"
+                        ]
                     }
                 ]
             }
@@ -493,7 +498,8 @@
                         "MEDIUM_CONFIDENCE",
                         "HIGH_CONFIDENCE",
                         "USER_CONFIRMED"
-                    ]
+                    ],
+                    "helpWanted": "Is this directly related to [#/$defs/placeVisit/properties/locationConfidence] and/or [#/$defs/placeVisit/properties/visitConfidence]"
                 },
                 "visitConfidence": {
                     "type": "integer",
@@ -504,13 +510,56 @@
                     ],
                     "minimum": 0,
                     "maximum": 100,
-                    "helpWanted": "Is this related to [#/$defs/placeVisit/properties/placeConfidence]? What are their differences?"
+                    "helpWanted": "How is this different from [#/$defs/placeVisit/properties/locationConfidence]"
+                },
+                "locationConfidence": {
+                    "type": "integer",
+                    "title": "Visit Confidence",
+                    "description": "",
+                    "examples": [
+                        71
+                    ],
+                    "minimum": 0,
+                    "maximum": 100,
+                    "helpWanted": "How is this different from [#/$defs/placeVisit/properties/visitConfidence]"
+                },
+                "otherCandidateLocations": {
+                    "type": "array",
+                    "title": "Other Candidate Locations",
+                    "description": "",
+                    "items": {
+                        "$ref": "#/$defs/location"
+                    }
                 },
                 "editConfirmationStatus": {
                     "type": "string",
                     "title": "Edit Confirmation Status",
                     "description": "Whether the user has manually edited the place visit. Can be `NOT_CONFIRMED` or `CONFIRMED`.",
                     "$ref": "#/$defs/editConfirmationStatus"
+                },
+                "placeVisitType": {
+                    "type": "string",
+                    "title": "Place Visit Type",
+                    "description": "Can be `SINGLE_PLACE`.",
+                    "examples": [
+                        "SINGLE_PLACE"
+                    ],
+                    "enum": [
+                        "SINGLE_PLACE"
+                    ],
+                    "helpWanted": "Are there other valid values?"
+                },
+                "placeVisitImportance": {
+                    "type": "string",
+                    "title": "Place Visit Importance",
+                    "description": "One of `MAIN` or `TRANSITIONAL`.",
+                    "examples": [
+                        "SINGLE_PLACE"
+                    ],
+                    "enum": [
+                        "MAIN",
+                        "TRANSITIONAL"
+                    ]
                 }
             }
         },
@@ -735,6 +784,14 @@
                     "description": "",
                     "extra_color": "#4db6ac",
                     "extra_icon": "activity_types/directions_bike_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_VEHICLE",
+                    "title": "In a vehicle",
+                    "description": "",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "activity_types/moving_24dp.svg"
                 },
                 {
                     "type": "string",
