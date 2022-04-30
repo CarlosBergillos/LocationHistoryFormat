@@ -10,7 +10,7 @@
 {% if schema.raw_schema['removed'] is defined %}
 	<div class="mdx-removed" markdown="1">:octicons-tag-24: *Removed {{ schema.raw_schema['removed'] }}.*
 	{% if schema.raw_schema['replacedBy'] is defined %}
-		Replaced by {{ schema_link(schema.get(schema.raw_schema['replacedBy'])) }}.
+		Replaced by {{ schema_link(schema.get(schema.raw_schema['replacedBy']), section=False) }}.
 	{% endif %}
 	</div>
 {% endif %}

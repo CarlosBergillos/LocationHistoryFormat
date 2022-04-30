@@ -93,28 +93,25 @@ def _schema_repo_link(schema):
     )
 
 
-def _fragment_id(schema, force_defs=False):
-    # force_defs=True is useful when we know the link should direct to a new block (and not the in-table property)
-    # the defs path doesn't need to exist in the schema, but it can still exist in the Html.
+def _schema_fragment(schema, section=False):
+    # when section=True the fragment should link to the main section (if it exists). We indicate this by using a trailing slash.
+    # when section=False the fragment should link to the table row where it is used. We indicate this by not using a trailing slash.
 
-    if schema.key == "$root":
-        return "$root"
+    fragment_id = schema.path.removeprefix("#")
 
-    if force_defs:
-        fragment_id = f"/$defs/{schema.key}"
-    else:
-        fragment_id = schema.path.removeprefix("#")
+    if section:
+        return fragment_id + "/"
 
     return fragment_id
 
 
-def _schema_link(schema, use_title=False, force_defs=False):
-    fragment_id = _fragment_id(schema, force_defs=force_defs)
+def _schema_link(schema, section=False):
+    fragment = _schema_fragment(schema, section=section)
 
-    if use_title:
-        return f"[{schema.title}](#{fragment_id})"
+    if section:
+        return f"[{schema.title}](#{fragment})"
     else:
-        return f"[`{schema.key}`](#{fragment_id})"
+        return f"[`{schema.key}`](#{fragment})"
 
 
 def _info_block(schema, type_text=None):
@@ -144,11 +141,11 @@ def _info_cell(schema, type_text=None):
 
 def _process_description(root_schema, description):
     def reflink(match):
-        use_title = bool(match.group(1))
+        section = bool(match.group(1))
         path = match.group(2)
         schema = root_schema.get(path)
 
-        return _schema_link(schema, use_title=use_title)
+        return _schema_link(schema, section=section)
 
     # replace references like '[#/$defs/activitySegment]' with a link to the object/property.
     # if it starts with a !, e.g. '![#/$defs/activitySegment]' then use title for the link instead of the key (via use_title=True).
@@ -166,20 +163,18 @@ def _property_row(schema, queue):
 
     if schema.type == "object":
         queue.put(schema.primary_path)
-        type_link = _schema_link(schema.refd_schema or schema, use_title=True, force_defs=True)
+        type_link = _schema_link(schema.refd_schema or schema, section=True)
 
     if schema.type == "array":
-        key_text = f"`{schema.key}[]`"
+        key_text = f"`{schema.key}\u200B[]`"
 
         if schema.item_schema.type == "object":
             queue.put(schema.item_schema.primary_path)
-            type_link = _schema_link(
-                schema.item_schema.refd_schema or schema.item_schema, use_title=True, force_defs=True
-            )
+            type_link = _schema_link(schema.item_schema.refd_schema or schema.item_schema, section=True)
 
     if schema.oneOf:
         queue.put(schema.primary_path)
-        type_link = _schema_link(schema.refd_schema or schema, use_title=True, force_defs=True)
+        type_link = _schema_link(schema.refd_schema or schema, section=True)
 
     if schema.type == "array":
         type_text += f"array of: `{schema.item_schema.type}`"
@@ -194,7 +189,7 @@ def _property_row(schema, queue):
     info_cell = _info_cell(schema, type_text=type_text)
 
     return {
-        "Property": key_text + f' {{ id="{_fragment_id(schema)}" }}',
+        "Property": key_text + f' {{ id="{_schema_fragment(schema, section=False)}" }}',
         "Description": info_cell,
     }
 
@@ -203,7 +198,7 @@ def schema_object_to_md(schema, md, queue):
     print(f"\tBuilding '{schema.title}'")
     _validate_schema(schema)
 
-    md.push_heading(2, schema.title, id=_fragment_id(schema, force_defs=True))
+    md.push_heading(2, schema.title, id=_schema_fragment(schema, section=True))
 
     info_block = _info_block(schema)
     md.push_paragraph(info_block)
@@ -228,7 +223,7 @@ def schema_oneOf_to_md(schema, md, queue):
     print(f"\tBuilding '{schema.title}'")
     _validate_schema(schema)
 
-    md.push_heading(2, schema.title, id=_fragment_id(schema, force_defs=True))
+    md.push_heading(2, schema.title, id=_schema_fragment(schema, section=True))
 
     info_block = _info_block(schema)
     md.push_paragraph(info_block)
@@ -242,7 +237,7 @@ def schema_oneOf_to_md(schema, md, queue):
 
             rows.append(
                 {
-                    schema.title: f'`{one_schema.const}` {{ id="{_fragment_id(one_schema)}" }}',
+                    schema.title: f'`{one_schema.const}` {{ id="{_schema_fragment(one_schema, section=False)}" }}',
                     "Description": _info_cell(one_schema),
                 }
             )

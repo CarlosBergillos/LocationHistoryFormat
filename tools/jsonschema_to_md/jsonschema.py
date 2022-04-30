@@ -114,7 +114,7 @@ class JSONSchema:
 
         in_schema_container = False
         raw_schema = self.root_schema.raw_schema
-        key = "$root"
+        key = "#"
 
         for part in parts:
             if not part:
