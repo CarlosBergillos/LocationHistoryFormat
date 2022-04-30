@@ -4,7 +4,6 @@
     "type": "object",
     "title": "Semantic Location History",
     "description": "A Semantic Location History JSON file in a Google Takeout Location History extraction. Contains Semantic Location History information from the user's account. Typically this will be a file containing data for a single month, with a name such as `2021_JANUARY.json`.",
-    "extra_wip": true,
     "required": [
         "timelineObjects"
     ],
@@ -365,6 +364,58 @@
                             "examples": [
                                 0.7986568220419046
                             ]
+                        },
+                        "roadSegment": {
+                            "type": "array",
+                            "title": "Road Segment",
+                            "description": "",
+                            "items": {
+                                "type": "object",
+                                "title": "Road Segment",
+                                "description": "",
+                                "properties": {
+                                    "duration": {
+                                        "type": "string",
+                                        "title": "Duration",
+                                        "description": "",
+                                        "examples": [
+                                            "8s"
+                                        ]
+                                    },
+                                    "placeId": {
+                                        "type": "string",
+                                        "title": "Place ID",
+                                        "description": "Google Maps [Place ID](https://developers.google.com/maps/documentation/places/web-service/place-id) of the location.",
+                                        "examples": [
+                                            "ChIJk_s92NyipBIRUMnDG8Kq2Js"
+                                        ]
+                                    }
+                                }
+                            },
+                            "examples": [
+                                [
+                                    {
+                                        "placeId": "ChIJ78lmnGGYpBIRYiA-sq-lZpA",
+                                        "duration": "1s"
+                                    },
+                                    {
+                                        "placeId": "ChIJax30s2GYpBIRUasE5NiNFJY",
+                                        "duration": "23s"
+                                    },
+                                    {
+                                        "placeId": "ChIJe3WC5GCYpBIR0z7IXPJj23k",
+                                        "duration": "5s"
+                                    },
+                                    {
+                                        "placeId": "ChIJrzu_5mCYpBIRb8LMACSNRhU",
+                                        "duration": "4s"
+                                    },
+                                    {
+                                        "placeId": "ChIJBynC2mCYpBIRz56Otx0P2So",
+                                        "duration": "3s"
+                                    }
+                                ]
+                            ]
                         }
                     }
                 },
@@ -372,85 +423,7 @@
                     "type": "object",
                     "title": "Simplified Raw Path",
                     "description": "",
-                    "examples": [
-                        {
-                            "points": [
-                                {
-                                    "latE7": 416032766,
-                                    "lngE7": 21841819,
-                                    "accuracyMeters": 10,
-                                    "timestamp": "2022-03-03T08:27:48Z"
-                                },
-                                {
-                                    "latE7": 416016705,
-                                    "lngE7": 21861614,
-                                    "accuracyMeters": 13,
-                                    "timestamp": "2022-03-03T08:30:04Z"
-                                },
-                                {
-                                    "latE7": 415986545,
-                                    "lngE7": 21823960,
-                                    "accuracyMeters": 12,
-                                    "timestamp": "2022-03-03T08:33:51Z"
-                                }
-                            ],
-                            "source": "INFERRED",
-                            "distanceMeters": 2413.400132766728
-                        }
-                    ],
-                    "properties": {
-                        "points": {
-                            "type": "array",
-                            "title": "Points",
-                            "description": "List of all the recorded points that form the path.",
-                            "items": {
-                                "$ref": "#/$defs/point"
-                            },
-                            "examples": [
-                                [
-                                    {
-                                        "latE7": 416032766,
-                                        "lngE7": 21841819,
-                                        "accuracyMeters": 10,
-                                        "timestamp": "2022-03-03T08:27:48Z"
-                                    },
-                                    {
-                                        "latE7": 416016705,
-                                        "lngE7": 21861614,
-                                        "accuracyMeters": 13,
-                                        "timestamp": "2022-03-03T08:30:04Z"
-                                    },
-                                    {
-                                        "latE7": 415986545,
-                                        "lngE7": 21823960,
-                                        "accuracyMeters": 12,
-                                        "timestamp": "2022-03-03T08:33:51Z"
-                                    }
-                                ]
-                            ]
-                        },
-                        "source": {
-                            "type": "string",
-                            "title": "Source",
-                            "description": "Source of the location data of the path. Either `BACKFILLED` or `INFERRED`.",
-                            "examples": [
-                                "INFERRED"
-                            ],
-                            "enum": [
-                                "BACKFILLED",
-                                "INFERRED"
-                            ]
-                        },
-                        "distanceMeters": {
-                            "type": "number",
-                            "title": "Distance in meters",
-                            "description": "Distance traveled with the path, in meters.",
-                            "examples": [
-                                2413.400132766728
-                            ],
-                            "minimum": 0
-                        }
-                    }
+                    "$ref": "#/$defs/simplifiedRawPath"
                 },
                 "transitPath": {
                     "type": "object",
@@ -458,20 +431,32 @@
                     "description": "Path taken in a public transit system, such as a bus or a metro.",
                     "$ref": "#/$defs/transitPath"
                 },
+                "parkingEvent": {
+                    "type": "object",
+                    "title": "Parking Event",
+                    "description": "",
+                    "$ref": "#/$defs/parkingEvent"
+                },
+                "editConfirmationStatus": {
+                    "type": "string",
+                    "title": "Edit-Confirmation Status",
+                    "description": "Whether the user has manually edited the activity segment. Can be `NOT_CONFIRMED` or `CONFIRMED`.",
+                    "$ref": "#/$defs/editConfirmationStatus"
+                },
+                "editActionMetadata": {
+                    "type": "object",
+                    "title": "Edit-Action Metadata",
+                    "description": "",
+                    "$ref": "#/$defs/editActionMetadata"
+                },
                 "lastEditedTimestamp": {
                     "type": "string",
                     "format": "date-time",
-                    "title": "Last Edited Timestamp",
+                    "title": "Last-Edited Timestamp",
                     "description": "",
                     "examples": [
                         "2022-03-06T14:13:11.092Z"
                     ]
-                },
-                "editConfirmationStatus": {
-                    "type": "string",
-                    "title": "Edit Confirmation Status",
-                    "description": "Whether the user has manually edited the activity segment. Can be `NOT_CONFIRMED` or `CONFIRMED`.",
-                    "$ref": "#/$defs/editConfirmationStatus"
                 }
             }
         },
@@ -480,6 +465,32 @@
             "title": "Place Visit",
             "description": "A visit or stay at a place in a fixed location for a duration of time, such as a stay at home, at work, a visit to a shopping mall, or to a restaurant.",
             "properties": {
+                "location": {
+                    "type": "object",
+                    "title": "Location",
+                    "description": "Location of the place.",
+                    "$ref": "#/$defs/location"
+                },
+                "centerLatE7": {
+                    "type": "integer",
+                    "title": "Center Latitude",
+                    "description": "Latitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).",
+                    "examples": [
+                        414216106
+                    ],
+                    "minimum": -900000000,
+                    "maximum": 900000000
+                },
+                "centerLngE7": {
+                    "type": "integer",
+                    "title": "Center Longitude",
+                    "description": "Longitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).",
+                    "examples": [
+                        21684775
+                    ],
+                    "minimum": -1800000000,
+                    "maximum": 1800000000
+                },
                 "duration": {
                     "type": "object",
                     "title": "Duration",
@@ -531,11 +542,54 @@
                         "$ref": "#/$defs/location"
                     }
                 },
+                "childVisits": {
+                    "type": "array",
+                    "title": "Child Visits",
+                    "description": "",
+                    "items": {
+                        "$ref": "#/$defs/placeVisit"
+                    }
+                },
+                "sectionId": {
+                    "type": "string",
+                    "title": "Section ID",
+                    "description": ""
+                },
+                "simplifiedRawPath": {
+                    "type": "object",
+                    "title": "Simplified Raw Path",
+                    "description": "",
+                    "$ref": "#/$defs/simplifiedRawPath"
+                },
+                "placeVisitLevel": {
+                    "type": "integer",
+                    "title": "Place Visit Level",
+                    "description": "Level (depth) of this place visit. This value increases by 1 with each recursive access to a [#/$defs/placeVisit/properties/childVisits] entry.",
+                    "examples": [
+                        1
+                    ],
+                    "minimum": 0
+                },
                 "editConfirmationStatus": {
                     "type": "string",
-                    "title": "Edit Confirmation Status",
+                    "title": "Edit-Confirmation Status",
                     "description": "Whether the user has manually edited the place visit. Can be `NOT_CONFIRMED` or `CONFIRMED`.",
                     "$ref": "#/$defs/editConfirmationStatus"
+                },
+                "editActionMetadata": {
+                    "type": "object",
+                    "title": "Edit-Action Metadata",
+                    "description": "",
+                    "$ref": "#/$defs/editActionMetadata"
+                },
+                "lastEditedTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Last-Edited Timestamp",
+                    "description": "",
+                    "examples": [
+                        "2022-03-06T14:13:11.092Z"
+                    ]
                 },
                 "placeVisitType": {
                     "type": "string",
@@ -554,12 +608,83 @@
                     "title": "Place Visit Importance",
                     "description": "One of `MAIN` or `TRANSITIONAL`.",
                     "examples": [
-                        "SINGLE_PLACE"
+                        "MAIN"
                     ],
                     "enum": [
                         "MAIN",
                         "TRANSITIONAL"
                     ]
+                },
+                "locationAssertionType": {
+                    "type": "string",
+                    "title": "Location Assertion Type",
+                    "description": "",
+                    "examples": [
+                        "AREA"
+                    ],
+                    "enum": [
+                        "AREA",
+                        "WITHIN_OR_AT"
+                    ]
+                },
+                "checkin": {
+                    "type": "object",
+                    "title": "Checkin",
+                    "description": "",
+                    "properties": {
+                        "atTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "title": "At Time",
+                            "description": "",
+                            "examples": [
+                                "2022-03-06T14:13:11.092Z"
+                            ]
+                        },
+                        "latestKnownLocation": {
+                            "type": "object",
+                            "title": "Latest Known Location",
+                            "description": "",
+                            "properties": {
+                                "location": {
+                                    "type": "object",
+                                    "title": "Location",
+                                    "description": "",
+                                    "$ref": "#/$defs/location"
+                                },
+                                "detectionTime": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "title": "Detection Time",
+                                    "description": "",
+                                    "examples": [
+                                        "2022-03-06T14:13:11.092Z"
+                                    ]
+                                }
+                            }
+                        },
+                        "device": {
+                            "type": "object",
+                            "title": "Device",
+                            "description": "",
+                            "properties": {
+                                "android": {
+                                    "type": "object",
+                                    "title": "Android",
+                                    "description": "",
+                                    "properties": {
+                                        "fingerprint": {
+                                            "type": "string",
+                                            "title": "Fingerprint",
+                                            "description": "",
+                                            "examples": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "helpWanted": "The meaning of this field is uncertain."
                 }
             }
         },
@@ -635,6 +760,15 @@
                     "examples": [
                         "TYPE_HOME"
                     ]
+                },
+                "accuracyMetres": {
+                    "type": "integer",
+                    "title": "Accuracy in meters",
+                    "description": "Approximate accuracy radius of the location measurement, in meters. A lower value means better precision.",
+                    "examples": [
+                        19
+                    ],
+                    "minimum": 0
                 },
                 "locationConfidence": {
                     "type": "number",
@@ -1101,6 +1235,90 @@
                 }
             ]
         },
+        "simplifiedRawPath": {
+            "type": "object",
+            "title": "Simplified Raw Path",
+            "description": "",
+            "examples": [
+                {
+                    "points": [
+                        {
+                            "latE7": 416032766,
+                            "lngE7": 21841819,
+                            "accuracyMeters": 10,
+                            "timestamp": "2022-03-03T08:27:48Z"
+                        },
+                        {
+                            "latE7": 416016705,
+                            "lngE7": 21861614,
+                            "accuracyMeters": 13,
+                            "timestamp": "2022-03-03T08:30:04Z"
+                        },
+                        {
+                            "latE7": 415986545,
+                            "lngE7": 21823960,
+                            "accuracyMeters": 12,
+                            "timestamp": "2022-03-03T08:33:51Z"
+                        }
+                    ],
+                    "source": "INFERRED",
+                    "distanceMeters": 2413.400132766728
+                }
+            ],
+            "properties": {
+                "points": {
+                    "type": "array",
+                    "title": "Points",
+                    "description": "List of all the recorded points that form the path.",
+                    "items": {
+                        "$ref": "#/$defs/point"
+                    },
+                    "examples": [
+                        [
+                            {
+                                "latE7": 416032766,
+                                "lngE7": 21841819,
+                                "accuracyMeters": 10,
+                                "timestamp": "2022-03-03T08:27:48Z"
+                            },
+                            {
+                                "latE7": 416016705,
+                                "lngE7": 21861614,
+                                "accuracyMeters": 13,
+                                "timestamp": "2022-03-03T08:30:04Z"
+                            },
+                            {
+                                "latE7": 415986545,
+                                "lngE7": 21823960,
+                                "accuracyMeters": 12,
+                                "timestamp": "2022-03-03T08:33:51Z"
+                            }
+                        ]
+                    ]
+                },
+                "source": {
+                    "type": "string",
+                    "title": "Source",
+                    "description": "Source of the location data of the path. Either `BACKFILLED` or `INFERRED`.",
+                    "examples": [
+                        "INFERRED"
+                    ],
+                    "enum": [
+                        "BACKFILLED",
+                        "INFERRED"
+                    ]
+                },
+                "distanceMeters": {
+                    "type": "number",
+                    "title": "Distance in meters",
+                    "description": "Distance traveled with the path, in meters.",
+                    "examples": [
+                        2413.400132766728
+                    ],
+                    "minimum": 0
+                }
+            }
+        },
         "transitPath": {
             "type": "object",
             "title": "Transit Path",
@@ -1380,6 +1598,218 @@
                 "NOT_CONFIRMED",
                 "CONFIRMED"
             ]
+        },
+        "editActionMetadata": {
+            "type": "object",
+            "title": "Edit-Action Metadata",
+            "description": "",
+            "properties": {
+                "activitySegment": {
+                    "type": "object",
+                    "title": "Activity Segment",
+                    "description": "",
+                    "properties": {
+                        "activityType": {
+                            "type": "string",
+                            "title": "Activity Type",
+                            "description": "",
+                            "$ref": "#/$defs/activityType",
+                            "examples": [
+                                "WALKING"
+                            ]
+                        },
+                        "activityConfidence": {
+                            "type": "number",
+                            "title": "Confidence",
+                            "description": "",
+                            "examples": [
+                                98.705695
+                            ],
+                            "minimum": 0,
+                            "maximum": 100
+                        }
+                    }
+                },
+                "placeVisitSegment": {
+                    "type": "object",
+                    "title": "Place Visit Segment",
+                    "description": "",
+                    "properties": {
+                        "location": {
+                            "type": "object",
+                            "title": "Location",
+                            "description": "",
+                            "$ref": "#/$defs/location"
+                        }
+                    }
+                },
+                "editHistory": {
+                    "type": "object",
+                    "title": "Edit History",
+                    "description": "",
+                    "properties": {
+                        "editEvent": {
+                            "type": "array",
+                            "title": "Edit Event",
+                            "description": "",
+                            "items": {
+                                "type": "object",
+                                "title": "Edit Event",
+                                "description": "",
+                                "properties": {
+                                    "editOperation": {
+                                        "type": "array",
+                                        "title": "Edit Operation",
+                                        "description": "",
+                                        "items": {
+                                            "type": "string",
+                                            "title": "Edit Operation",
+                                            "description": "",
+                                            "examples": [
+                                                "CREATE"
+                                            ],
+                                            "enum": [
+                                                "CREATE",
+                                                "CONFIRM",
+                                                "MODIFY_TIME",
+                                                "MODIFY_LOCATION",
+                                                "MODIFY_ACTIVITY_TYPE",
+                                                "MODIFY_UNCHANGED"
+                                            ]
+                                        }
+                                    },
+                                    "uiConfiguration": {
+                                        "type": "object",
+                                        "title": "UI Configuration",
+                                        "description": "",
+                                        "properties": {
+                                            "uiActivitySegmentConfiguration": {
+                                                "type": "string",
+                                                "title": "UI Activity Segment Configuration",
+                                                "description": "",
+                                                "examples": [
+                                                    "DEFAULT_ACTIVITY_SEGMENT_CONFIGURATION"
+                                                ],
+                                                "enum": [
+                                                    "DEFAULT_ACTIVITY_SEGMENT_CONFIGURATION",
+                                                    "UNPERSONALIZED_EDIT_ACTIVITY_SEGMENT"
+                                                ]
+                                            },
+                                            "uiPlaceVisitConfiguration": {
+                                                "type": "string",
+                                                "title": "UI Place Visit Configuration",
+                                                "description": "",
+                                                "examples": [
+                                                    "DEFAULT_PLACE_VISIT_CONFIGURATION"
+                                                ],
+                                                "enum": [
+                                                    "DEFAULT_PLACE_VISIT_CONFIGURATION",
+                                                    "YES_NO_OTHER_PLACE_VISIT",
+                                                    "FORCED_NEIGHBORHOOD",
+                                                    "UNPERSONALIZED_EDIT_PLACE_VISIT"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "originalCandidates": {
+                    "type": "object",
+                    "title": "Original Candidates",
+                    "description": "",
+                    "properties": {
+                        "placeVisitSegment": {
+                            "type": "object",
+                            "title": "Place Visit Segment",
+                            "description": "",
+                            "properties": {
+                                "placeVisitCandidate": {
+                                    "type": "array",
+                                    "title": "Place Visit Candidate",
+                                    "description": "",
+                                    "items": {
+                                        "type": "object",
+                                        "title": "Original Candidates",
+                                        "description": "",
+                                        "properties": {
+                                            "location": {
+                                                "type": "object",
+                                                "title": "Location",
+                                                "description": "",
+                                                "$ref": "#/$defs/location"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "parkingEvent": {
+            "type": "object",
+            "title": "Parking Event",
+            "description": "",
+            "examples": [
+                {
+                    "location": {
+                        "latitudeE7": 412518975,
+                        "longitudeE7": 21683133,
+                        "accuracyMetres": 19
+                    },
+                    "method": "EXITING_VEHICLE_SIGNAL",
+                    "locationSource": "FROM_RAW_LOCATION",
+                    "timestamp": "2022-02-27T14:47:16.731Z"
+                }
+            ],
+            "properties": {
+                "location": {
+                    "type": "object",
+                    "title": "Location",
+                    "description": "",
+                    "$ref": "#/$defs/location"
+                },
+                "method": {
+                    "type": "string",
+                    "title": "Method",
+                    "description": "",
+                    "examples": [
+                        "EXITING_VEHICLE_SIGNAL"
+                    ],
+                    "enum": [
+                        "PERSONAL_VEHICLE_CONFIDENCE",
+                        "END_OF_ACTIVITY_SEGMENT",
+                        "EXITING_VEHICLE_SIGNAL",
+                        "UNDEFINED"
+                    ]
+                },
+                "locationSource": {
+                    "type": "string",
+                    "title": "Location Source",
+                    "description": "",
+                    "examples": [
+                        "FROM_RAW_LOCATION"
+                    ],
+                    "enum": [
+                        "FROM_RAW_LOCATION",
+                        "NOT_FROM_RAW_LOCATION",
+                        "UNKNOWN"
+                    ]
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Timestamp",
+                    "description": "",
+                    "examples": [
+                        "2022-02-27T14:47:16.731Z"
+                    ]
+                }
+            }
         }
     }
 }
