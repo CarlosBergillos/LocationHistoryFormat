@@ -12,6 +12,10 @@ class EmptyJSONSchema:
         return False
 
 
+class JSONSchemaError(ValueError):
+    pass
+
+
 class JSONSchema:
     def __init__(self, raw_schema, key=None, path="#", root_schema=None, file_path=None, source_map=None):
         self.raw_schema = raw_schema
@@ -142,14 +146,14 @@ class JSONSchema:
                 try:
                     idx = int(part)
                 except ValueError:
-                    raise ValueError(f"Path '{path}' encountered an array but part is not an integer.")
+                    raise JSONSchemaError(f"Index '{part}' not valid in array in path '{path}', positive integer expected.")
 
                 try:
                     raw_schema = raw_schema[idx]
-                except ValueError:
-                    raise ValueError(f"Index {idx} out of range in path '{path}'.")
+                except IndexError:
+                    raise JSONSchemaError(f"Index {idx} out of range in array in path '{path}'.")
 
             if raw_schema is None:
-                raise ValueError(f"Did not find '{path}' in schema.")
+                raise JSONSchemaError(f"Could not find '{path}' in schema.")
 
         return JSONSchema(raw_schema, key, path, root_schema=self.root_schema)

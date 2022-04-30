@@ -3,9 +3,13 @@
 
 
 import argparse
+import logging
 from pathlib import Path
 
-from .schema_to_md import JSONSchemaRenderer
+from rich.logging import RichHandler
+
+from .jsonschema import JSONSchemaError
+from .schema_to_md import JSONSchemaRenderer, ValidationError
 
 
 def main():
@@ -27,7 +31,15 @@ def main():
     out = args.output or md_filename
     title = args.title
 
-    JSONSchemaRenderer().render_md(inp, out, title=title)
+    logging.basicConfig(level=logging.NOTSET, format="%(message)s", datefmt="[%X]", handlers=[RichHandler(show_path=False)])
+    logger = logging.getLogger(__name__)
+
+    try:
+        JSONSchemaRenderer(logger=None).render_md(inp, out, title=title)
+    except (JSONSchemaError, ValidationError) as e:
+        logger.error(e)
+    except Exception as e:
+        logger.exception(e)
 
 
 if __name__ == "__main__":
