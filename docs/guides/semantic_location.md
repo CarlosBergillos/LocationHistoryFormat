@@ -28,4 +28,4 @@ Each of the *timeline objects* in this array is either an `activitySegment` or a
     This page is incomplete.
 
 
-[Timeline]: https://timeline.google.com
+[Timeline]: https://www.google.com/maps/timeline
