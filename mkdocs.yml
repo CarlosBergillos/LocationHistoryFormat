@@ -57,9 +57,9 @@ nav:
   - Home: index.md
   - Guides:
     - Downloading the Data: guides/downloading.md
-    - General Structure: guides/general_structure.md
-    - Raw Location History Data: guides/raw_location.md
-    - Semantic Location History Data: guides/semantic_location.md
+    - General Structure: guides/general-structure.md
+    - Raw Location History Data: guides/raw-location.md
+    - Semantic Location History Data: guides/semantic-location.md
   - Reference:
     - reference/index.md
     - Records.json: reference/records.md
