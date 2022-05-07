@@ -1,0 +1,690 @@
+{
+    "$id": "https://locationhistoryformat.com/schemas/Records.schema.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "title": "Records",
+    "description": "The `Records.json` file in a Google Takeout Location History extraction. Contains raw Location History information from the user's account.",
+    "type": "object",
+    "properties": {
+        "locations": {
+            "type": "array",
+            "title": "Locations",
+            "description": "List of all available location records, in chronological order.",
+            "items": {
+                "$ref": "#/$defs/locationRecord"
+            },
+            "examples": []
+        }
+    },
+    "required": [
+        "locations"
+    ],
+    "$defs": {
+        "locationRecord": {
+            "title": "Location Record",
+            "type": "object",
+            "description": "A specific location record. Contains the information obtained from a user's device at a specific moment in time and at a given location.",
+            "examples": [
+                {
+                    "timestamp": "2022-01-12T17:18:24.190Z",
+                    "latitudeE7": 414216106,
+                    "longitudeE7": 21684775,
+                    "accuracy": 20,
+                    "velocity": 10,
+                    "heading": 270,
+                    "altitude": 150,
+                    "verticalAccuracy": 10,
+                    "source": "WIFI",
+                    "deviceTag": 1234567890,
+                    "platformType": "ANDROID"
+                }
+            ],
+            "properties": {
+                "accuracy": {
+                    "type": "integer",
+                    "title": "Accuracy",
+                    "description": "Approximate accuracy radius of the location measurement, in meters. A lower value means better precision.",
+                    "examples": [
+                        20
+                    ]
+                },
+                "activeWifiScan": {
+                    "type": "object",
+                    "title": "Active Wi-Fi Scan",
+                    "description": "Information about the access points found in a Wi-Fi scan done by the device and associated with this location record.",
+                    "$ref": "#/$defs/wifiScan"
+                },
+                "activity": {
+                    "type": "array",
+                    "title": "Activity",
+                    "description": "Detected activity information at this location, as a list of activity records at slightly different timestamps but all associated with this location record.",
+                    "examples": [
+                        [
+                            {
+                                "activity": [
+                                    {
+                                        "type": "ON_FOOT",
+                                        "confidence": 89
+                                    },
+                                    {
+                                        "type": "WALKING",
+                                        "confidence": 84
+                                    },
+                                    {
+                                        "type": "ON_BICYCLE",
+                                        "confidence": 5
+                                    },
+                                    {
+                                        "type": "IN_VEHICLE",
+                                        "confidence": 2
+                                    },
+                                    {
+                                        "type": "STILL",
+                                        "confidence": 1
+                                    },
+                                    {
+                                        "type": "UNKNOWN",
+                                        "confidence": 1
+                                    }
+                                ],
+                                "timestamp": "2022-02-12T15:10:56.751Z"
+                            },
+                            {
+                                "activity": [
+                                    {
+                                        "type": "STILL",
+                                        "confidence": 79
+                                    },
+                                    {
+                                        "type": "IN_VEHICLE",
+                                        "confidence": 12
+                                    },
+                                    {
+                                        "type": "IN_RAIL_VEHICLE",
+                                        "confidence": 12
+                                    },
+                                    {
+                                        "type": "ON_FOOT",
+                                        "confidence": 1
+                                    },
+                                    {
+                                        "type": "WALKING",
+                                        "confidence": 1
+                                    },
+                                    {
+                                        "type": "UNKNOWN",
+                                        "confidence": 1
+                                    }
+                                ],
+                                "timestamp": "2022-02-12T15:12:55.377Z"
+                            }
+                        ]
+                    ],
+                    "items": {
+                        "type": "object",
+                        "title": "Activity Record",
+                        "description": "Activity information for a location at a given timestamp.",
+                        "examples": [
+                            {
+                                "activity": [
+                                    {
+                                        "type": "ON_FOOT",
+                                        "confidence": 89
+                                    },
+                                    {
+                                        "type": "WALKING",
+                                        "confidence": 84
+                                    },
+                                    {
+                                        "type": "ON_BICYCLE",
+                                        "confidence": 5
+                                    },
+                                    {
+                                        "type": "IN_VEHICLE",
+                                        "confidence": 2
+                                    },
+                                    {
+                                        "type": "STILL",
+                                        "confidence": 1
+                                    },
+                                    {
+                                        "type": "UNKNOWN",
+                                        "confidence": 1
+                                    }
+                                ],
+                                "timestamp": "2022-02-12T15:10:56.751Z"
+                            }
+                        ],
+                        "properties": {
+                            "activity": {
+                                "type": "array",
+                                "title": "Activity",
+                                "description": "List of candidate detected activities with their associated confidence.",
+                                "items": {
+                                    "$ref": "#/$defs/activity"
+                                }
+                            },
+                            "timestamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "title": "Timestamp",
+                                "description": "Timestamp (as an ISO 8601 string) of the activity.",
+                                "examples": [
+                                    "2022-01-12T17:18:24.190Z"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "altitude": {
+                    "type": "integer",
+                    "title": "Altitude",
+                    "description": "Altitude above the WGS84 reference ellipsoid, in meters.",
+                    "examples": [
+                        150
+                    ]
+                },
+                "batteryCharging": {
+                    "type": "boolean",
+                    "title": "Battery Charging",
+                    "description": "Whether the device was charging its battery or not at the time of the record.",
+                    "examples": [
+                        true
+                    ]
+                },
+                "deviceDesignation": {
+                    "type": "string",
+                    "title": "Device Designation",
+                    "description": "Common values found are: `PRIMARY`, `UNKNOWN`.",
+                    "examples": [
+                        "PRIMARY"
+                    ],
+                    "enum": [
+                        "PRIMARY",
+                        "UNKNOWN"
+                    ],
+                    "helpWanted": "The meaning of this field is uncertain. Are other values possible?"
+                },
+                "deviceTag": {
+                    "type": "integer",
+                    "title": "Device Tag",
+                    "description": "Integer identifier (specific to Location History) associated with the device that uploaded the location. Refer to `deviceSettings` in Settings.json for information about the device with this `deviceTag`.",
+                    "examples": [
+                        1234567890
+                    ]
+                },
+                "deviceTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Device Timestamp",
+                    "description": "",
+                    "examples": [],
+                    "helpWanted": "The meaning of this field is uncertain."
+                },
+                "formFactor": {
+                    "type": "string",
+                    "title": "Form Factor",
+                    "description": "Form factor (device type) from which the location record originated.\nCommon values are: `PHONE`.",
+                    "examples": [
+                        "PHONE"
+                    ],
+                    "enum": [
+                        "PHONE"
+                    ],
+                    "helpWanted": "What are other possible values?"
+                },
+                "heading": {
+                    "type": "integer",
+                    "title": "Heading",
+                    "description": "Heading in degrees east of true north, from 0 to 359.",
+                    "examples": [
+                        270
+                    ],
+                    "minimum": 0,
+                    "maximum": 359
+                },
+                "inferredLocation": {
+                    "type": "array",
+                    "title": "Inferred Location",
+                    "description": "",
+                    "items": {
+                        "$ref": "#/$defs/locationRecord"
+                    },
+                    "examples": [],
+                    "helpWanted": "The meaning of this field is uncertain."
+                },
+                "latitudeE7": {
+                    "type": "integer",
+                    "title": "Latitude",
+                    "description": "Latitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).",
+                    "examples": [
+                        414216106
+                    ],
+                    "minimum": -900000000,
+                    "maximum": 900000000
+                },
+                "locationMetadata": {
+                    "type": "array",
+                    "title": "Location Metadata",
+                    "description": "Additional location metadata. List of different Wi-Fi scans associated with this location record.",
+                    "items": {
+                        "$ref": "#/$defs/locationMetadata"
+                    },
+                    "examples": []
+                },
+                "longitudeE7": {
+                    "type": "integer",
+                    "title": "Longitude",
+                    "description": "Longitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).",
+                    "examples": [
+                        21684775
+                    ],
+                    "minimum": -1800000000,
+                    "maximum": 1800000000
+                },
+                "osLevel": {
+                    "type": "integer",
+                    "title": "OS Level",
+                    "description": "The version of the device's operating system that provided this record. In Android devices, this corresponds to the API Level (e.g. 28 is Android 9 *Pie*).",
+                    "examples": [
+                        28
+                    ]
+                },
+                "placeId": {
+                    "type": "string",
+                    "title": "Place ID",
+                    "description": "Google Maps [Place ID](https://developers.google.com/maps/documentation/places/web-service/place-id) of the location.",
+                    "examples": [
+                        "ChIJk_s92NyipBIRUMnDG8Kq2Js"
+                    ]
+                },
+                "platformType": {
+                    "type": "string",
+                    "title": "Platform Type",
+                    "description": "Platform of the device that provided this record. Valid values are: `ANDROID`, `IOS` and `UNKNOWN`.",
+                    "examples": [
+                        "ANDROID"
+                    ],
+                    "enum": [
+                        "ANDROID",
+                        "IOS",
+                        "UNKNOWN"
+                    ]
+                },
+                "serverTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Server Timestamp",
+                    "description": "",
+                    "examples": [],
+                    "helpWanted": "The meaning of this field is uncertain."
+                },
+                "source": {
+                    "type": "string",
+                    "title": "Source",
+                    "description": "Source (technology) that provided the location information for this record.\nCommon values are: `WIFI`, `CELL`, `GPS`, `UNKNOWN` (note: sometimes found in lowercase).",
+                    "examples": [
+                        "WIFI"
+                    ],
+                    "enum": [
+                        "WIFI",
+                        "wifi",
+                        "CELL",
+                        "cell",
+                        "GPS",
+                        "gps",
+                        "UNKNOWN",
+                        "unknown"
+                    ]
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Timestamp",
+                    "description": "Timestamp (as an ISO 8601 string) of the record.",
+                    "examples": [
+                        "2022-01-12T17:18:24.190Z"
+                    ],
+                    "added": "around January 2022"
+                },
+                "timestampMs": {
+                    "type": "string",
+                    "title": "Timestamp (Milliseconds)",
+                    "description": "Timestamp of the record as a [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) in milliseconds.",
+                    "examples": [
+                        "1636403752674"
+                    ],
+                    "deprecated": true,
+                    "removed": "around January 2022",
+                    "replacedBy": "#/$defs/locationRecord/properties/timestamp"
+                },
+                "velocity": {
+                    "type": "integer",
+                    "title": "Velocity",
+                    "description": "Measured velocity (ground speed) in meters per second.",
+                    "examples": [
+                        10
+                    ],
+                    "minimum": 0
+                },
+                "verticalAccuracy": {
+                    "type": "integer",
+                    "title": "Vertical Accuracy",
+                    "description": "Calculated accuracy of the location's altitude measurement, in meters. A lower value means better precision.",
+                    "examples": [
+                        10
+                    ],
+                    "minimum": 0
+                }
+            }
+        },
+        "activity": {
+            "type": "object",
+            "title": "Activity",
+            "description": "A detected activity with an associated confidence. Descriptions partially based on: <https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity>",
+            "examples": [
+                {
+                    "type": "ON_FOOT",
+                    "confidence": 89
+                }
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "title": "Activity Type",
+                    "description": "Type of activity detected.",
+                    "$ref": "#/$defs/activityType",
+                    "examples": [
+                        "STILL"
+                    ]
+                },
+                "confidence": {
+                    "type": "integer",
+                    "title": "Confidence",
+                    "description": "Value from 0 to 100 indicating the likelihood that the user is performing this activity.\nThe larger the value, the more consistent the data used to perform the classification is with the detected activity. \nMultiple activities may have high confidence values. For example, the `ON_FOOT` may have a confidence of 100 while the `RUNNING` activity may have a confidence of 95. The sum of the confidences of all detected activities for a classification does not have to be <= 100 since some activities are not mutually exclusive (for example, you can be walking while in a bus) and some activities are hierarchical (`ON_FOOT` is a generalization of `WALKING` and `RUNNING`).",
+                    "examples": [
+                        100
+                    ],
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "extra": {
+                    "type": "object",
+                    "title": "Extra Activity Information",
+                    "description": "Generic object containing extra information about an activity, in the form of a property with a type, a name, and a value. So far only the property with name `vehicle_personal_confidence` has been encountered.",
+                    "examples": [
+                        {
+                            "type": "VALUE",
+                            "name": "vehicle_personal_confidence",
+                            "intVal": 100
+                        }
+                    ],
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "title": "Type",
+                            "description": "Type of the property.",
+                            "examples": [
+                                "VALUE"
+                            ]
+                        },
+                        "name": {
+                            "type": "string",
+                            "title": "Name",
+                            "description": "Name of the property.",
+                            "examples": [
+                                "vehicle_personal_confidence"
+                            ]
+                        },
+                        "intVal": {
+                            "type": "integer",
+                            "title": "Integer Value",
+                            "description": "Integer value of the property.",
+                            "examples": [
+                                100
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "activityType": {
+            "type": "string",
+            "title": "Activity Type",
+            "description": "Type of activity detected. Descriptions partially based on: <https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity>",
+            "examples": [
+                "STILL"
+            ],
+            "oneOf": [
+                {
+                    "type": "string",
+                    "const": "EXITING_VEHICLE",
+                    "title": "Exiting Vehicle",
+                    "description": "The device is exiting a vehicle."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_BUS",
+                    "title": "In Bus",
+                    "description": "The device is in a bus. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_CAR",
+                    "title": "In Car",
+                    "description": "The device is in a car. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_FOUR_WHEELER_VEHICLE",
+                    "title": "In Four-Wheeler Vehicle",
+                    "description": "The device is in a four-wheeler vehicle. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_RAIL_VEHICLE",
+                    "title": "In Rail Vehicle",
+                    "description": "The device is in a rail vehicle. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_ROAD_VEHICLE",
+                    "title": "In Road Vehicle",
+                    "description": "The device is in a road vehicle. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_TWO_WHEELER_VEHICLE",
+                    "title": "In Two-Wheeler Vehicle",
+                    "description": "The device is in a two-wheeler vehicle. This is a sub-activity of `IN_VEHICLE`."
+                },
+                {
+                    "type": "string",
+                    "const": "IN_VEHICLE",
+                    "title": "In Vehicle",
+                    "description": "The device is in a vehicle, such as a car."
+                },
+                {
+                    "type": "string",
+                    "const": "ON_BICYCLE",
+                    "title": "On Bicycle",
+                    "description": "The device is on a bicycle."
+                },
+                {
+                    "type": "string",
+                    "const": "ON_FOOT",
+                    "title": "On Foot",
+                    "description": "The device is on a user who is walking or running."
+                },
+                {
+                    "type": "string",
+                    "const": "RUNNING",
+                    "title": "Running",
+                    "description": "The device is on a user who is running. This is a sub-activity of `ON_FOOT`."
+                },
+                {
+                    "type": "string",
+                    "const": "STILL",
+                    "title": "Still",
+                    "description": "The device is still (not moving)."
+                },
+                {
+                    "type": "string",
+                    "const": "TILTING",
+                    "title": "Tilting",
+                    "description": "The device angle relative to gravity changed significantly. This often occurs when a device is picked up from a desk or a user who is sitting stands up."
+                },
+                {
+                    "type": "string",
+                    "const": "WALKING",
+                    "title": "Walking",
+                    "description": "The device is on a user who is walking. This is a sub-activity of `ON_FOOT`."
+                },
+                {
+                    "type": "string",
+                    "const": "UNKNOWN",
+                    "title": "Unknown",
+                    "description": "Unable to detect the current activity."
+                }
+            ]
+        },
+        "accessPoints": {
+            "type": "array",
+            "title": "Access Points",
+            "description": "List of Wi-Fi scans consisting of access points.",
+            "items": {
+                "$ref": "#/$defs/accessPoint"
+            },
+            "examples": [
+                [
+                    {
+                        "mac": "220676014124647",
+                        "strength": -34,
+                        "frequencyMhz": 2437
+                    },
+                    {
+                        "mac": "220676014124646",
+                        "strength": -47,
+                        "frequencyMhz": 5180
+                    },
+                    {
+                        "mac": "93672086150526",
+                        "strength": -48,
+                        "frequencyMhz": 2412
+                    },
+                    {
+                        "mac": "251425092175323",
+                        "strength": -81,
+                        "frequencyMhz": 2412
+                    }
+                ]
+            ]
+        },
+        "accessPoint": {
+            "type": "object",
+            "title": "Access Point",
+            "description": "Information about a specific wireless access point or router.",
+            "examples": [
+                {
+                    "mac": "220676014124647",
+                    "strength": -34,
+                    "frequencyMhz": 2437
+                }
+            ],
+            "properties": {
+                "mac": {
+                    "type": "string",
+                    "title": "MAC Address",
+                    "description": "MAC address of the access point as an integer. MAC addresses typically consist of 48 bits (6 bytes), so it is likely the value found here needs to be interpreted as a 6 byte integer (which when converted to its hexadecimal representation results in a more typical representation for MAC addresses).",
+                    "examples": [
+                        "220676014124647"
+                    ]
+                },
+                "strength": {
+                    "type": "integer",
+                    "title": "Strength",
+                    "description": "Strength of the signal in dBm (decibels per milliwatt) of the access point.",
+                    "examples": [
+                        -34
+                    ]
+                },
+                "frequencyMhz": {
+                    "type": "integer",
+                    "title": "Frequency (MHz)",
+                    "description": "Frequency of the signal (in MHz) that the access point is using.",
+                    "examples": [
+                        2437
+                    ]
+                },
+                "isConnected": {
+                    "type": "boolean",
+                    "title": "Is Connected",
+                    "description": "Whether the device that scanned the access point is connected to it.",
+                    "examples": [
+                        true
+                    ]
+                }
+            }
+        },
+        "wifiScan": {
+            "type": "object",
+            "title": "Wi-Fi Scan",
+            "description": "Information about the access points found in a Wi-Fi scan done by the device.",
+            "examples": [
+                {
+                    "accessPoints": [
+                        {
+                            "mac": "220676014124647",
+                            "strength": -34,
+                            "frequencyMhz": 2437
+                        },
+                        {
+                            "mac": "220676014124646",
+                            "strength": -47,
+                            "frequencyMhz": 5180
+                        },
+                        {
+                            "mac": "93672086150526",
+                            "strength": -48,
+                            "frequencyMhz": 2412
+                        },
+                        {
+                            "mac": "251425092175323",
+                            "strength": -81,
+                            "frequencyMhz": 2412
+                        }
+                    ]
+                }
+            ],
+            "properties": {
+                "accessPoints": {
+                    "type": "array",
+                    "title": "Access Points",
+                    "description": "List of Wi-Fi access points found with the scan.",
+                    "$ref": "#/$defs/accessPoints"
+                }
+            }
+        },
+        "locationMetadata": {
+            "type": "object",
+            "title": "Location Metadata",
+            "description": "Information about a Wi-Fi scan done by the device at a given timestamp.",
+            "properties": {
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Timestamp",
+                    "description": "Timestamp (as an ISO 8601 string) of the location metadata.",
+                    "examples": [
+                        "2022-01-12T17:18:24.190Z"
+                    ]
+                },
+                "wifiScan": {
+                    "type": "object",
+                    "title": "Wi-Fi Scan",
+                    "description": "Information about the access points found in a Wi-Fi scan done by the device.",
+                    "$ref": "#/$defs/wifiScan"
+                }
+            }
+        }
+    }
+}
