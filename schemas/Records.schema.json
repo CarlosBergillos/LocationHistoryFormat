@@ -366,7 +366,7 @@
                     ],
                     "minimum": 0
                 },
-                "verticalAccurac": {
+                "verticalAccuracy": {
                     "type": "integer",
                     "title": "Vertical Accuracy",
                     "description": "Calculated accuracy of the location's altitude measurement, in meters. A lower value means better precision.",
