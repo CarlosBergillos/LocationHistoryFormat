@@ -1299,13 +1299,14 @@
                 "source": {
                     "type": "string",
                     "title": "Source",
-                    "description": "Source of the location data of the path. Either `BACKFILLED` or `INFERRED`.",
+                    "description": "Source of the location data of the path. One of `BACKFILLED`, `INFERRED`, or `RESNAPPED_FOR_EDIT`.",
                     "examples": [
                         "INFERRED"
                     ],
                     "enum": [
                         "BACKFILLED",
-                        "INFERRED"
+                        "INFERRED",
+                        "RESNAPPED_FOR_EDIT"
                     ]
                 },
                 "distanceMeters": {
@@ -1692,7 +1693,8 @@
                                                 ],
                                                 "enum": [
                                                     "DEFAULT_ACTIVITY_SEGMENT_CONFIGURATION",
-                                                    "UNPERSONALIZED_EDIT_ACTIVITY_SEGMENT"
+                                                    "UNPERSONALIZED_EDIT_ACTIVITY_SEGMENT",
+                                                    "UNKNOWN_UI_ACTIVITY_SEGMENT_CONFIGURATION"
                                                 ]
                                             },
                                             "uiPlaceVisitConfiguration": {
