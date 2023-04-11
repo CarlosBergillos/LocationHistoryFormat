@@ -228,7 +228,8 @@
                         "PHONE"
                     ],
                     "enum": [
-                        "PHONE"
+                        "PHONE",
+                        "TABLET"
                     ],
                     "helpWanted": "What are other possible values?"
                 },
@@ -255,7 +256,7 @@
                 "latitudeE7": {
                     "type": "integer",
                     "title": "Latitude",
-                    "description": "Latitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).",
+                    "description": "WGS84 Latitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).",
                     "examples": [
                         414216106
                     ],
@@ -274,7 +275,7 @@
                 "longitudeE7": {
                     "type": "integer",
                     "title": "Longitude",
-                    "description": "Longitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).",
+                    "description": "WGS84 Longitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).",
                     "examples": [
                         21684775
                     ],
