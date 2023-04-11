@@ -223,7 +223,7 @@
                 "formFactor": {
                     "type": "string",
                     "title": "Form Factor",
-                    "description": "Form factor (device type) from which the location record originated.\nCommon values are: `PHONE`.",
+                    "description": "Form factor (device type) from which the location record originated.\nCommon values are: `PHONE`, `TABLET`.",
                     "examples": [
                         "PHONE"
                     ],
