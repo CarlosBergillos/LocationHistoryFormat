@@ -451,7 +451,7 @@
         "activityType": {
             "type": "string",
             "title": "Activity Type",
-            "description": "Type of activity detected. Descriptions partially based on: <https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity>",
+            "description": "Type of activity detected, such as `WALKING` or `ON_BICYCLE`. Some activity types are hierarchical, for example, `WALKING` is a subtype of `ON_FOOT`, and in particular, the following activity type hierarchy is known:\n\n```\n- EXITING_VEHICLE\n- IN_VEHICLE\n- ├─ IN_RAIL_VEHICLE\n- └─ IN_ROAD_VEHICLE\n-    ├─ IN_FOUR_WHEELER_VEHICLE\n-    │  ├─ IN_BUS\n-    │  └─ IN_CAR\n-    └─ IN_TWO_WHEELER_VEHICLE\n- ON_BICYCLE\n- ON_FOOT\n- ├─ RUNNING\n- └─ WALKING\n- STILL\n- TILTING\n- UNKNOWN\n```\n\nDescriptions partially based on: <https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity>",
             "examples": [
                 "STILL"
             ],
@@ -466,37 +466,37 @@
                     "type": "string",
                     "const": "IN_BUS",
                     "title": "In Bus",
-                    "description": "The device is in a bus. This is a sub-activity of `IN_VEHICLE`."
+                    "description": "The device is in a bus."
                 },
                 {
                     "type": "string",
                     "const": "IN_CAR",
                     "title": "In Car",
-                    "description": "The device is in a car. This is a sub-activity of `IN_VEHICLE`."
+                    "description": "The device is in a car."
                 },
                 {
                     "type": "string",
                     "const": "IN_FOUR_WHEELER_VEHICLE",
                     "title": "In Four-Wheeler Vehicle",
-                    "description": "The device is in a four-wheeler vehicle. This is a sub-activity of `IN_VEHICLE`."
+                    "description": "The device is in a four-wheeler vehicle."
                 },
                 {
                     "type": "string",
                     "const": "IN_RAIL_VEHICLE",
                     "title": "In Rail Vehicle",
-                    "description": "The device is in a rail vehicle. This is a sub-activity of `IN_VEHICLE`."
+                    "description": "The device is in a rail vehicle."
                 },
                 {
                     "type": "string",
                     "const": "IN_ROAD_VEHICLE",
                     "title": "In Road Vehicle",
-                    "description": "The device is in a road vehicle. This is a sub-activity of `IN_VEHICLE`."
+                    "description": "The device is in a road vehicle."
                 },
                 {
                     "type": "string",
                     "const": "IN_TWO_WHEELER_VEHICLE",
                     "title": "In Two-Wheeler Vehicle",
-                    "description": "The device is in a two-wheeler vehicle. This is a sub-activity of `IN_VEHICLE`."
+                    "description": "The device is in a two-wheeler vehicle."
                 },
                 {
                     "type": "string",
@@ -520,7 +520,7 @@
                     "type": "string",
                     "const": "RUNNING",
                     "title": "Running",
-                    "description": "The device is on a user who is running. This is a sub-activity of `ON_FOOT`."
+                    "description": "The device is on a user who is running."
                 },
                 {
                     "type": "string",
@@ -538,7 +538,7 @@
                     "type": "string",
                     "const": "WALKING",
                     "title": "Walking",
-                    "description": "The device is on a user who is walking. This is a sub-activity of `ON_FOOT`."
+                    "description": "The device is on a user who is walking."
                 },
                 {
                     "type": "string",

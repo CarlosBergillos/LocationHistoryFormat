@@ -14,11 +14,9 @@
 	{% endif %}
 	</div>
 {% endif %}
-{% for desc in schema.description.split('\n') %}
-{% if desc|length > 0 %}
-	<div markdown="1">{{ process_description(schema.root_schema, desc) }}</div>
+{% if schema.description|length > 0 %}
+	<div markdown="1">{{ process_description(schema.root_schema, schema.description) }}</div>
 {% endif %}
-{% endfor %}
 {% if schema.raw_schema['helpWanted'] is defined %}
 	<div markdown="1">
 		<span class="mdx-help">:octicons-tag-16: **Help Wanted:** </span>
