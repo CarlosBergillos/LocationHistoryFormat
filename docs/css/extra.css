@@ -63,7 +63,7 @@
     font-weight: 400;
 }
 
-*[data-md-state=shadow] {
+.md-header--shadow, *[data-md-state=shadow] {
     box-shadow: none!important;
     /* box-shadow: 0 0 0.1rem rgb(0 0 0 / 10%), 0 0.1rem 0.1rem rgb(0 0 0 / 20%)!important; */
     border-bottom: 0.05rem solid rgba(0,0,0,.07);
