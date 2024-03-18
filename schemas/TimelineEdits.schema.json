@@ -11,7 +11,8 @@
       "description": "List of all timeline edits.",
       "items": {
         "$ref": "#/$defs/timelineEditsItem"
-      }
+      },
+      "examples": []
     }
   },
   "required": [
@@ -20,6 +21,70 @@
   "$defs": {
     "timelineEditsItem": {
       "type": "object",
+      "examples": [
+        {
+          "deviceId": "0",
+          "placeAggregates": {
+            "placeAggregateInfo": [
+              {
+                "score": 1228.0,
+                "numBucketsWithLocation": 0,
+                "bucketSpanDays": 0,
+                "point": {
+                  "latE7": 429362473,
+                  "lngE7": -788308560
+                },
+                "placeId": "ChIJV8SII64E1YkRvAqrnP5G_x8",
+                "placePoint": {
+                  "latE7": 429362442,
+                  "lngE7": -788308585
+                }
+              },
+              {
+                "score": 166.0,
+                "numBucketsWithLocation": 0,
+                "bucketSpanDays": 0,
+                "point": {
+                  "latE7": 426994475,
+                  "lngE7": -778539281
+                },
+                "placeId": "ChIJ4_FHs78TK4gRw8h22XkBDEA",
+                "placePoint": {
+                  "latE7": 426994650,
+                  "lngE7": -778539291
+                }
+              },
+              {
+                "score": 131.0,
+                "numBucketsWithLocation": 0,
+                "bucketSpanDays": 0,
+                "point": {
+                  "latE7": 415908301,
+                  "lngE7": -739409850
+                },
+                "placeId": "ChIJJRdROh863YkRmXCWQ14VMcI",
+                "placePoint": {
+                  "latE7": 415908776,
+                  "lngE7": -739409849
+                }
+              }
+            ],
+            "windowSizeHrs": 2011,
+            "topRankedPlacesPlaceIds": [
+              "ChIJV8SII64E1YkRvAqrnP5G_x8",
+              "ChIJ4_FHs78TK4gRw8h22XkBDEA",
+              "ChIJJRdROh863YkRmXCWQ14VMcI"
+            ],
+            "processWindow": {
+              "startTime": "2023-12-14T08:00:55Z",
+              "endTime": "2024-03-07T08:00:55Z"
+            },
+            "metadata": {
+              "platform": "UNKNOWN"
+            }
+          }
+        }
+      ],
       "properties": {
         "deviceId": {
           "type": "string",
@@ -148,6 +213,26 @@
         "rawSignal": {
           "type": "object",
           "description": "Raw signal data from the device.",
+          "examples": [
+            {
+              "signal": {
+                "position": {
+                  "point": {
+                    "latE7": 426974802,
+                    "lngE7": -778539156
+                  },
+                  "accuracyMm": 100000,
+                  "altitudeMeters": 224.0,
+                  "source": "WIFI",
+                  "timestamp": "2024-02-17T04:14:41.412Z"
+                }
+              },
+              "additionalTimestamp": "2024-02-17T04:14:39.545Z",
+              "metadata": {
+                "platform": "ANDROID"
+              }
+            }
+          ],
           "properties": {
             "signal": {
               "$ref": "#/$defs/signal"
