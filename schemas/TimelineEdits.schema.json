@@ -320,7 +320,7 @@
                 "properties": {
                   "activityType": {
                     "type": "string",
-                    "description": "The type of the detected activity.",
+                    "description": "The type of the detected activity. This could re-use the `#/$defs/activityType` from Records schema later.",
                     "examples": [
                       "STILL",
                       "ON_FOOT",
