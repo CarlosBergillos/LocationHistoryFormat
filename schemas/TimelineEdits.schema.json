@@ -264,28 +264,7 @@
           "description": "The position data, including point, accuracy, altitude, source, and timestamp.",
           "properties": {
             "point": {
-              "type": "object",
-              "description": "The geographical point of the position.",
-              "properties": {
-                "latE7": {
-                  "type": "integer",
-                  "description": "The latitude of the position, multiplied by 1e7.",
-                  "examples": [
-                    436994865
-                  ]
-                },
-                "lngE7": {
-                  "type": "integer",
-                  "description": "The longitude of the position, multiplied by 1e7.",
-                  "examples": [
-                    -798539196
-                  ]
-                }
-              },
-              "required": [
-                "latE7",
-                "lngE7"
-              ]
+              "$ref": "#/$defs/point"
             },
             "accuracyMm": {
               "type": "integer",
@@ -308,6 +287,11 @@
               "examples": [
                 "WIFI"
               ]
+            },
+            "speedMetersPerSecond": {
+              "type": "number",
+              "description": "Speed in meters per second.",
+              "examples": [0.0]
             },
             "timestamp": {
               "type": "string",
