@@ -32,9 +32,7 @@ class JSONSchemaRenderer:
             logging.basicConfig(level=logging.NOTSET, format="%(message)s", datefmt="[%X]")
             self.logger = logging.getLogger(__name__)
 
-    def _validate_schema(self, schema):
-        required_fields = ["type", "title", "description"]
-
+    def _validate_schema(self, schema, required_fields=["type", "title", "description"]):
         for field in required_fields:
             if getattr(schema, field) is None:
                 raise ValidationError(field, schema)
@@ -42,10 +40,11 @@ class JSONSchemaRenderer:
         if schema.type == "array":
             if not schema.item_schema:
                 raise ValidationError("items", schema)
-
-            for field in required_fields:
-                if getattr(schema.item_schema, field) is None:
-                    raise ValidationError(field, schema.item_schema)
+            
+            if schema.item_schema.type == "object":
+                self._validate_schema(schema.item_schema)
+            else:
+                self._validate_schema(schema.item_schema, required_fields=["type"])
 
     def _example_text(self, example, simple=False):
         def json_text(d, simple):
