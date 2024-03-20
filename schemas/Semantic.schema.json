@@ -463,6 +463,7 @@
         "placeVisit": {
             "type": "object",
             "title": "Place Visit",
+            "description": "A visit or stay at a place in a fixed location for a duration of time, such as a stay at home, at work, a visit to a shopping mall, or to a restaurant.",
             "properties": {
                 "location": {
                     "type": "object",
