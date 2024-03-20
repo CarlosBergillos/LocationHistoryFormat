@@ -893,7 +893,7 @@
                     "title": "Uknown Activity",
                     "description": "Type used when unable to detect the current activity.",
                     "extra_color": "#03a9f4",
-                    "extra_icon": "activity_types/unknown.svg"
+                    "extra_icon": "activity_types/unknown_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -1239,7 +1239,7 @@
                     "title": "Type Unknown Location",
                     "description": "Location type is unknown",
                     "extra_color": "#03a9f4",
-                    "extra_icon": "semantic_types/label_circled_24dp.svg"
+                    "extra_icon": "semantic_types/unknown_24dp.svg"
                 }
             ]
         },
