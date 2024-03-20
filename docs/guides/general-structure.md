@@ -44,7 +44,7 @@ From here, the most relevant files and folders are:
 
 
 [Google Takeout]: https://takeout.google.com/settings/takeout
-[Raw Location History Data]: raw_location.md
-[Semantic Location History Data]: semantic_location.md
+[Raw Location History Data]: raw-location.md
+[Semantic Location History Data]: semantic-location.md
 [Records.json]: ../reference/records.md
 [Settings.json]: ../reference/settings.md
