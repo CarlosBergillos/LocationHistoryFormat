@@ -897,14 +897,6 @@
                 },
                 {
                     "type": "string",
-                    "const": "UNKNOWN",
-                    "title": "Uknown Activity",
-                    "description": "Type used when unable to detect the current activity.",
-                    "extra_color": "#03a9f4",
-                    "extra_icon": "activity_types/unknown.svg"
-                },
-                {
-                    "type": "string",
                     "const": "STILL",
                     "title": "Still",
                     "description": "",
@@ -921,24 +913,8 @@
                 },
                 {
                     "type": "string",
-                    "const": "ON_FOOT",
-                    "title": "On Foot",
-                    "description": "",
-                    "extra_color": "#4db6ac",
-                    "extra_icon": "activity_types/directions_walk_24dp.svg"
-                },
-                {
-                    "type": "string",
                     "const": "CYCLING",
                     "title": "Cycling",
-                    "description": "",
-                    "extra_color": "#4db6ac",
-                    "extra_icon": "activity_types/directions_bike_24dp.svg"
-                },
-                {
-                    "type": "string",
-                    "const": "ON_BICYCLE",
-                    "title": "On bicycle",
                     "description": "",
                     "extra_color": "#4db6ac",
                     "extra_icon": "activity_types/directions_bike_24dp.svg"
@@ -1214,14 +1190,6 @@
                     "description": "",
                     "extra_color": "#4db6ac",
                     "extra_icon": "activity_types/paragliding_24dp.svg"
-                },
-                {
-                    "type": "string",
-                    "const": "TILTING",
-                    "title": "Tilting",
-                    "description": "The device angle relative to gravity changed significantly. This often occurs when a device is picked up from a desk or a user who is sitting stands up.",
-                    "extra_color": "#4db6ac",
-                    "extra_icon": "activity_types/moving_24dp.svg"
                 }
             ]
         },
