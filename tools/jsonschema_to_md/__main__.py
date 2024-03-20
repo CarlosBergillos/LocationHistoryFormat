@@ -38,9 +38,12 @@ def main():
         JSONSchemaRenderer(logger=None).render_md(inp, out, title=title)
     except (JSONSchemaError, ValidationError) as e:
         logger.error(e)
+        return 1
     except Exception as e:
         logger.exception(e)
-
+        return 1
+    else:
+        return 0
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
