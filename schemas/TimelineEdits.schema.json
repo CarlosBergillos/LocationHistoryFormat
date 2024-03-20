@@ -20,6 +20,8 @@
   ],
   "$defs": {
     "timelineEditsItem": {
+      "title": "Timeline Edit Information",
+      "description": "Various information about the timeline edit, including device ID, place aggregates, and raw signal data.",
       "type": "object",
       "examples": [
         {
@@ -88,6 +90,7 @@
       "properties": {
         "deviceId": {
           "type": "string",
+          "title": "Device ID",
           "description": "The unique identifier for the device that generated the data.",
           "examples": [
             "0",
@@ -96,16 +99,20 @@
         },
         "placeAggregates": {
           "type": "object",
+          "title": "Place Aggregates",
           "description": "Aggregated information about places visited by the device.",
           "properties": {
             "placeAggregateInfo": {
               "type": "array",
+              "title": "Place Aggregate Information",
               "description": "An array of place information, including score, location, and place ID.",
               "items": {
+                "title": "Place Aggregate Info Item",
                 "type": "object",
                 "properties": {
                   "score": {
                     "type": "number",
+                    "title": "Score",
                     "description": "The score assigned to the place.",
                     "examples": [
                       1228.0,
@@ -114,6 +121,7 @@
                   },
                   "numBucketsWithLocation": {
                     "type": "integer",
+                    "title": "Number of Buckets",
                     "description": "The number of location buckets associated with the place.",
                     "examples": [
                       0
@@ -121,6 +129,7 @@
                   },
                   "bucketSpanDays": {
                     "type": "integer",
+                    "title": "Bucket Span",
                     "description": "The span of the buckets in days.",
                     "examples": [
                       0
@@ -131,6 +140,7 @@
                   },
                   "placeId": {
                     "type": "string",
+                    "title": "Place ID",
                     "description": "The unique identifier for the place.",
                     "examples": [
                       "ChIJV8SII64E1YkRvAqrnP5G_x8",
@@ -153,6 +163,7 @@
             },
             "windowSizeHrs": {
               "type": "integer",
+              "title": "Time Window Size",
               "description": "The size of the window in hours for the place aggregates.",
               "examples": [
                 2016
@@ -160,6 +171,7 @@
             },
             "topRankedPlacesPlaceIds": {
               "type": "array",
+              "title": "Top Ranked Places",
               "description": "An array of place IDs for the top-ranked places.",
               "items": {
                 "type": "string",
@@ -172,11 +184,13 @@
             },
             "processWindow": {
               "type": "object",
+              "title": "Process Window",
               "description": "The start and end time of the processing window.",
               "properties": {
                 "startTime": {
                   "type": "string",
                   "format": "date-time",
+                  "title": "Start Time",
                   "description": "The start time of the processing window.",
                   "examples": [
                     "2023-12-14T08:00:55Z",
@@ -186,6 +200,7 @@
                 "endTime": {
                   "type": "string",
                   "format": "date-time",
+                  "title": "End Time",
                   "description": "The end time of the processing window.",
                   "examples": [
                     "2024-03-07T08:00:55Z",
@@ -212,6 +227,7 @@
         },
         "rawSignal": {
           "type": "object",
+          "title": "Raw Signal",
           "description": "Raw signal data from the device.",
           "examples": [
             {
@@ -240,6 +256,7 @@
             "additionalTimestamp": {
               "type": "string",
               "format": "date-time",
+              "title": "Additional Timestamp",
               "description": "An additional timestamp associated with the raw signal.",
               "examples": [
                 "2024-02-17T05:54:01.359Z"
@@ -257,10 +274,12 @@
     },
     "signal": {
       "type": "object",
+      "title": "Signal",
       "description": "The signal data, including position, activity record, and wifi scan.",
       "properties": {
         "position": {
           "type": "object",
+          "title": "Position",
           "description": "The position data, including point, accuracy, altitude, source, and timestamp.",
           "properties": {
             "point": {
@@ -268,6 +287,7 @@
             },
             "accuracyMm": {
               "type": "integer",
+              "title": "Signal Position Accuracy",
               "description": "The accuracy of the position in millimeters.",
               "examples": [
                 100000,
@@ -276,6 +296,7 @@
             },
             "altitudeMeters": {
               "type": "number",
+              "title": "Altitude",
               "description": "The altitude of the position in meters.",
               "examples": [
                 224.0
@@ -283,6 +304,7 @@
             },
             "source": {
               "type": "string",
+              "title": "Signal Position Source",
               "description": "The source of the position data.",
               "examples": [
                 "WIFI"
@@ -290,12 +312,16 @@
             },
             "speedMetersPerSecond": {
               "type": "number",
+              "title": "Speed",
               "description": "Speed in meters per second.",
-              "examples": [0.0]
+              "examples": [
+                0.0
+              ]
             },
             "timestamp": {
               "type": "string",
               "format": "date-time",
+              "title": "Timestamp",
               "description": "The timestamp of the position data.",
               "examples": [
                 "2024-02-17T05:54:00.932Z",
@@ -310,16 +336,20 @@
         },
         "activityRecord": {
           "type": "object",
+          "title": "Activity Record",
           "description": "The activity record data, including detected activities and timestamp.",
           "properties": {
             "detectedActivities": {
               "type": "array",
+              "title": "Detected Activities",
               "description": "An array of detected activities, including activity type and probability.",
               "items": {
                 "type": "object",
+                "title": "Detected Activity Item",
                 "properties": {
                   "activityType": {
                     "type": "string",
+                    "title": "Activity Type",
                     "description": "The type of the detected activity. This could re-use the `#/$defs/activityType` from Records schema later.",
                     "examples": [
                       "STILL",
@@ -333,6 +363,7 @@
                   },
                   "probability": {
                     "type": "number",
+                    "title": "Probability",
                     "description": "The probability of the detected activity.",
                     "examples": [
                       0.96,
@@ -350,6 +381,7 @@
             "timestamp": {
               "type": "string",
               "format": "date-time",
+              "title": "Timestamp",
               "description": "The timestamp of the activity record.",
               "examples": [
                 "2024-02-17T05:26:47.066Z"
@@ -363,11 +395,13 @@
         },
         "wifiScan": {
           "type": "object",
+          "title": "Wifi Scan Data",
           "description": "The wifi scan data, including delivery time, devices, and source.",
           "properties": {
             "deliveryTime": {
               "type": "string",
               "format": "date-time",
+              "title": "Delivery Time",
               "description": "The delivery time of the wifi scan.",
               "examples": [
                 "2024-02-17T04:26:44.661Z"
@@ -375,12 +409,15 @@
             },
             "devices": {
               "type": "array",
+              "title": "Wifi Devices",
               "description": "An array of wifi devices, including mac address and raw RSSI.",
               "items": {
                 "type": "object",
+                "title": "Wifi Device",
                 "properties": {
                   "mac": {
                     "type": "string",
+                    "title": "MAC Address",
                     "description": "The mac address of the wifi device.",
                     "examples": [
                       "145830537259886",
@@ -390,6 +427,7 @@
                   },
                   "rawRssi": {
                     "type": "integer",
+                    "title": "Raw RSSI",
                     "description": "The raw RSSI of the wifi device.",
                     "examples": [
                       -51,
@@ -406,6 +444,7 @@
             },
             "source": {
               "type": "string",
+              "title": "Wifi Scan Source",
               "description": "The source of the wifi scan data.",
               "examples": [
                 "ACTIVE_SCAN"
@@ -421,6 +460,7 @@
     },
     "metadata": {
       "type": "object",
+      "title": "Metadata",
       "description": "Metadata about the data object.",
       "properties": {
         "platform": {
