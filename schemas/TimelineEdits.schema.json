@@ -108,6 +108,7 @@
                             "description": "An array of place information, including score, location, and place ID.",
                             "items": {
                                 "title": "Place Aggregate Info Item",
+                                "description": "The place aggregate info containing score, location, place ID, and other details.",
                                 "type": "object",
                                 "properties": {
                                     "score": {
@@ -346,6 +347,7 @@
                             "items": {
                                 "type": "object",
                                 "title": "Detected Activity Item",
+                                "description": "The detected activity item info containing activity type and probability.",
                                 "properties": {
                                     "activityType": {
                                         "type": "string",
@@ -414,6 +416,7 @@
                             "items": {
                                 "type": "object",
                                 "title": "Wifi Device",
+                                "description": "The wifi device info containing mac address and raw RSSI.",
                                 "properties": {
                                     "mac": {
                                         "type": "string",
@@ -465,6 +468,7 @@
             "properties": {
                 "platform": {
                     "type": "string",
+                    "title": "Device Platform",
                     "description": "The platform that generated the data.",
                     "examples": [
                         "ANDROID",
