@@ -176,6 +176,8 @@
                             "description": "An array of place IDs for the top-ranked places.",
                             "items": {
                                 "type": "string",
+                                "title": "Top Ranked Place ID",
+                                "description": "The ID of top place ID",
                                 "examples": [
                                     "ChIJV8SII64E1YkRvAqrnP5G_x8",
                                     "ChIJ4_FHs78TK4gRw8h22XkBDEA",
