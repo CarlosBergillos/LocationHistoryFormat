@@ -1,0 +1,27 @@
+name: Test Schemas 
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python runtime
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10.2
+
+      - name: Build and test
+        run: |
+          pip install -r requirements.txt
+          make clean
+          make build
