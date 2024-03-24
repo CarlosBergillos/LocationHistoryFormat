@@ -1,0 +1,527 @@
+{
+    "$id": "https://locationhistoryformat.com/schemas/TimelineEdits.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Timeline Edits Schema",
+    "description": "This schema outlines the structure of timeline edits data, encompassing device information, place visit aggregates, and raw signal data from the device.",
+    "type": "object",
+    "properties": {
+        "timelineEdits": {
+            "type": "array",
+            "title": "Timeline Edits",
+            "description": "List of all timeline edits.",
+            "items": {
+                "$ref": "#/$defs/timelineEditsItem"
+            },
+            "examples": []
+        }
+    },
+    "required": [
+        "timelineEdits"
+    ],
+    "$defs": {
+        "timelineEditsItem": {
+            "title": "Timeline Edit Information",
+            "description": "Various information about the timeline edit, including device ID, place aggregates, and raw signal data.",
+            "type": "object",
+            "examples": [
+                {
+                    "deviceId": "0",
+                    "placeAggregates": {
+                        "placeAggregateInfo": [
+                            {
+                                "score": 1228.0,
+                                "numBucketsWithLocation": 0,
+                                "bucketSpanDays": 0,
+                                "point": {
+                                    "latE7": 429362473,
+                                    "lngE7": -788308560
+                                },
+                                "placeId": "ChIJV8SII64E1YkRvAqrnP5G_x8",
+                                "placePoint": {
+                                    "latE7": 429362442,
+                                    "lngE7": -788308585
+                                }
+                            },
+                            {
+                                "score": 166.0,
+                                "numBucketsWithLocation": 0,
+                                "bucketSpanDays": 0,
+                                "point": {
+                                    "latE7": 426994475,
+                                    "lngE7": -778539281
+                                },
+                                "placeId": "ChIJ4_FHs78TK4gRw8h22XkBDEA",
+                                "placePoint": {
+                                    "latE7": 426994650,
+                                    "lngE7": -778539291
+                                }
+                            },
+                            {
+                                "score": 131.0,
+                                "numBucketsWithLocation": 0,
+                                "bucketSpanDays": 0,
+                                "point": {
+                                    "latE7": 415908301,
+                                    "lngE7": -739409850
+                                },
+                                "placeId": "ChIJJRdROh863YkRmXCWQ14VMcI",
+                                "placePoint": {
+                                    "latE7": 415908776,
+                                    "lngE7": -739409849
+                                }
+                            }
+                        ],
+                        "windowSizeHrs": 2011,
+                        "topRankedPlacesPlaceIds": [
+                            "ChIJV8SII64E1YkRvAqrnP5G_x8",
+                            "ChIJ4_FHs78TK4gRw8h22XkBDEA",
+                            "ChIJJRdROh863YkRmXCWQ14VMcI"
+                        ],
+                        "processWindow": {
+                            "startTime": "2023-12-14T08:00:55Z",
+                            "endTime": "2024-03-07T08:00:55Z"
+                        },
+                        "metadata": {
+                            "platform": "UNKNOWN"
+                        }
+                    }
+                }
+            ],
+            "properties": {
+                "deviceId": {
+                    "type": "string",
+                    "title": "Device ID",
+                    "description": "The unique identifier for the device that generated the data.",
+                    "examples": [
+                        "0",
+                        "-538926953"
+                    ]
+                },
+                "placeAggregates": {
+                    "type": "object",
+                    "title": "Place Aggregates",
+                    "description": "Aggregated information about places visited by the device.",
+                    "properties": {
+                        "placeAggregateInfo": {
+                            "type": "array",
+                            "title": "Place Aggregate Information",
+                            "description": "An array of place information, including score, location, and place ID.",
+                            "items": {
+                                "title": "Place Aggregate Info Item",
+                                "description": "The place aggregate info containing score, location, place ID, and other details.",
+                                "type": "object",
+                                "properties": {
+                                    "score": {
+                                        "type": "number",
+                                        "title": "Score",
+                                        "description": "The score assigned to the place.",
+                                        "examples": [
+                                            1228.0,
+                                            166.0
+                                        ]
+                                    },
+                                    "numBucketsWithLocation": {
+                                        "type": "integer",
+                                        "title": "Number of Buckets",
+                                        "description": "The number of location buckets associated with the place.",
+                                        "examples": [
+                                            0
+                                        ]
+                                    },
+                                    "bucketSpanDays": {
+                                        "type": "integer",
+                                        "title": "Bucket Span",
+                                        "description": "The span of the buckets in days.",
+                                        "examples": [
+                                            0
+                                        ]
+                                    },
+                                    "point": {
+                                        "$ref": "#/$defs/point"
+                                    },
+                                    "placeId": {
+                                        "type": "string",
+                                        "title": "Place ID",
+                                        "description": "The unique identifier for the place.",
+                                        "examples": [
+                                            "ChIJV8SII64E1YkRvAqrnP5G_x8",
+                                            "ChIJ4_FHs78TK4gRw8h22XkBDEA"
+                                        ]
+                                    },
+                                    "placePoint": {
+                                        "$ref": "#/$defs/point"
+                                    }
+                                },
+                                "required": [
+                                    "score",
+                                    "numBucketsWithLocation",
+                                    "bucketSpanDays",
+                                    "point",
+                                    "placeId",
+                                    "placePoint"
+                                ]
+                            }
+                        },
+                        "windowSizeHrs": {
+                            "type": "integer",
+                            "title": "Time Window Size",
+                            "description": "The size of the window in hours for the place aggregates.",
+                            "examples": [
+                                2016
+                            ]
+                        },
+                        "topRankedPlacesPlaceIds": {
+                            "type": "array",
+                            "title": "Top Ranked Places",
+                            "description": "An array of place IDs for the top-ranked places.",
+                            "items": {
+                                "type": "string",
+                                "title": "Top Ranked Place ID",
+                                "description": "The ID of top place ID",
+                                "examples": [
+                                    "ChIJV8SII64E1YkRvAqrnP5G_x8",
+                                    "ChIJ4_FHs78TK4gRw8h22XkBDEA",
+                                    "ChIJJRdROh863YkRmXCWQ14VMcI"
+                                ]
+                            }
+                        },
+                        "processWindow": {
+                            "type": "object",
+                            "title": "Process Window",
+                            "description": "The start and end time of the processing window.",
+                            "properties": {
+                                "startTime": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "title": "Start Time",
+                                    "description": "The start time of the processing window.",
+                                    "examples": [
+                                        "2023-12-14T08:00:55Z",
+                                        "2023-12-10T08:01:01Z"
+                                    ]
+                                },
+                                "endTime": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "title": "End Time",
+                                    "description": "The end time of the processing window.",
+                                    "examples": [
+                                        "2024-03-07T08:00:55Z",
+                                        "2024-03-03T08:01:01Z"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "startTime",
+                                "endTime"
+                            ]
+                        },
+                        "metadata": {
+                            "$ref": "#/$defs/metadata"
+                        }
+                    },
+                    "required": [
+                        "placeAggregateInfo",
+                        "windowSizeHrs",
+                        "topRankedPlacesPlaceIds",
+                        "processWindow",
+                        "metadata"
+                    ]
+                },
+                "rawSignal": {
+                    "type": "object",
+                    "title": "Raw Signal",
+                    "description": "Raw signal data from the device.",
+                    "examples": [
+                        {
+                            "signal": {
+                                "position": {
+                                    "point": {
+                                        "latE7": 426974802,
+                                        "lngE7": -778539156
+                                    },
+                                    "accuracyMm": 100000,
+                                    "altitudeMeters": 224.0,
+                                    "source": "WIFI",
+                                    "timestamp": "2024-02-17T04:14:41.412Z"
+                                }
+                            },
+                            "additionalTimestamp": "2024-02-17T04:14:39.545Z",
+                            "metadata": {
+                                "platform": "ANDROID"
+                            }
+                        }
+                    ],
+                    "properties": {
+                        "signal": {
+                            "$ref": "#/$defs/signal"
+                        },
+                        "additionalTimestamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "title": "Additional Timestamp",
+                            "description": "An additional timestamp associated with the raw signal.",
+                            "examples": [
+                                "2024-02-17T05:54:01.359Z"
+                            ]
+                        },
+                        "metadata": {
+                            "$ref": "#/$defs/metadata"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "deviceId"
+            ]
+        },
+        "signal": {
+            "type": "object",
+            "title": "Signal",
+            "description": "The signal data, including position, activity record, and wifi scan.",
+            "properties": {
+                "position": {
+                    "type": "object",
+                    "title": "Position",
+                    "description": "The position data, including point, accuracy, altitude, source, and timestamp.",
+                    "properties": {
+                        "point": {
+                            "$ref": "#/$defs/point"
+                        },
+                        "accuracyMm": {
+                            "type": "integer",
+                            "title": "Signal Position Accuracy",
+                            "description": "The accuracy of the position in millimeters.",
+                            "examples": [
+                                100000,
+                                13000
+                            ]
+                        },
+                        "altitudeMeters": {
+                            "type": "number",
+                            "title": "Altitude",
+                            "description": "The altitude of the position in meters.",
+                            "examples": [
+                                224.0
+                            ]
+                        },
+                        "source": {
+                            "type": "string",
+                            "title": "Signal Position Source",
+                            "description": "The source of the position data.",
+                            "examples": [
+                                "WIFI"
+                            ]
+                        },
+                        "speedMetersPerSecond": {
+                            "type": "number",
+                            "title": "Speed",
+                            "description": "Speed in meters per second.",
+                            "examples": [
+                                0.0
+                            ]
+                        },
+                        "timestamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "title": "Timestamp",
+                            "description": "The timestamp of the position data.",
+                            "examples": [
+                                "2024-02-17T05:54:00.932Z",
+                                "2024-02-17T04:26:44.661Z"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "point",
+                        "timestamp"
+                    ]
+                },
+                "activityRecord": {
+                    "type": "object",
+                    "title": "Activity Record",
+                    "description": "The activity record data, including detected activities and timestamp.",
+                    "properties": {
+                        "detectedActivities": {
+                            "type": "array",
+                            "title": "Detected Activities",
+                            "description": "An array of detected activities, including activity type and probability.",
+                            "items": {
+                                "type": "object",
+                                "title": "Detected Activity Item",
+                                "description": "The detected activity item info containing activity type and probability.",
+                                "properties": {
+                                    "activityType": {
+                                        "type": "string",
+                                        "title": "Activity Type",
+                                        "description": "The type of the detected activity. This could re-use the `#/$defs/activityType` from Records schema later.",
+                                        "examples": [
+                                            "STILL",
+                                            "ON_FOOT",
+                                            "WALKING",
+                                            "IN_VEHICLE",
+                                            "UNKNOWN",
+                                            "IN_ROAD_VEHICLE",
+                                            "IN_RAIL_VEHICLE"
+                                        ]
+                                    },
+                                    "probability": {
+                                        "type": "number",
+                                        "title": "Probability",
+                                        "description": "The probability of the detected activity.",
+                                        "examples": [
+                                            0.96,
+                                            0.02,
+                                            0.01
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "activityType",
+                                    "probability"
+                                ]
+                            }
+                        },
+                        "timestamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "title": "Timestamp",
+                            "description": "The timestamp of the activity record.",
+                            "examples": [
+                                "2024-02-17T05:26:47.066Z"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "detectedActivities",
+                        "timestamp"
+                    ]
+                },
+                "wifiScan": {
+                    "type": "object",
+                    "title": "Wifi Scan Data",
+                    "description": "The wifi scan data, including delivery time, devices, and source.",
+                    "properties": {
+                        "deliveryTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "title": "Delivery Time",
+                            "description": "The delivery time of the wifi scan.",
+                            "examples": [
+                                "2024-02-17T04:26:44.661Z"
+                            ]
+                        },
+                        "devices": {
+                            "type": "array",
+                            "title": "Wifi Devices",
+                            "description": "An array of wifi devices, including mac address and raw RSSI.",
+                            "items": {
+                                "type": "object",
+                                "title": "Wifi Device",
+                                "description": "The wifi device info containing mac address and raw RSSI.",
+                                "properties": {
+                                    "mac": {
+                                        "type": "string",
+                                        "title": "MAC Address",
+                                        "description": "The mac address of the wifi device.",
+                                        "examples": [
+                                            "145830537259886",
+                                            "212032510881561",
+                                            "212032510881562"
+                                        ]
+                                    },
+                                    "rawRssi": {
+                                        "type": "integer",
+                                        "title": "Raw RSSI",
+                                        "description": "The raw RSSI of the wifi device.",
+                                        "examples": [
+                                            -51,
+                                            -53,
+                                            -58
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "mac",
+                                    "rawRssi"
+                                ]
+                            }
+                        },
+                        "source": {
+                            "type": "string",
+                            "title": "Wifi Scan Source",
+                            "description": "The source of the wifi scan data.",
+                            "examples": [
+                                "ACTIVE_SCAN"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "deliveryTime",
+                        "devices"
+                    ]
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "title": "Metadata",
+            "description": "Metadata about the data object.",
+            "properties": {
+                "platform": {
+                    "type": "string",
+                    "title": "Device Platform",
+                    "description": "The platform that generated the data.",
+                    "examples": [
+                        "ANDROID",
+                        "UNKNOWN"
+                    ]
+                }
+            },
+            "required": [
+                "platform"
+            ]
+        },
+        "point": {
+            "type": "object",
+            "title": "Point",
+            "description": "The geographical point.",
+            "examples": [
+                {
+                    "latE7": 416032766,
+                    "lngE7": 21841819,
+                    "accuracyMeters": 10,
+                    "timestamp": "2022-03-03T08:27:48Z"
+                }
+            ],
+            "properties": {
+                "latE7": {
+                    "type": "integer",
+                    "title": "Latitude",
+                    "description": "Latitude coordinate of the point. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).",
+                    "examples": [
+                        439362473,
+                        436994475
+                    ],
+                    "minimum": -900000000,
+                    "maximum": 900000000
+                },
+                "lngE7": {
+                    "type": "integer",
+                    "title": "Longitude",
+                    "description": "Longitude coordinate of the point. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).",
+                    "examples": [
+                        -788308560,
+                        -798539281
+                    ],
+                    "minimum": -1800000000,
+                    "maximum": 1800000000
+                }
+            },
+            "required": [
+                "latE7",
+                "lngE7"
+            ]
+        }
+    }
+}

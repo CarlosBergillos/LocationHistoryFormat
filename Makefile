@@ -7,7 +7,8 @@ EXPORTS_DIR = ./docs/reference/
 SOURCES = \
 	settings:=Settings.schema.json \
 	records:=Records.schema.json \
-	semantic:=Semantic.schema.json
+	semantic:=Semantic.schema.json \
+	timeline-edits:=TimelineEdits.schema.json
 
 # List of titles to use in the output MD files, each item in the form:
 # {output_key}:={output_title}
@@ -15,7 +16,8 @@ SOURCES = \
 SOURCE_TITLES = \
 	settings:=**\`Settings.json\`**\_Format\_Definition \
 	records:=**\`Records.json\`**\_Format\_Definition \
-	semantic:=Semantic\_Location\_History\_Format\_Definition
+	semantic:=Semantic\_Location\_History\_Format\_Definition \
+	timeline-edits:=Timeline\_Edits\_Format\_Definition
 
 
 TOOL_JSONSCHEMA2MD = $(wildcard ./tools/jsonschema_to_md/*.py) $(wildcard ./tools/jsonschema_to_md/templates/*.jinja)
