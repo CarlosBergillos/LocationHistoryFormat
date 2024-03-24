@@ -17,7 +17,7 @@ SOURCE_TITLES = \
 	settings:=**\`Settings.json\`**\_Format\_Definition \
 	records:=**\`Records.json\`**\_Format\_Definition \
 	semantic:=Semantic\_Location\_History\_Format\_Definition \
-	timeline-edits:=Timeline\_Edits\_Format\_Definition
+	timeline-edits:=**\`Timeline\_Edits.json\`**\_Format\_Definition
 
 
 TOOL_JSONSCHEMA2MD = $(wildcard ./tools/jsonschema_to_md/*.py) $(wildcard ./tools/jsonschema_to_md/templates/*.jinja)
