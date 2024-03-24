@@ -1,0 +1,1277 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://locationhistoryformat.com/reference/timeline-edits/">
+      
+      
+        <link rel="prev" href="../settings/">
+      
+      
+        <link rel="next" href="../semantic/">
+      
+      <link rel="icon" href="../../static/timeline_blue_24dp_favicon.svg">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+    
+    
+      
+        <title>Timeline Edits.json - Location History Format</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DFXB6XJ1Z3"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DFXB6XJ1Z3",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DFXB6XJ1Z3",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#timeline-editsjson-format-definition" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Location History Format" class="md-header__button md-logo" aria-label="Location History Format" data-md-component="logo">
+      
+  <img src="../../static/timeline_blue_24dp.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Location History Format
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Timeline Edits.json
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CarlosBergillos/LocationHistoryFormat" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LocationHistoryFormat
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../guides/downloading/" class="md-tabs__link">
+        Guides
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../faq/" class="md-tabs__link">
+      FAQ
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../contributing/" class="md-tabs__link">
+      Contributing
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Location History Format" class="md-nav__button md-logo" aria-label="Location History Format" data-md-component="logo">
+      
+  <img src="../../static/timeline_blue_24dp.svg" alt="logo">
+
+    </a>
+    Location History Format
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CarlosBergillos/LocationHistoryFormat" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LocationHistoryFormat
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/downloading/" class="md-nav__link">
+        Downloading the Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/general-structure/" class="md-nav__link">
+        General Structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/raw-location/" class="md-nav__link">
+        Raw Location History Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/semantic-location/" class="md-nav__link">
+        Semantic Location History Data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Reference</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../records/" class="md-nav__link">
+        Records.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        Settings.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Timeline Edits.json
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Timeline Edits.json
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#/" class="md-nav__link">
+    Timeline Edits Schema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/timelineEditsItem/" class="md-nav__link">
+    Timeline Edit Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/timelineEditsItem/properties/placeAggregates/" class="md-nav__link">
+    Place Aggregates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/timelineEditsItem/properties/rawSignal/" class="md-nav__link">
+    Raw Signal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/metadata/" class="md-nav__link">
+    Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo/items/" class="md-nav__link">
+    Place Aggregate Info Item
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/timelineEditsItem/properties/placeAggregates/properties/processWindow/" class="md-nav__link">
+    Process Window
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/signal/" class="md-nav__link">
+    Signal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/point/" class="md-nav__link">
+    Point
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/signal/properties/activityRecord/" class="md-nav__link">
+    Activity Record
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/signal/properties/position/" class="md-nav__link">
+    Position
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/signal/properties/wifiScan/" class="md-nav__link">
+    Wifi Scan Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/signal/properties/activityRecord/properties/detectedActivities/items/" class="md-nav__link">
+    Detected Activity Item
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/signal/properties/wifiScan/properties/devices/items/" class="md-nav__link">
+    Wifi Device
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semantic/" class="md-nav__link">
+        Semantic Location History
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!---
+Don't modify this file directly.
+This file is automatically generated from 'TimelineEdits.schema.json'.
+-->
+
+<h1 id="timeline-editsjson-format-definition"><strong><code>Timeline Edits.json</code></strong> Format Definition<a class="headerlink" href="#timeline-editsjson-format-definition" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p>This page has been automatically generated from the schema <a href="https://github.com/CarlosBergillos/LocationHistoryFormat/tree/main/schemas/TimelineEdits.schema.json"><code>TimelineEdits.schema.json</code></a>.</p>
+</div>
+<h2 id="/">Timeline Edits Schema<a class="headerlink" href="#/" title="Permanent link">&para;</a></h2>
+<div>
+<p>This schema outlines the structure of timeline edits data, encompassing device information, place visit aggregates, and raw signal data from the device.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/properties/timelineEdits"><code>timelineEdits​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Timeline Edits</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/timelineEditsItem/">Timeline Edit Information</a>)</span></div><div markdown="1">List of all timeline edits.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/timelineEditsItem/">Timeline Edit Information<a class="headerlink" href="#/$defs/timelineEditsItem/" title="Permanent link">&para;</a></h2>
+<div>
+<p>Various information about the timeline edit, including device ID, place aggregates, and raw signal data.</p>
+</div>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;deviceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;placeAggregates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;placeAggregateInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1228.0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;numBucketsWithLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;bucketSpanDays&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;point&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">429362473</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-788308560</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;placeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJV8SII64E1YkRvAqrnP5G_x8&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;placePoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">429362442</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-788308585</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">166.0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;numBucketsWithLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;bucketSpanDays&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;point&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">426994475</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-778539281</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;placeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJ4_FHs78TK4gRw8h22XkBDEA&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;placePoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">426994650</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-778539291</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">131.0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;numBucketsWithLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;bucketSpanDays&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;point&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">415908301</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-739409850</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;placeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJJRdROh863YkRmXCWQ14VMcI&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;placePoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">415908776</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-739409849</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;windowSizeHrs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2011</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;topRankedPlacesPlaceIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;ChIJV8SII64E1YkRvAqrnP5G_x8&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;ChIJ4_FHs78TK4gRw8h22XkBDEA&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;ChIJJRdROh863YkRmXCWQ14VMcI&quot;</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;processWindow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;startTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-12-14T08:00:55Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;endTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-03-07T08:00:55Z&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UNKNOWN&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/deviceId"><code>deviceId</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Device ID</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"0"</code></span></div><div markdown="1">The unique identifier for the device that generated the data.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates"><code>placeAggregates</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place Aggregates</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/timelineEditsItem/properties/placeAggregates/">Place Aggregates</a>)</span></div><div markdown="1">Aggregated information about places visited by the device.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/rawSignal"><code>rawSignal</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Raw Signal</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/timelineEditsItem/properties/rawSignal/">Raw Signal</a>)</span></div><div markdown="1">Raw signal data from the device.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/timelineEditsItem/properties/placeAggregates/">Place Aggregates<a class="headerlink" href="#/$defs/timelineEditsItem/properties/placeAggregates/" title="Permanent link">&para;</a></h2>
+<div>
+<p>Aggregated information about places visited by the device.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/metadata"><code>metadata</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Metadata</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/metadata/">Metadata</a>)</span></div><div markdown="1">Metadata about the data object.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo"><code>placeAggregateInfo​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place Aggregate Information</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo/items/">Place Aggregate Info Item</a>)</span></div><div markdown="1">An array of place information, including score, location, and place ID.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/processWindow"><code>processWindow</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Process Window</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/timelineEditsItem/properties/placeAggregates/properties/processWindow/">Process Window</a>)</span></div><div markdown="1">The start and end time of the processing window.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/topRankedPlacesPlaceIds"><code>topRankedPlacesPlaceIds​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Top Ranked Places</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>string</code></span></div><div markdown="1">An array of place IDs for the top-ranked places.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/windowSizeHrs"><code>windowSizeHrs</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Time Window Size</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>2016</code></span></div><div markdown="1">The size of the window in hours for the place aggregates.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/timelineEditsItem/properties/rawSignal/">Raw Signal<a class="headerlink" href="#/$defs/timelineEditsItem/properties/rawSignal/" title="Permanent link">&para;</a></h2>
+<div>
+<p>Raw signal data from the device.</p>
+</div>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;signal&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;point&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">426974802</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-778539156</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;accuracyMm&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;altitudeMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">224.0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WIFI&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-02-17T04:14:41.412Z&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;additionalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-02-17T04:14:39.545Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ANDROID&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/rawSignal/properties/additionalTimestamp"><code>additionalTimestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Additional Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2024-02-17T05:54:01.359Z"</code></span></div><div markdown="1">An additional timestamp associated with the raw signal.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/rawSignal/properties/metadata"><code>metadata</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Metadata</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/metadata/">Metadata</a>)</span></div><div markdown="1">Metadata about the data object.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/rawSignal/properties/signal"><code>signal</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Signal</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/signal/">Signal</a>)</span></div><div markdown="1">The signal data, including position, activity record, and wifi scan.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/metadata/">Metadata<a class="headerlink" href="#/$defs/metadata/" title="Permanent link">&para;</a></h2>
+<div>
+<p>Metadata about the data object.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/metadata/properties/platform"><code>platform</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Device Platform</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"ANDROID"</code></span></div><div markdown="1">The platform that generated the data.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo/items/">Place Aggregate Info Item<a class="headerlink" href="#/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo/items/" title="Permanent link">&para;</a></h2>
+<div>
+<p>The place aggregate info containing score, location, place ID, and other details.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo/items/properties/bucketSpanDays"><code>bucketSpanDays</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Bucket Span</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>0</code></span></div><div markdown="1">The span of the buckets in days.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo/items/properties/numBucketsWithLocation"><code>numBucketsWithLocation</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Number of Buckets</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>0</code></span></div><div markdown="1">The number of location buckets associated with the place.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo/items/properties/placeId"><code>placeId</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place ID</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"ChIJV8SII64E1YkRvAqrnP5G_x8"</code></span></div><div markdown="1">The unique identifier for the place.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo/items/properties/placePoint"><code>placePoint</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Point</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/point/">Point</a>)</span></div><div markdown="1">The geographical point.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo/items/properties/point"><code>point</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Point</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/point/">Point</a>)</span></div><div markdown="1">The geographical point.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/placeAggregateInfo/items/properties/score"><code>score</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Score</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>1228.0</code></span></div><div markdown="1">The score assigned to the place.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/timelineEditsItem/properties/placeAggregates/properties/processWindow/">Process Window<a class="headerlink" href="#/$defs/timelineEditsItem/properties/placeAggregates/properties/processWindow/" title="Permanent link">&para;</a></h2>
+<div>
+<p>The start and end time of the processing window.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/processWindow/properties/endTime"><code>endTime</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">End Time</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2024-03-07T08:00:55Z"</code></span></div><div markdown="1">The end time of the processing window.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/timelineEditsItem/properties/placeAggregates/properties/processWindow/properties/startTime"><code>startTime</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Start Time</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2023-12-14T08:00:55Z"</code></span></div><div markdown="1">The start time of the processing window.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/signal/">Signal<a class="headerlink" href="#/$defs/signal/" title="Permanent link">&para;</a></h2>
+<div>
+<p>The signal data, including position, activity record, and wifi scan.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/signal/properties/activityRecord"><code>activityRecord</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Activity Record</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/signal/properties/activityRecord/">Activity Record</a>)</span></div><div markdown="1">The activity record data, including detected activities and timestamp.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/position"><code>position</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Position</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/signal/properties/position/">Position</a>)</span></div><div markdown="1">The position data, including point, accuracy, altitude, source, and timestamp.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/wifiScan"><code>wifiScan</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Wifi Scan Data</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/signal/properties/wifiScan/">Wifi Scan Data</a>)</span></div><div markdown="1">The wifi scan data, including delivery time, devices, and source.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/point/">Point<a class="headerlink" href="#/$defs/point/" title="Permanent link">&para;</a></h2>
+<div>
+<p>The geographical point.</p>
+</div>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">416032766</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21841819</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T08:27:48Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/point/properties/latE7"><code>latE7</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Latitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>439362473</code></span></div><div markdown="1">Latitude coordinate of the point. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/point/properties/lngE7"><code>lngE7</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Longitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>-788308560</code></span></div><div markdown="1">Longitude coordinate of the point. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/signal/properties/activityRecord/">Activity Record<a class="headerlink" href="#/$defs/signal/properties/activityRecord/" title="Permanent link">&para;</a></h2>
+<div>
+<p>The activity record data, including detected activities and timestamp.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/signal/properties/activityRecord/properties/detectedActivities"><code>detectedActivities​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Detected Activities</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/signal/properties/activityRecord/properties/detectedActivities/items/">Detected Activity Item</a>)</span></div><div markdown="1">An array of detected activities, including activity type and probability.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/activityRecord/properties/timestamp"><code>timestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2024-02-17T05:26:47.066Z"</code></span></div><div markdown="1">The timestamp of the activity record.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/signal/properties/position/">Position<a class="headerlink" href="#/$defs/signal/properties/position/" title="Permanent link">&para;</a></h2>
+<div>
+<p>The position data, including point, accuracy, altitude, source, and timestamp.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/signal/properties/position/properties/accuracyMm"><code>accuracyMm</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Signal Position Accuracy</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>100000</code></span></div><div markdown="1">The accuracy of the position in millimeters.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/position/properties/altitudeMeters"><code>altitudeMeters</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Altitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>224.0</code></span></div><div markdown="1">The altitude of the position in meters.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/position/properties/point"><code>point</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Point</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/point/">Point</a>)</span></div><div markdown="1">The geographical point.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/position/properties/source"><code>source</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Signal Position Source</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"WIFI"</code></span></div><div markdown="1">The source of the position data.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/position/properties/speedMetersPerSecond"><code>speedMetersPerSecond</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Speed</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>0.0</code></span></div><div markdown="1">Speed in meters per second.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/position/properties/timestamp"><code>timestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2024-02-17T05:54:00.932Z"</code></span></div><div markdown="1">The timestamp of the position data.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/signal/properties/wifiScan/">Wifi Scan Data<a class="headerlink" href="#/$defs/signal/properties/wifiScan/" title="Permanent link">&para;</a></h2>
+<div>
+<p>The wifi scan data, including delivery time, devices, and source.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/signal/properties/wifiScan/properties/deliveryTime"><code>deliveryTime</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Delivery Time</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2024-02-17T04:26:44.661Z"</code></span></div><div markdown="1">The delivery time of the wifi scan.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/wifiScan/properties/devices"><code>devices​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Wifi Devices</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/signal/properties/wifiScan/properties/devices/items/">Wifi Device</a>)</span></div><div markdown="1">An array of wifi devices, including mac address and raw RSSI.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/wifiScan/properties/source"><code>source</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Wifi Scan Source</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"ACTIVE_SCAN"</code></span></div><div markdown="1">The source of the wifi scan data.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/signal/properties/activityRecord/properties/detectedActivities/items/">Detected Activity Item<a class="headerlink" href="#/$defs/signal/properties/activityRecord/properties/detectedActivities/items/" title="Permanent link">&para;</a></h2>
+<div>
+<p>The detected activity item info containing activity type and probability.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/signal/properties/activityRecord/properties/detectedActivities/items/properties/activityType"><code>activityType</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Activity Type</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"STILL"</code></span></div><div markdown="1">The type of the detected activity. This could re-use the <code>#/$defs/activityType</code> from Records schema later.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/activityRecord/properties/detectedActivities/items/properties/probability"><code>probability</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Probability</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>0.96</code></span></div><div markdown="1">The probability of the detected activity.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/signal/properties/wifiScan/properties/devices/items/">Wifi Device<a class="headerlink" href="#/$defs/signal/properties/wifiScan/properties/devices/items/" title="Permanent link">&para;</a></h2>
+<div>
+<p>The wifi device info containing mac address and raw RSSI.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/signal/properties/wifiScan/properties/devices/items/properties/mac"><code>mac</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">MAC Address</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"145830537259886"</code></span></div><div markdown="1">The mac address of the wifi device.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/signal/properties/wifiScan/properties/devices/items/properties/rawRssi"><code>rawRssi</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Raw RSSI</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>-51</code></span></div><div markdown="1">The raw RSSI of the wifi device.</div></div></td>
+</tr>
+</tbody>
+</table>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2024-03-24
+    
+  </small>
+</div>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Carlos Bergillos
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/CarlosBergillos" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "toc.integrate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2286 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://locationhistoryformat.com/reference/semantic/">
+      
+      
+        <link rel="prev" href="../timeline-edits/">
+      
+      
+        <link rel="next" href="../../faq/">
+      
+      <link rel="icon" href="../../static/timeline_blue_24dp_favicon.svg">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+    
+    
+      
+        <title>Semantic Location History - Location History Format</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DFXB6XJ1Z3"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DFXB6XJ1Z3",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DFXB6XJ1Z3",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#semantic-location-history-format-definition" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Location History Format" class="md-header__button md-logo" aria-label="Location History Format" data-md-component="logo">
+      
+  <img src="../../static/timeline_blue_24dp.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Location History Format
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Semantic Location History
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CarlosBergillos/LocationHistoryFormat" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LocationHistoryFormat
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../guides/downloading/" class="md-tabs__link">
+        Guides
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../faq/" class="md-tabs__link">
+      FAQ
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../contributing/" class="md-tabs__link">
+      Contributing
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Location History Format" class="md-nav__button md-logo" aria-label="Location History Format" data-md-component="logo">
+      
+  <img src="../../static/timeline_blue_24dp.svg" alt="logo">
+
+    </a>
+    Location History Format
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CarlosBergillos/LocationHistoryFormat" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LocationHistoryFormat
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/downloading/" class="md-nav__link">
+        Downloading the Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/general-structure/" class="md-nav__link">
+        General Structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/raw-location/" class="md-nav__link">
+        Raw Location History Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/semantic-location/" class="md-nav__link">
+        Semantic Location History Data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Reference</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../records/" class="md-nav__link">
+        Records.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        Settings.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timeline-edits/" class="md-nav__link">
+        Timeline Edits.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Semantic Location History
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Semantic Location History
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#/" class="md-nav__link">
+    Semantic Location History
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/properties/timelineObjects/items/" class="md-nav__link">
+    Timeline Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/activitySegment/" class="md-nav__link">
+    Activity Segment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/placeVisit/" class="md-nav__link">
+    Place Visit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/activity/" class="md-nav__link">
+    Activity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/activityType/" class="md-nav__link">
+    Activity Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/duration/" class="md-nav__link">
+    Duration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/editActionMetadata/" class="md-nav__link">
+    Edit-Action Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/location/" class="md-nav__link">
+    Location
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/parkingEvent/" class="md-nav__link">
+    Parking Event
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/simplifiedRawPath/" class="md-nav__link">
+    Simplified Raw Path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/transitPath/" class="md-nav__link">
+    Transit Path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/activitySegment/properties/waypointPath/" class="md-nav__link">
+    Waypoint Path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/placeVisit/properties/checkin/" class="md-nav__link">
+    Checkin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/editActionMetadata/properties/activitySegment/" class="md-nav__link">
+    Activity Segment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/editActionMetadata/properties/editHistory/" class="md-nav__link">
+    Edit History
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/editActionMetadata/properties/originalCandidates/" class="md-nav__link">
+    Original Candidates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/editActionMetadata/properties/placeVisitSegment/" class="md-nav__link">
+    Place Visit Segment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/semanticType/" class="md-nav__link">
+    Semantic Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/location/properties/sourceInfo/" class="md-nav__link">
+    Source Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/point/" class="md-nav__link">
+    Point
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/transitPath/properties/stopTimesInfo/items/" class="md-nav__link">
+    Stop Time Info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/activitySegment/properties/waypointPath/properties/roadSegment/items/" class="md-nav__link">
+    Road Segment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/waypoint/" class="md-nav__link">
+    Waypoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/placeVisit/properties/checkin/properties/device/" class="md-nav__link">
+    Device
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/placeVisit/properties/checkin/properties/latestKnownLocation/" class="md-nav__link">
+    Latest Known Location
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/" class="md-nav__link">
+    Edit Event
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment/" class="md-nav__link">
+    Place Visit Segment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/placeVisit/properties/checkin/properties/device/properties/android/" class="md-nav__link">
+    Android
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/properties/uiConfiguration/" class="md-nav__link">
+    UI Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment/properties/placeVisitCandidate/items/" class="md-nav__link">
+    Original Candidates
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!---
+Don't modify this file directly.
+This file is automatically generated from 'Semantic.schema.json'.
+-->
+
+<h1 id="semantic-location-history-format-definition">Semantic Location History Format Definition<a class="headerlink" href="#semantic-location-history-format-definition" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p>This page has been automatically generated from the schema <a href="https://github.com/CarlosBergillos/LocationHistoryFormat/tree/main/schemas/Semantic.schema.json"><code>Semantic.schema.json</code></a>.</p>
+</div>
+<h2 id="/">Semantic Location History<a class="headerlink" href="#/" title="Permanent link">&para;</a></h2>
+<div>
+<p>A Semantic Location History JSON file in a Google Takeout Location History extraction. Contains Semantic Location History information from the user's account. Typically this will be a file containing data for a single month, with a name such as <code>2021_JANUARY.json</code>.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/properties/timelineObjects"><code>timelineObjects​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Timeline Objects</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/properties/timelineObjects/items/">Timeline Object</a>)</span></div><div markdown="1">List of all available semantic information, in chronological order. Each item in the list is either an <a href="#/$defs/activitySegment/">Activity Segment</a> or a <a href="#/$defs/placeVisit/">Place Visit</a>, encapsulated in a generic <a href="#/properties/timelineObjects/items/">Timeline Object</a>.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/properties/timelineObjects/items/">Timeline Object<a class="headerlink" href="#/properties/timelineObjects/items/" title="Permanent link">&para;</a></h2>
+<div>
+<p>Encapsulates either an <a href="#/$defs/activitySegment/">Activity Segment</a> or a <a href="#/$defs/placeVisit/">Place Visit</a>, depending on the single key found.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Single Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/properties/timelineObjects/items/oneOf/0/properties/activitySegment"><code>activitySegment</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Activity Segment</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/activitySegment/">Activity Segment</a>)</span></div><div markdown="1">An activity involving changes in location, usually a journey from one place to another, such as a walk, a car drive, a bus ride, or a flight.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/properties/timelineObjects/items/oneOf/1/properties/placeVisit"><code>placeVisit</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place Visit</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/placeVisit/">Place Visit</a>)</span></div><div markdown="1">A visit or stay at a place in a fixed location for a duration of time, such as a stay at home, at work, a visit to a shopping mall, or to a restaurant.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/activitySegment/">Activity Segment<a class="headerlink" href="#/$defs/activitySegment/" title="Permanent link">&para;</a></h2>
+<div>
+<p>An activity involving changes in location, usually a journey from one place to another, such as a walk, a car drive, a bus ride, or a flight.</p>
+</div>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;activitySegment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;startLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414083590</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;longitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21704229</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sourceInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;deviceTag&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1114211210</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;endLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">413961889</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;longitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21536695</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sourceInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;deviceTag&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1114211210</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;startTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:22:24Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;endTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:43:34Z&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;distance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2640</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;activityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IN_BUS&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HIGH&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;activities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;activityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IN_BUS&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;probability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">85.6847882270813</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;activityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALKING&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;probability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">8.418431878089905</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;activityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IN_PASSENGER_VEHICLE&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;probability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.8303226456046104</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;activityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STILL&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;probability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.7383299767971039</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;activityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IN_SUBWAY&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;probability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4673520103096962</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;activityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IN_TRAIN&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;probability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3031305968761444</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;activityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IN_TRAM&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;probability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.269505986943841</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;activityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CYCLING&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;probability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1483310479670763</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;transitPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;transitStops&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414083140</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;longitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21704000</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;placeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJWey1zMWipBIRiNQSzpI4EDQ&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;08025 Barcelona\nEspa\u00f1a&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sant Antoni Maria Claret-Lepant&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414066427</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;longitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21681608</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;placeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJ3Wr_xsaipBIRctQDPNF0IHM&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;08025 Barcelona\nEspa\u00f1a&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sant Antoni Maria Claret - Sardenya&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414049343</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;longitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21659001</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;placeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJh2lnv8CipBIRpH0ym2Bxo68&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;08025 Barcelona\nEspa\u00f1a&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sant Antoni Maria Claret - N\u00e0pols&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;H8&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;hexRgbColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;009EE0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;linePlaceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJQVEUoLuipBIRJO37wI4yyBs&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;stopTimesInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;scheduledDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:42:00Z&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;realtimeDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:43:37Z&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;scheduleArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:44:01Z&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;scheduledDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:44:01Z&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;realtimeArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:45:38Z&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;realtimeDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:45:38Z&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;scheduleArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:46:03Z&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;scheduledDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:46:03Z&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;realtimeArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:47:40Z&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;realtimeDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:47:40Z&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;scheduleArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:48:00Z&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;scheduledDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:48:00Z&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;realtimeArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:49:37Z&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;realtimeDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:49:37Z&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFERRED&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9155850640140931</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;distanceMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2341.0</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;simplifiedRawPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;points&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414032766</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21641819</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:27:48Z&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414016705</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21661614</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:30:04Z&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">413986545</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21623960</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:33:51Z&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">413976870</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21610201</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:37:09Z&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">413968976</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21609892</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:38:50Z&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">413955345</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21551848</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:42:06Z&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFERRED&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;distanceMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2413.400132766728</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/activities"><code>activities​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Activities</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/activity/">Activity</a>)</span></div><div markdown="1">List of all the considered candidate activity types and their probabilities. The sum of all the probabilities is always &lt;= 100.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/activityType"><code>activityType</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Activity Type</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<a href="#/$defs/activityType/">Activity Type</a>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"WALKING"</code></span></div><div markdown="1">Best match activity type. Corresponds to the activity type with the highest probability in <a href="#/$defs/activitySegment/properties/activities"><code>activities</code></a>.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/confidence"><code>confidence</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Confidence</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"HIGH"</code></span></div><div markdown="1">Confidence that the chosen activity type (see <a href="#/$defs/activitySegment/properties/activityType"><code>activityType</code></a>) is correct. One of: <code>LOW</code>, <code>MEDIUM</code>, <code>HIGH</code> or <code>UNKNOWN_CONFIDENCE</code>. Activities that have been manually confirmed always have a confidence of <code>HIGH</code>.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/distance"><code>distance</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Distance</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>292</code></span></div><div markdown="1">Distance traveled during the activity, in meters.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/duration"><code>duration</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Duration</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/duration/">Duration</a>)</span></div><div markdown="1">Duration of the activity.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/editActionMetadata"><code>editActionMetadata</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Edit-Action Metadata</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/editActionMetadata/">Edit-Action Metadata</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/editConfirmationStatus"><code>editConfirmationStatus</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Edit-Confirmation Status</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"CONFIRMED"</code></span></div><div markdown="1">Whether the user has manually edited the activity segment. Can be <code>NOT_CONFIRMED</code> or <code>CONFIRMED</code>.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/endLocation"><code>endLocation</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">End Location</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/location/">Location</a>)</span></div><div markdown="1">End location of the activity.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/lastEditedTimestamp"><code>lastEditedTimestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Last-Edited Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-03-06T14:13:11.092Z"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/parkingEvent"><code>parkingEvent</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Parking Event</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/parkingEvent/">Parking Event</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/simplifiedRawPath"><code>simplifiedRawPath</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Simplified Raw Path</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/simplifiedRawPath/">Simplified Raw Path</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/startLocation"><code>startLocation</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Start Location</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/location/">Location</a>)</span></div><div markdown="1">Start location of the activity.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/transitPath"><code>transitPath</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Transit Path</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/transitPath/">Transit Path</a>)</span></div><div markdown="1">Path taken in a public transit system, such as a bus or a metro.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/waypointPath"><code>waypointPath</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Waypoint Path</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/activitySegment/properties/waypointPath/">Waypoint Path</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/placeVisit/">Place Visit<a class="headerlink" href="#/$defs/placeVisit/" title="Permanent link">&para;</a></h2>
+<div>
+<p>A visit or stay at a place in a fixed location for a duration of time, such as a stay at home, at work, a visit to a shopping mall, or to a restaurant.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/centerLatE7"><code>centerLatE7</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Center Latitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>414216106</code></span></div><div markdown="1">Latitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/centerLngE7"><code>centerLngE7</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Center Longitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>21684775</code></span></div><div markdown="1">Longitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/checkin"><code>checkin</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Checkin</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/placeVisit/properties/checkin/">Checkin</a>)</span></div><div markdown="1"><span class="mdx-help"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></span> <strong>Help Wanted:</strong> </span><em>The meaning of this field is uncertain. Contributions to improve this <a href="https://github.com/CarlosBergillos/LocationHistoryFormat/tree/main/schemas/Semantic.schema.json#L630-L688">are welcome</a>.</em></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/childVisits"><code>childVisits​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Child Visits</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/placeVisit/">Place Visit</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/duration"><code>duration</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Duration</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/duration/">Duration</a>)</span></div><div markdown="1">Duration of the place visit.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/editActionMetadata"><code>editActionMetadata</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Edit-Action Metadata</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/editActionMetadata/">Edit-Action Metadata</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/editConfirmationStatus"><code>editConfirmationStatus</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Edit-Confirmation Status</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"CONFIRMED"</code></span></div><div markdown="1">Whether the user has manually edited the place visit. Can be <code>NOT_CONFIRMED</code> or <code>CONFIRMED</code>.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/lastEditedTimestamp"><code>lastEditedTimestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Last-Edited Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-03-06T14:13:11.092Z"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/location"><code>location</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Location</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/location/">Location</a>)</span></div><div markdown="1">Location of the place.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/locationAssertionType"><code>locationAssertionType</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Location Assertion Type</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"AREA"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/locationConfidence"><code>locationConfidence</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Visit Confidence</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>71</code></span></div><div markdown="1"><span class="mdx-help"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></span> <strong>Help Wanted:</strong> </span><em>How is this different from <a href="#/$defs/placeVisit/properties/visitConfidence"><code>visitConfidence</code></a> Contributions to improve this <a href="https://github.com/CarlosBergillos/LocationHistoryFormat/tree/main/schemas/Semantic.schema.json#L526-L536">are welcome</a>.</em></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/otherCandidateLocations"><code>otherCandidateLocations​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Other Candidate Locations</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/location/">Location</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/placeConfidence"><code>placeConfidence</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place Confidence</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"HIGH"</code></span></div><div markdown="1">Categorized confidence for this place visit. One of: <code>LOW_CONFIDENCE</code>, <code>MEDIUM_CONFIDENCE</code>, <code>HIGH_CONFIDENCE</code> or <code>USER_CONFIRMED</code>.</div><div markdown="1"><span class="mdx-help"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></span> <strong>Help Wanted:</strong> </span><em>Is this directly related to <a href="#/$defs/placeVisit/properties/locationConfidence"><code>locationConfidence</code></a> and/or <a href="#/$defs/placeVisit/properties/visitConfidence"><code>visitConfidence</code></a> Contributions to improve this <a href="https://github.com/CarlosBergillos/LocationHistoryFormat/tree/main/schemas/Semantic.schema.json#L500-L514">are welcome</a>.</em></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/placeVisitImportance"><code>placeVisitImportance</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place Visit Importance</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"MAIN"</code></span></div><div markdown="1">One of <code>MAIN</code> or <code>TRANSITIONAL</code>.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/placeVisitLevel"><code>placeVisitLevel</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place Visit Level</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>1</code></span></div><div markdown="1">Level (depth) of this place visit. This value increases by 1 with each recursive access to a <a href="#/$defs/placeVisit/properties/childVisits"><code>childVisits</code></a> entry.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/placeVisitType"><code>placeVisitType</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place Visit Type</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"SINGLE_PLACE"</code></span></div><div markdown="1">Can be <code>SINGLE_PLACE</code>.</div><div markdown="1"><span class="mdx-help"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></span> <strong>Help Wanted:</strong> </span><em>Are there other valid values? Contributions to improve this <a href="https://github.com/CarlosBergillos/LocationHistoryFormat/tree/main/schemas/Semantic.schema.json#L594-L605">are welcome</a>.</em></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/sectionId"><code>sectionId</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Section ID</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/simplifiedRawPath"><code>simplifiedRawPath</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Simplified Raw Path</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/simplifiedRawPath/">Simplified Raw Path</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/visitConfidence"><code>visitConfidence</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Visit Confidence</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>95</code></span></div><div markdown="1"><span class="mdx-help"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></span> <strong>Help Wanted:</strong> </span><em>How is this different from <a href="#/$defs/placeVisit/properties/locationConfidence"><code>locationConfidence</code></a> Contributions to improve this <a href="https://github.com/CarlosBergillos/LocationHistoryFormat/tree/main/schemas/Semantic.schema.json#L515-L525">are welcome</a>.</em></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/activity/">Activity<a class="headerlink" href="#/$defs/activity/" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;activityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALKING&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;probability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">95.93904614448547</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/activity/properties/activityType"><code>activityType</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Activity Type</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<a href="#/$defs/activityType/">Activity Type</a>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"STILL"</code></span></div><div markdown="1">Type of activity.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activity/properties/probability"><code>probability</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Probability</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>95.93904614448547</code></span></div><div markdown="1">Probability (or confidence) that the activity type is correct, in the range 0 to 100.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/activityType/">Activity Type<a class="headerlink" href="#/$defs/activityType/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Activity Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/31"><code>BOATING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/directions_boat_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Boating</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/35"><code>CATCHING_POKEMON</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #db4437;"></div><img class="info-icon" src="../../static/icons/activity_types/catching_pokemon_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Catching Pokémon</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/3"><code>CYCLING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/directions_bike_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Cycling</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/5"><code>FLYING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #3f51b5;"></div><img class="info-icon" src="../../static/icons/activity_types/local_airport_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Flying</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/14"><code>HIKING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #c2185b;"></div><img class="info-icon" src="../../static/icons/activity_types/hiking_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Hiking</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/33"><code>HORSEBACK_RIDING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/moving_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Horseback riding</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/7"><code>IN_BUS</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/directions_bus_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">On a bus</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/12"><code>IN_CABLECAR</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/moving_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">In a cable car</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/11"><code>IN_FERRY</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/directions_boat_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">On a ferry</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/13"><code>IN_FUNICULAR</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/moving_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">On a funicular</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/34"><code>IN_GONDOLA_LIFT</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/moving_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">In a gondola lift</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/29"><code>IN_PASSENGER_VEHICLE</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/directions_car_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Driving</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/9"><code>IN_SUBWAY</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/subway_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">On the subway</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/36"><code>IN_TAXI</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/local_taxi_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">In a taxi</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/8"><code>IN_TRAIN</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/directions_railway_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">On a train</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/10"><code>IN_TRAM</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/tram_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">On a tram</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/4"><code>IN_VEHICLE</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #03a9f4;"></div><img class="info-icon" src="../../static/icons/activity_types/moving_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">In a vehicle</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/32"><code>IN_WHEELCHAIR</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #03a9f4;"></div><img class="info-icon" src="../../static/icons/activity_types/accessible_forward_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">By wheelchair</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/15"><code>KAYAKING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/kayaking_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Kayaking</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/16"><code>KITESURFING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/kitesurfing_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Kitesurfing</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/30"><code>MOTORCYCLING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/motorcycle_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Motorcycling</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/37"><code>PARAGLIDING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/paragliding_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Paragliding</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/17"><code>ROWING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #c2185b;"></div><img class="info-icon" src="../../static/icons/activity_types/rowing_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Rowing</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/6"><code>RUNNING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #c2185b;"></div><img class="info-icon" src="../../static/icons/activity_types/directions_run_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Running</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/18"><code>SAILING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/sailing_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Sailing</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/21"><code>SKATEBOARDING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/skateboarding_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Skateboarding</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/19"><code>SKATING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/ice_skating_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Skating</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/20"><code>SKIING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/downhill_skiing_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Skiing</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/22"><code>SLEDDING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/sledding_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Sledding</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/23"><code>SNOWBOARDING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/snowboarding_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Snowboarding</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/24"><code>SNOWMOBILE</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/snowmobile_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Snowmobiling</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/25"><code>SNOWSHOEING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #c2185b;"></div><img class="info-icon" src="../../static/icons/activity_types/snowshoeing_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Snowshoeing</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/1"><code>STILL</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #01579b;"></div><img class="info-icon" src="../../static/icons/activity_types/man_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Still</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/26"><code>SURFING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #4db6ac;"></div><img class="info-icon" src="../../static/icons/activity_types/surfing_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Surfing</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/27"><code>SWIMMING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #c2185b;"></div><img class="info-icon" src="../../static/icons/activity_types/pool_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Swimming</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/0"><code>UNKNOWN_ACTIVITY_TYPE</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #03a9f4;"></div><img class="info-icon" src="../../static/icons/activity_types/moving_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Moving</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/2"><code>WALKING</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #03a9f4;"></div><img class="info-icon" src="../../static/icons/activity_types/directions_walk_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Walking</span></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activityType/oneOf/28"><code>WALKING_NORDIC</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #c2185b;"></div><img class="info-icon" src="../../static/icons/activity_types/nordic_walking_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Nordic walking</span></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/duration/">Duration<a class="headerlink" href="#/$defs/duration/" title="Permanent link">&para;</a></h2>
+<div>
+<p>Duration of time defined by a start timestamp and an end timestamp.</p>
+</div>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;startTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-02-02T10:41:08.315Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;endTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-02-02T10:45:09.962Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/duration/properties/endTimestamp"><code>endTimestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">End Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-02-02T10:45:09.962Z"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/duration/properties/startTimestamp"><code>startTimestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Start Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-02-02T10:41:08.315Z"</code></span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/editActionMetadata/">Edit-Action Metadata<a class="headerlink" href="#/$defs/editActionMetadata/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/activitySegment"><code>activitySegment</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Activity Segment</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/editActionMetadata/properties/activitySegment/">Activity Segment</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/editHistory"><code>editHistory</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Edit History</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/editActionMetadata/properties/editHistory/">Edit History</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/originalCandidates"><code>originalCandidates</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Original Candidates</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/editActionMetadata/properties/originalCandidates/">Original Candidates</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/placeVisitSegment"><code>placeVisitSegment</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place Visit Segment</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/editActionMetadata/properties/placeVisitSegment/">Place Visit Segment</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/location/">Location<a class="headerlink" href="#/$defs/location/" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;latitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414036299</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21743558</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;placeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJk_s92NyipBIRUMnDG8Kq2Js&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/ de Mallorca, 401\n08013 Barcelona\nEspanya&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;La Sagrada Familia&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;semanticType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TYPE_SEARCHED_ADDRESS&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sourceInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;deviceTag&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;locationConfidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">87.07311</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;calibratedProbability&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">76.20023</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/location/properties/accuracyMetres"><code>accuracyMetres</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Accuracy in meters</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>19</code></span></div><div markdown="1">Approximate accuracy radius of the location measurement, in meters. A lower value means better precision.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/location/properties/address"><code>address</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Address</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"C/ de Mallorca, 401\n08013 Barcelona\nEspanya"</code></span></div><div markdown="1">Address of the location.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/location/properties/calibratedProbability"><code>calibratedProbability</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Calibrated Probability</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>100.0</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/location/properties/isCurrentLocation"><code>isCurrentLocation</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Is Current Location</span><div markdown="1" style="width: 100%;"><span class="bold"><code>boolean</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>true</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/location/properties/latitudeE7"><code>latitudeE7</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Latitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>414216106</code></span></div><div markdown="1">Latitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/location/properties/locationConfidence"><code>locationConfidence</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Location Confidence</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>100.0</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/location/properties/longitudeE7"><code>longitudeE7</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Longitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>21684775</code></span></div><div markdown="1">Longitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/location/properties/name"><code>name</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Name</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"La Sagrada Familia"</code></span></div><div markdown="1">Name of the location.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/location/properties/placeId"><code>placeId</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place ID</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"ChIJk_s92NyipBIRUMnDG8Kq2Js"</code></span></div><div markdown="1">Google Maps <a href="https://developers.google.com/maps/documentation/places/web-service/place-id">Place ID</a> of the location.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/location/properties/semanticType"><code>semanticType</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Semantic Type</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<a href="#/$defs/semanticType/">Semantic Type</a>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"TYPE_HOME"</code></span></div><div markdown="1">Place type based on semantic information specific to the user.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/location/properties/sourceInfo"><code>sourceInfo</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Source Information</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/location/properties/sourceInfo/">Source Information</a>)</span></div><div markdown="1">Information on the source that provided the location.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/parkingEvent/">Parking Event<a class="headerlink" href="#/$defs/parkingEvent/" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;latitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">412518975</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;longitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21683133</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;accuracyMetres&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EXITING_VEHICLE_SIGNAL&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;locationSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FROM_RAW_LOCATION&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-02-27T14:47:16.731Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/parkingEvent/properties/location"><code>location</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Location</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/location/">Location</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/parkingEvent/properties/locationSource"><code>locationSource</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Location Source</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"FROM_RAW_LOCATION"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/parkingEvent/properties/method"><code>method</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Method</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"EXITING_VEHICLE_SIGNAL"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/parkingEvent/properties/timestamp"><code>timestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-02-27T14:47:16.731Z"</code></span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/simplifiedRawPath/">Simplified Raw Path<a class="headerlink" href="#/$defs/simplifiedRawPath/" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;points&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">416032766</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21841819</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T08:27:48Z&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">416016705</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21861614</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T08:30:04Z&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">415986545</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21823960</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T08:33:51Z&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFERRED&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;distanceMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2413.400132766728</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/simplifiedRawPath/properties/distanceMeters"><code>distanceMeters</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Distance in meters</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>2413.400132766728</code></span></div><div markdown="1">Distance traveled with the path, in meters.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/simplifiedRawPath/properties/points"><code>points​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Points</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/point/">Point</a>)</span></div><div markdown="1">List of all the recorded points that form the path.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/simplifiedRawPath/properties/source"><code>source</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Source</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"INFERRED"</code></span></div><div markdown="1">Source of the location data of the path. One of <code>BACKFILLED</code>, <code>INFERRED</code>, or <code>RESNAPPED_FOR_EDIT</code>.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/transitPath/">Transit Path<a class="headerlink" href="#/$defs/transitPath/" title="Permanent link">&para;</a></h2>
+<div>
+<p>A path taken in a public transit system, such as a bus or a metro. Note that it does not describe an entire transit line, but only a specific journey a user does in a transit line.</p>
+</div>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;transitStops&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414083140</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;longitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21704000</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;placeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJWey1zMWipBIRiNQSzpI4EDQ&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;08025 Barcelona\nEspa\u00f1a&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sant Antoni Maria Claret-Lepant&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414066427</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;longitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21681608</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;placeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJ3Wr_xsaipBIRctQDPNF0IHM&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;08025 Barcelona\nEspa\u00f1a&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sant Antoni Maria Claret - Sardenya&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414049343</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;longitudeE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21659001</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;placeId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJh2lnv8CipBIRpH0ym2Bxo68&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;08025 Barcelona\nEspa\u00f1a&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sant Antoni Maria Claret - N\u00e0pols&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;H8&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;hexRgbColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;009EE0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;linePlaceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ChIJQVEUoLuipBIRJO37wI4yyBs&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;stopTimesInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;scheduledDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:42:00Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;realtimeDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:43:37Z&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;scheduleArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:44:01Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;scheduledDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:44:01Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;realtimeArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:45:38Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;realtimeDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:45:38Z&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;scheduleArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:46:03Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;scheduledDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:46:03Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;realtimeArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:47:40Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;realtimeDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:47:40Z&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;scheduleArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:48:00Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;scheduledDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:48:00Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;realtimeArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:49:37Z&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;realtimeDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:49:37Z&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFERRED&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9155850640140931</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;distanceMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2341.0</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/confidence"><code>confidence</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Confidence</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>0.9155850640140931</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/distanceMeters"><code>distanceMeters</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Distance in meters</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>396.34176716755843</code></span></div><div markdown="1">Distance traveled with the transit path, in meters.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/hexRgbColor"><code>hexRgbColor</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Hexadecimal RGB Color</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"009EE0"</code></span></div><div markdown="1">Color of the transit line in hexadecimal in the form <em>RRGGBB</em>.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/linePlaceId"><code>linePlaceId</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Line Place ID</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"ChIJQVEUoLuipBIRJO37wI4yyBs"</code></span></div><div markdown="1">Google Maps <a href="https://developers.google.com/maps/documentation/places/web-service/place-id">Place ID</a> of the transit line.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/name"><code>name</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Name</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"H8"</code></span></div><div markdown="1">Name of the transit line.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/source"><code>source</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Source</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"INFERRED"</code></span></div><div markdown="1">Source of the location data of the transit path. Either <code>BACKFILLED</code> or <code>INFERRED</code>.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/stopTimesInfo"><code>stopTimesInfo​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Stop Times Info</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/transitPath/properties/stopTimesInfo/items/">Stop Time Info</a>)</span></div><div markdown="1">Time information (departure and arrival times, both real and scheduled) for each transit stop used.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/transitStops"><code>transitStops​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Transit Stops</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/location/">Location</a>)</span></div><div markdown="1">List of locations of the transit stops used.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/activitySegment/properties/waypointPath/">Waypoint Path<a class="headerlink" href="#/$defs/activitySegment/properties/waypointPath/" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;waypoints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">416119834</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21768624</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">416117012</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21899302</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">416119262</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21802315</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFERRED&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;distanceMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">396.34176716755843</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;travelMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WALK&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7986568220419046</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/waypointPath/properties/confidence"><code>confidence</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Confidence</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>0.7986568220419046</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/waypointPath/properties/distanceMeters"><code>distanceMeters</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Distance in meters</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>396.34176716755843</code></span></div><div markdown="1">Total distance of the path, in meters.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/waypointPath/properties/roadSegment"><code>roadSegment​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Road Segment</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/activitySegment/properties/waypointPath/properties/roadSegment/items/">Road Segment</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/waypointPath/properties/source"><code>source</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Source</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"INFERRED"</code></span></div><div markdown="1">Source of the location data of the path. Either <code>BACKFILLED</code> or <code>INFERRED</code>.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/waypointPath/properties/travelMode"><code>travelMode</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Travel Mode</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"WALK"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/waypointPath/properties/waypoints"><code>waypoints​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Waypoints</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/waypoint/">Waypoint</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/placeVisit/properties/checkin/">Checkin<a class="headerlink" href="#/$defs/placeVisit/properties/checkin/" title="Permanent link">&para;</a></h2>
+<div>
+<p><span class="mdx-help"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></span> <strong>Help Wanted:</strong> </span>
+<em>The meaning of this field is uncertain. Contributions to improve this <a href="https://github.com/CarlosBergillos/LocationHistoryFormat/tree/main/schemas/Semantic.schema.json#L630-L688">are welcome</a>.</em></p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/checkin/properties/atTime"><code>atTime</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">At Time</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-03-06T14:13:11.092Z"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/checkin/properties/device"><code>device</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Device</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/placeVisit/properties/checkin/properties/device/">Device</a>)</span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/checkin/properties/latestKnownLocation"><code>latestKnownLocation</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Latest Known Location</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/placeVisit/properties/checkin/properties/latestKnownLocation/">Latest Known Location</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/editActionMetadata/properties/activitySegment/">Activity Segment<a class="headerlink" href="#/$defs/editActionMetadata/properties/activitySegment/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/activitySegment/properties/activityConfidence"><code>activityConfidence</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Confidence</span><div markdown="1" style="width: 100%;"><span class="bold"><code>number</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>98.705695</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/activitySegment/properties/activityType"><code>activityType</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Activity Type</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<a href="#/$defs/activityType/">Activity Type</a>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"WALKING"</code></span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/editActionMetadata/properties/editHistory/">Edit History<a class="headerlink" href="#/$defs/editActionMetadata/properties/editHistory/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/editHistory/properties/editEvent"><code>editEvent​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Edit Event</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/">Edit Event</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/editActionMetadata/properties/originalCandidates/">Original Candidates<a class="headerlink" href="#/$defs/editActionMetadata/properties/originalCandidates/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment"><code>placeVisitSegment</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place Visit Segment</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment/">Place Visit Segment</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/editActionMetadata/properties/placeVisitSegment/">Place Visit Segment<a class="headerlink" href="#/$defs/editActionMetadata/properties/placeVisitSegment/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/placeVisitSegment/properties/location"><code>location</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Location</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/location/">Location</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/semanticType/">Semantic Type<a class="headerlink" href="#/$defs/semanticType/" title="Permanent link">&para;</a></h2>
+<div>
+<p>Place type based on semantic information specific to the user.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Semantic Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/semanticType/oneOf/3"><code>TYPE_ALIASED_LOCATION</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #03a9f4;"></div><img class="info-icon" src="../../static/icons/semantic_types/label_circled_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Type Aliased Location</span><div markdown="1">The place has been given a private label by the user. See: <a href="https://support.google.com/maps/answer/6257830?hl=en">Give a place a private label</a>.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/semanticType/oneOf/0"><code>TYPE_HOME</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #03a9f4;"></div><img class="info-icon" src="../../static/icons/semantic_types/home_circled_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Type Home</span><div markdown="1">The place has been designated as 'Home' by the user. See: <a href="https://support.google.com/maps/answer/3093979?hl=en">Set or change your home &amp; work addresses</a>.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/semanticType/oneOf/2"><code>TYPE_SEARCHED_ADDRESS</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #03a9f4;"></div><img class="info-icon" src="../../static/icons/semantic_types/schedule_circled_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Type Searched Address</span><div markdown="1">The user has searched for this place in the past.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/semanticType/oneOf/1"><code>TYPE_WORK</code></td>
+<td align="left" class="info-cell"><div class="info-color" style="align-self: stretch; background-color: #03a9f4;"></div><img class="info-icon" src="../../static/icons/semantic_types/work_circled_24dp.svg"/><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Type Work</span><div markdown="1">The place has been designated as 'Work' by the user. See: <a href="https://support.google.com/maps/answer/3093979?hl=en">Set or change your home &amp; work addresses</a>.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/location/properties/sourceInfo/">Source Information<a class="headerlink" href="#/$defs/location/properties/sourceInfo/" title="Permanent link">&para;</a></h2>
+<div>
+<p>Information on the source that provided the location.</p>
+</div>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/location/properties/sourceInfo/properties/deviceTag"><code>deviceTag</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Device Tag</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>1234567890</code></span></div><div markdown="1">Integer identifier (specific to Location History) associated with the device that obtained the location. Refer to <code>deviceSettings</code> in Settings.json for information about the device with this <code>deviceTag</code>.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/point/">Point<a class="headerlink" href="#/$defs/point/" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">416032766</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21841819</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;accuracyMeters&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T08:27:48Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/point/properties/accuracyMeters"><code>accuracyMeters</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Accuracy in meters</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>10</code></span></div><div markdown="1">Approximate accuracy radius of the location measurement, in meters. A lower value means better precision.</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/point/properties/latE7"><code>latE7</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Latitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>414216106</code></span></div><div markdown="1">Latitude coordinate of the point. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/point/properties/lngE7"><code>lngE7</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Longitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>21684775</code></span></div><div markdown="1">Longitude coordinate of the point. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/point/properties/timestamp"><code>timestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-03-03T08:27:48Z"</code></span></div><div markdown="1">Timestamp of the point.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/transitPath/properties/stopTimesInfo/items/">Stop Time Info<a class="headerlink" href="#/$defs/transitPath/properties/stopTimesInfo/items/" title="Permanent link">&para;</a></h2>
+<div>
+<p>Departure and/or arrival time information (both real and scheduled) for a stop at a transit line.</p>
+</div>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;scheduleArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:44:01Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;scheduledDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:44:01Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;realtimeArrivalTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:45:38Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;realtimeDepartureTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-03T12:45:38Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/stopTimesInfo/items/properties/realtimeArrivalTimestamp"><code>realtimeArrivalTimestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Realtime Arrival Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-03-03T12:45:38Z"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/stopTimesInfo/items/properties/realtimeDepartureTimestamp"><code>realtimeDepartureTimestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Realtime Departure Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-03-03T12:45:38Z"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/stopTimesInfo/items/properties/scheduleArrivalTimestamp"><code>scheduleArrivalTimestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Schedule Arrival Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-03-03T12:44:01Z"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/transitPath/properties/stopTimesInfo/items/properties/scheduledDepartureTimestamp"><code>scheduledDepartureTimestamp</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Scheduled Departure Timestamp</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-03-03T12:44:01Z"</code></span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/activitySegment/properties/waypointPath/properties/roadSegment/items/">Road Segment<a class="headerlink" href="#/$defs/activitySegment/properties/waypointPath/properties/roadSegment/items/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/waypointPath/properties/roadSegment/items/properties/duration"><code>duration</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Duration</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"8s"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/activitySegment/properties/waypointPath/properties/roadSegment/items/properties/placeId"><code>placeId</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place ID</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"ChIJk_s92NyipBIRUMnDG8Kq2Js"</code></span></div><div markdown="1">Google Maps <a href="https://developers.google.com/maps/documentation/places/web-service/place-id">Place ID</a> of the location.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/waypoint/">Waypoint<a class="headerlink" href="#/$defs/waypoint/" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;latE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">414216106</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;lngE7&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21684775</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/waypoint/properties/latE7"><code>latE7</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Latitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>414216106</code></span></div><div markdown="1">Latitude coordinate of the waypoint. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).</div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/waypoint/properties/lngE7"><code>lngE7</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Longitude</span><div markdown="1" style="width: 100%;"><span class="bold"><code>integer</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>21684775</code></span></div><div markdown="1">Longitude coordinate of the waypoint. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).</div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/placeVisit/properties/checkin/properties/device/">Device<a class="headerlink" href="#/$defs/placeVisit/properties/checkin/properties/device/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/checkin/properties/device/properties/android"><code>android</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Android</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/placeVisit/properties/checkin/properties/device/properties/android/">Android</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/placeVisit/properties/checkin/properties/latestKnownLocation/">Latest Known Location<a class="headerlink" href="#/$defs/placeVisit/properties/checkin/properties/latestKnownLocation/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/checkin/properties/latestKnownLocation/properties/detectionTime"><code>detectionTime</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Detection Time</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code>&nbsp;&nbsp;(<code>date-time</code>)</span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"2022-03-06T14:13:11.092Z"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/checkin/properties/latestKnownLocation/properties/location"><code>location</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Location</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/location/">Location</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/">Edit Event<a class="headerlink" href="#/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/properties/editOperation"><code>editOperation​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Edit Operation</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>string</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/properties/uiConfiguration"><code>uiConfiguration</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">UI Configuration</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/properties/uiConfiguration/">UI Configuration</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment/">Place Visit Segment<a class="headerlink" href="#/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment/properties/placeVisitCandidate"><code>placeVisitCandidate​[]</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Place Visit Candidate</span><div markdown="1" style="width: 100%;"><span class="bold">array of: <code>object</code>&nbsp;&nbsp;(<a href="#/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment/properties/placeVisitCandidate/items/">Original Candidates</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/placeVisit/properties/checkin/properties/device/properties/android/">Android<a class="headerlink" href="#/$defs/placeVisit/properties/checkin/properties/device/properties/android/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/placeVisit/properties/checkin/properties/device/properties/android/properties/fingerprint"><code>fingerprint</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Fingerprint</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/properties/uiConfiguration/">UI Configuration<a class="headerlink" href="#/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/properties/uiConfiguration/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/properties/uiConfiguration/properties/uiActivitySegmentConfiguration"><code>uiActivitySegmentConfiguration</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">UI Activity Segment Configuration</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"DEFAULT_ACTIVITY_SEGMENT_CONFIGURATION"</code></span></div></div></td>
+</tr>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/editHistory/properties/editEvent/items/properties/uiConfiguration/properties/uiPlaceVisitConfiguration"><code>uiPlaceVisitConfiguration</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">UI Place Visit Configuration</span><div markdown="1" style="width: 100%;"><span class="bold"><code>string</code></span><span style="margin-left: 2em; float: right;"><em>Example:</em> <code>"DEFAULT_PLACE_VISIT_CONFIGURATION"</code></span></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2 id="/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment/properties/placeVisitCandidate/items/">Original Candidates<a class="headerlink" href="#/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment/properties/placeVisitCandidate/items/" title="Permanent link">&para;</a></h2>
+<div class="definitions"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" id="/$defs/editActionMetadata/properties/originalCandidates/properties/placeVisitSegment/properties/placeVisitCandidate/items/properties/location"><code>location</code></td>
+<td align="left" class="info-cell"><div class="info-block"><span class="bold" style="color: var(--md-code-fg-color);">Location</span><div markdown="1" style="width: 100%;"><span class="bold"><code>object</code>&nbsp;&nbsp;(<a href="#/$defs/location/">Location</a>)</span></div></div></td>
+</tr>
+</tbody>
+</table>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2024-03-24
+    
+  </small>
+</div>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Carlos Bergillos
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/CarlosBergillos" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "toc.integrate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      
+    
+  </body>
+</html>

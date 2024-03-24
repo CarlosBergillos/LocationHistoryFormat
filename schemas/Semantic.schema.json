@@ -1,0 +1,1817 @@
+{
+    "$id": "https://locationhistoryformat.com/schemas/Semantic.schema.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "Semantic Location History",
+    "description": "A Semantic Location History JSON file in a Google Takeout Location History extraction. Contains Semantic Location History information from the user's account. Typically this will be a file containing data for a single month, with a name such as `2021_JANUARY.json`.",
+    "required": [
+        "timelineObjects"
+    ],
+    "properties": {
+        "timelineObjects": {
+            "type": "array",
+            "title": "Timeline Objects",
+            "description": "List of all available semantic information, in chronological order. Each item in the list is either an ![#/$defs/activitySegment] or a ![#/$defs/placeVisit], encapsulated in a generic ![#/properties/timelineObjects/items].",
+            "items": {
+                "type": "object",
+                "title": "Timeline Object",
+                "description": "Encapsulates either an ![#/$defs/activitySegment] or a ![#/$defs/placeVisit], depending on the single key found.",
+                "oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "activitySegment": {
+                                "$ref": "#/$defs/activitySegment"
+                            }
+                        },
+                        "required": [
+                            "activitySegment"
+                        ]
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "placeVisit": {
+                                "$ref": "#/$defs/placeVisit"
+                            }
+                        },
+                        "required": [
+                            "placeVisit"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "$defs": {
+        "activitySegment": {
+            "type": "object",
+            "title": "Activity Segment",
+            "description": "An activity involving changes in location, usually a journey from one place to another, such as a walk, a car drive, a bus ride, or a flight.",
+            "examples": [
+                {
+                    "activitySegment": {
+                        "startLocation": {
+                            "latitudeE7": 414083590,
+                            "longitudeE7": 21704229,
+                            "sourceInfo": {
+                                "deviceTag": 1114211210
+                            }
+                        },
+                        "endLocation": {
+                            "latitudeE7": 413961889,
+                            "longitudeE7": 21536695,
+                            "sourceInfo": {
+                                "deviceTag": 1114211210
+                            }
+                        },
+                        "duration": {
+                            "startTimestamp": "2022-03-03T12:22:24Z",
+                            "endTimestamp": "2022-03-03T12:43:34Z"
+                        },
+                        "distance": 2640,
+                        "activityType": "IN_BUS",
+                        "confidence": "HIGH",
+                        "activities": [
+                            {
+                                "activityType": "IN_BUS",
+                                "probability": 85.6847882270813
+                            },
+                            {
+                                "activityType": "WALKING",
+                                "probability": 8.418431878089905
+                            },
+                            {
+                                "activityType": "IN_PASSENGER_VEHICLE",
+                                "probability": 2.8303226456046104
+                            },
+                            {
+                                "activityType": "STILL",
+                                "probability": 1.7383299767971039
+                            },
+                            {
+                                "activityType": "IN_SUBWAY",
+                                "probability": 0.4673520103096962
+                            },
+                            {
+                                "activityType": "IN_TRAIN",
+                                "probability": 0.3031305968761444
+                            },
+                            {
+                                "activityType": "IN_TRAM",
+                                "probability": 0.269505986943841
+                            },
+                            {
+                                "activityType": "CYCLING",
+                                "probability": 0.1483310479670763
+                            }
+                        ],
+                        "transitPath": {
+                            "transitStops": [
+                                {
+                                    "latitudeE7": 414083140,
+                                    "longitudeE7": 21704000,
+                                    "placeId": "ChIJWey1zMWipBIRiNQSzpI4EDQ",
+                                    "address": "08025 Barcelona\nEspaña",
+                                    "name": "Sant Antoni Maria Claret-Lepant"
+                                },
+                                {
+                                    "latitudeE7": 414066427,
+                                    "longitudeE7": 21681608,
+                                    "placeId": "ChIJ3Wr_xsaipBIRctQDPNF0IHM",
+                                    "address": "08025 Barcelona\nEspaña",
+                                    "name": "Sant Antoni Maria Claret - Sardenya"
+                                },
+                                {
+                                    "latitudeE7": 414049343,
+                                    "longitudeE7": 21659001,
+                                    "placeId": "ChIJh2lnv8CipBIRpH0ym2Bxo68",
+                                    "address": "08025 Barcelona\nEspaña",
+                                    "name": "Sant Antoni Maria Claret - Nàpols"
+                                }
+                            ],
+                            "name": "H8",
+                            "hexRgbColor": "009EE0",
+                            "linePlaceId": "ChIJQVEUoLuipBIRJO37wI4yyBs",
+                            "stopTimesInfo": [
+                                {
+                                    "scheduledDepartureTimestamp": "2022-03-03T12:42:00Z",
+                                    "realtimeDepartureTimestamp": "2022-03-03T12:43:37Z"
+                                },
+                                {
+                                    "scheduleArrivalTimestamp": "2022-03-03T12:44:01Z",
+                                    "scheduledDepartureTimestamp": "2022-03-03T12:44:01Z",
+                                    "realtimeArrivalTimestamp": "2022-03-03T12:45:38Z",
+                                    "realtimeDepartureTimestamp": "2022-03-03T12:45:38Z"
+                                },
+                                {
+                                    "scheduleArrivalTimestamp": "2022-03-03T12:46:03Z",
+                                    "scheduledDepartureTimestamp": "2022-03-03T12:46:03Z",
+                                    "realtimeArrivalTimestamp": "2022-03-03T12:47:40Z",
+                                    "realtimeDepartureTimestamp": "2022-03-03T12:47:40Z"
+                                },
+                                {
+                                    "scheduleArrivalTimestamp": "2022-03-03T12:48:00Z",
+                                    "scheduledDepartureTimestamp": "2022-03-03T12:48:00Z",
+                                    "realtimeArrivalTimestamp": "2022-03-03T12:49:37Z",
+                                    "realtimeDepartureTimestamp": "2022-03-03T12:49:37Z"
+                                }
+                            ],
+                            "source": "INFERRED",
+                            "confidence": 0.9155850640140931,
+                            "distanceMeters": 2341.0
+                        },
+                        "simplifiedRawPath": {
+                            "points": [
+                                {
+                                    "latE7": 414032766,
+                                    "lngE7": 21641819,
+                                    "accuracyMeters": 10,
+                                    "timestamp": "2022-03-03T12:27:48Z"
+                                },
+                                {
+                                    "latE7": 414016705,
+                                    "lngE7": 21661614,
+                                    "accuracyMeters": 13,
+                                    "timestamp": "2022-03-03T12:30:04Z"
+                                },
+                                {
+                                    "latE7": 413986545,
+                                    "lngE7": 21623960,
+                                    "accuracyMeters": 12,
+                                    "timestamp": "2022-03-03T12:33:51Z"
+                                },
+                                {
+                                    "latE7": 413976870,
+                                    "lngE7": 21610201,
+                                    "accuracyMeters": 11,
+                                    "timestamp": "2022-03-03T12:37:09Z"
+                                },
+                                {
+                                    "latE7": 413968976,
+                                    "lngE7": 21609892,
+                                    "accuracyMeters": 13,
+                                    "timestamp": "2022-03-03T12:38:50Z"
+                                },
+                                {
+                                    "latE7": 413955345,
+                                    "lngE7": 21551848,
+                                    "accuracyMeters": 11,
+                                    "timestamp": "2022-03-03T12:42:06Z"
+                                }
+                            ],
+                            "source": "INFERRED",
+                            "distanceMeters": 2413.400132766728
+                        }
+                    }
+                }
+            ],
+            "properties": {
+                "startLocation": {
+                    "type": "object",
+                    "title": "Start Location",
+                    "description": "Start location of the activity.",
+                    "$ref": "#/$defs/location"
+                },
+                "endLocation": {
+                    "type": "object",
+                    "title": "End Location",
+                    "description": "End location of the activity.",
+                    "$ref": "#/$defs/location"
+                },
+                "duration": {
+                    "type": "object",
+                    "title": "Duration",
+                    "description": "Duration of the activity.",
+                    "$ref": "#/$defs/duration"
+                },
+                "distance": {
+                    "type": "integer",
+                    "title": "Distance",
+                    "description": "Distance traveled during the activity, in meters.",
+                    "examples": [
+                        292
+                    ],
+                    "minimum": 0
+                },
+                "activityType": {
+                    "type": "string",
+                    "title": "Activity Type",
+                    "description": "Best match activity type. Corresponds to the activity type with the highest probability in [#/$defs/activitySegment/properties/activities].",
+                    "$ref": "#/$defs/activityType",
+                    "examples": [
+                        "WALKING"
+                    ]
+                },
+                "activities": {
+                    "type": "array",
+                    "title": "Activities",
+                    "description": "List of all the considered candidate activity types and their probabilities. The sum of all the probabilities is always <= 100.",
+                    "items": {
+                        "$ref": "#/$defs/activity"
+                    },
+                    "examples": [
+                        [
+                            {
+                                "activityType": "WALKING",
+                                "probability": 95.93904614448547
+                            },
+                            {
+                                "activityType": "IN_PASSENGER_VEHICLE",
+                                "probability": 1.5546560287475586
+                            }
+                        ]
+                    ]
+                },
+                "confidence": {
+                    "type": "string",
+                    "title": "Confidence",
+                    "description": "Confidence that the chosen activity type (see [#/$defs/activitySegment/properties/activityType]) is correct. One of: `LOW`, `MEDIUM`, `HIGH` or `UNKNOWN_CONFIDENCE`. Activities that have been manually confirmed always have a confidence of `HIGH`.",
+                    "examples": [
+                        "HIGH"
+                    ],
+                    "enum": [
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH",
+                        "UNKNOWN_CONFIDENCE"
+                    ]
+                },
+                "waypointPath": {
+                    "type": "object",
+                    "title": "Waypoint Path",
+                    "description": "",
+                    "examples": [
+                        {
+                            "waypoints": [
+                                {
+                                    "latE7": 416119834,
+                                    "lngE7": 21768624
+                                },
+                                {
+                                    "latE7": 416117012,
+                                    "lngE7": 21899302
+                                },
+                                {
+                                    "latE7": 416119262,
+                                    "lngE7": 21802315
+                                }
+                            ],
+                            "source": "INFERRED",
+                            "distanceMeters": 396.34176716755843,
+                            "travelMode": "WALK",
+                            "confidence": 0.7986568220419046
+                        }
+                    ],
+                    "properties": {
+                        "waypoints": {
+                            "type": "array",
+                            "title": "Waypoints",
+                            "description": "",
+                            "items": {
+                                "$ref": "#/$defs/waypoint"
+                            },
+                            "examples": [
+                                [
+                                    {
+                                        "latE7": 416119834,
+                                        "lngE7": 21768624
+                                    },
+                                    {
+                                        "latE7": 416117012,
+                                        "lngE7": 21899302
+                                    }
+                                ]
+                            ]
+                        },
+                        "source": {
+                            "type": "string",
+                            "title": "Source",
+                            "description": "Source of the location data of the path. Either `BACKFILLED` or `INFERRED`.",
+                            "examples": [
+                                "INFERRED"
+                            ],
+                            "enum": [
+                                "BACKFILLED",
+                                "INFERRED"
+                            ]
+                        },
+                        "distanceMeters": {
+                            "type": "number",
+                            "title": "Distance in meters",
+                            "description": "Total distance of the path, in meters.",
+                            "examples": [
+                                396.34176716755843
+                            ]
+                        },
+                        "travelMode": {
+                            "type": "string",
+                            "title": "Travel Mode",
+                            "description": "",
+                            "examples": [
+                                "WALK"
+                            ],
+                            "enum": [
+                                "WALK",
+                                "DRIVE",
+                                "BICYCLE"
+                            ]
+                        },
+                        "confidence": {
+                            "type": "number",
+                            "title": "Confidence",
+                            "description": "",
+                            "examples": [
+                                0.7986568220419046
+                            ]
+                        },
+                        "roadSegment": {
+                            "type": "array",
+                            "title": "Road Segment",
+                            "description": "",
+                            "items": {
+                                "type": "object",
+                                "title": "Road Segment",
+                                "description": "",
+                                "properties": {
+                                    "duration": {
+                                        "type": "string",
+                                        "title": "Duration",
+                                        "description": "",
+                                        "examples": [
+                                            "8s"
+                                        ]
+                                    },
+                                    "placeId": {
+                                        "type": "string",
+                                        "title": "Place ID",
+                                        "description": "Google Maps [Place ID](https://developers.google.com/maps/documentation/places/web-service/place-id) of the location.",
+                                        "examples": [
+                                            "ChIJk_s92NyipBIRUMnDG8Kq2Js"
+                                        ]
+                                    }
+                                }
+                            },
+                            "examples": [
+                                [
+                                    {
+                                        "placeId": "ChIJ78lmnGGYpBIRYiA-sq-lZpA",
+                                        "duration": "1s"
+                                    },
+                                    {
+                                        "placeId": "ChIJax30s2GYpBIRUasE5NiNFJY",
+                                        "duration": "23s"
+                                    },
+                                    {
+                                        "placeId": "ChIJe3WC5GCYpBIR0z7IXPJj23k",
+                                        "duration": "5s"
+                                    },
+                                    {
+                                        "placeId": "ChIJrzu_5mCYpBIRb8LMACSNRhU",
+                                        "duration": "4s"
+                                    },
+                                    {
+                                        "placeId": "ChIJBynC2mCYpBIRz56Otx0P2So",
+                                        "duration": "3s"
+                                    }
+                                ]
+                            ]
+                        }
+                    }
+                },
+                "simplifiedRawPath": {
+                    "type": "object",
+                    "title": "Simplified Raw Path",
+                    "description": "",
+                    "$ref": "#/$defs/simplifiedRawPath"
+                },
+                "transitPath": {
+                    "type": "object",
+                    "title": "Transit Path",
+                    "description": "Path taken in a public transit system, such as a bus or a metro.",
+                    "$ref": "#/$defs/transitPath"
+                },
+                "parkingEvent": {
+                    "type": "object",
+                    "title": "Parking Event",
+                    "description": "",
+                    "$ref": "#/$defs/parkingEvent"
+                },
+                "editConfirmationStatus": {
+                    "type": "string",
+                    "title": "Edit-Confirmation Status",
+                    "description": "Whether the user has manually edited the activity segment. Can be `NOT_CONFIRMED` or `CONFIRMED`.",
+                    "$ref": "#/$defs/editConfirmationStatus"
+                },
+                "editActionMetadata": {
+                    "type": "object",
+                    "title": "Edit-Action Metadata",
+                    "description": "",
+                    "$ref": "#/$defs/editActionMetadata"
+                },
+                "lastEditedTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Last-Edited Timestamp",
+                    "description": "",
+                    "examples": [
+                        "2022-03-06T14:13:11.092Z"
+                    ]
+                }
+            }
+        },
+        "placeVisit": {
+            "type": "object",
+            "title": "Place Visit",
+            "description": "A visit or stay at a place in a fixed location for a duration of time, such as a stay at home, at work, a visit to a shopping mall, or to a restaurant.",
+            "properties": {
+                "location": {
+                    "type": "object",
+                    "title": "Location",
+                    "description": "Location of the place.",
+                    "$ref": "#/$defs/location"
+                },
+                "centerLatE7": {
+                    "type": "integer",
+                    "title": "Center Latitude",
+                    "description": "Latitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).",
+                    "examples": [
+                        414216106
+                    ],
+                    "minimum": -900000000,
+                    "maximum": 900000000
+                },
+                "centerLngE7": {
+                    "type": "integer",
+                    "title": "Center Longitude",
+                    "description": "Longitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).",
+                    "examples": [
+                        21684775
+                    ],
+                    "minimum": -1800000000,
+                    "maximum": 1800000000
+                },
+                "duration": {
+                    "type": "object",
+                    "title": "Duration",
+                    "description": "Duration of the place visit.",
+                    "$ref": "#/$defs/duration"
+                },
+                "placeConfidence": {
+                    "type": "string",
+                    "title": "Place Confidence",
+                    "description": "Categorized confidence for this place visit. One of: `LOW_CONFIDENCE`, `MEDIUM_CONFIDENCE`, `HIGH_CONFIDENCE` or `USER_CONFIRMED`.",
+                    "examples": [
+                        "HIGH"
+                    ],
+                    "enum": [
+                        "LOW_CONFIDENCE",
+                        "MEDIUM_CONFIDENCE",
+                        "HIGH_CONFIDENCE",
+                        "USER_CONFIRMED"
+                    ],
+                    "helpWanted": "Is this directly related to [#/$defs/placeVisit/properties/locationConfidence] and/or [#/$defs/placeVisit/properties/visitConfidence]"
+                },
+                "visitConfidence": {
+                    "type": "integer",
+                    "title": "Visit Confidence",
+                    "description": "",
+                    "examples": [
+                        95
+                    ],
+                    "minimum": 0,
+                    "maximum": 100,
+                    "helpWanted": "How is this different from [#/$defs/placeVisit/properties/locationConfidence]"
+                },
+                "locationConfidence": {
+                    "type": "integer",
+                    "title": "Visit Confidence",
+                    "description": "",
+                    "examples": [
+                        71
+                    ],
+                    "minimum": 0,
+                    "maximum": 100,
+                    "helpWanted": "How is this different from [#/$defs/placeVisit/properties/visitConfidence]"
+                },
+                "otherCandidateLocations": {
+                    "type": "array",
+                    "title": "Other Candidate Locations",
+                    "description": "",
+                    "items": {
+                        "$ref": "#/$defs/location"
+                    }
+                },
+                "childVisits": {
+                    "type": "array",
+                    "title": "Child Visits",
+                    "description": "",
+                    "items": {
+                        "$ref": "#/$defs/placeVisit"
+                    }
+                },
+                "sectionId": {
+                    "type": "string",
+                    "title": "Section ID",
+                    "description": ""
+                },
+                "simplifiedRawPath": {
+                    "type": "object",
+                    "title": "Simplified Raw Path",
+                    "description": "",
+                    "$ref": "#/$defs/simplifiedRawPath"
+                },
+                "placeVisitLevel": {
+                    "type": "integer",
+                    "title": "Place Visit Level",
+                    "description": "Level (depth) of this place visit. This value increases by 1 with each recursive access to a [#/$defs/placeVisit/properties/childVisits] entry.",
+                    "examples": [
+                        1
+                    ],
+                    "minimum": 0
+                },
+                "editConfirmationStatus": {
+                    "type": "string",
+                    "title": "Edit-Confirmation Status",
+                    "description": "Whether the user has manually edited the place visit. Can be `NOT_CONFIRMED` or `CONFIRMED`.",
+                    "$ref": "#/$defs/editConfirmationStatus"
+                },
+                "editActionMetadata": {
+                    "type": "object",
+                    "title": "Edit-Action Metadata",
+                    "description": "",
+                    "$ref": "#/$defs/editActionMetadata"
+                },
+                "lastEditedTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Last-Edited Timestamp",
+                    "description": "",
+                    "examples": [
+                        "2022-03-06T14:13:11.092Z"
+                    ]
+                },
+                "placeVisitType": {
+                    "type": "string",
+                    "title": "Place Visit Type",
+                    "description": "Can be `SINGLE_PLACE`.",
+                    "examples": [
+                        "SINGLE_PLACE"
+                    ],
+                    "enum": [
+                        "SINGLE_PLACE"
+                    ],
+                    "helpWanted": "Are there other valid values?"
+                },
+                "placeVisitImportance": {
+                    "type": "string",
+                    "title": "Place Visit Importance",
+                    "description": "One of `MAIN` or `TRANSITIONAL`.",
+                    "examples": [
+                        "MAIN"
+                    ],
+                    "enum": [
+                        "MAIN",
+                        "TRANSITIONAL"
+                    ]
+                },
+                "locationAssertionType": {
+                    "type": "string",
+                    "title": "Location Assertion Type",
+                    "description": "",
+                    "examples": [
+                        "AREA"
+                    ],
+                    "enum": [
+                        "AREA",
+                        "WITHIN_OR_AT"
+                    ]
+                },
+                "checkin": {
+                    "type": "object",
+                    "title": "Checkin",
+                    "description": "",
+                    "properties": {
+                        "atTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "title": "At Time",
+                            "description": "",
+                            "examples": [
+                                "2022-03-06T14:13:11.092Z"
+                            ]
+                        },
+                        "latestKnownLocation": {
+                            "type": "object",
+                            "title": "Latest Known Location",
+                            "description": "",
+                            "properties": {
+                                "location": {
+                                    "type": "object",
+                                    "title": "Location",
+                                    "description": "",
+                                    "$ref": "#/$defs/location"
+                                },
+                                "detectionTime": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "title": "Detection Time",
+                                    "description": "",
+                                    "examples": [
+                                        "2022-03-06T14:13:11.092Z"
+                                    ]
+                                }
+                            }
+                        },
+                        "device": {
+                            "type": "object",
+                            "title": "Device",
+                            "description": "",
+                            "properties": {
+                                "android": {
+                                    "type": "object",
+                                    "title": "Android",
+                                    "description": "",
+                                    "properties": {
+                                        "fingerprint": {
+                                            "type": "string",
+                                            "title": "Fingerprint",
+                                            "description": "",
+                                            "examples": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "helpWanted": "The meaning of this field is uncertain."
+                }
+            }
+        },
+        "location": {
+            "type": "object",
+            "title": "Location",
+            "description": "",
+            "examples": [
+                {
+                    "latitudeE7": 414036299,
+                    "longitudeE7": 21743558,
+                    "placeId": "ChIJk_s92NyipBIRUMnDG8Kq2Js",
+                    "address": "C/ de Mallorca, 401\n08013 Barcelona\nEspanya",
+                    "name": "La Sagrada Familia",
+                    "semanticType": "TYPE_SEARCHED_ADDRESS",
+                    "sourceInfo": {
+                        "deviceTag": 1234567890
+                    },
+                    "locationConfidence": 87.07311,
+                    "calibratedProbability": 76.20023
+                }
+            ],
+            "properties": {
+                "latitudeE7": {
+                    "type": "integer",
+                    "title": "Latitude",
+                    "description": "Latitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).",
+                    "examples": [
+                        414216106
+                    ],
+                    "minimum": -900000000,
+                    "maximum": 900000000
+                },
+                "longitudeE7": {
+                    "type": "integer",
+                    "title": "Longitude",
+                    "description": "Longitude coordinate of the location. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).",
+                    "examples": [
+                        21684775
+                    ],
+                    "minimum": -1800000000,
+                    "maximum": 1800000000
+                },
+                "placeId": {
+                    "type": "string",
+                    "title": "Place ID",
+                    "description": "Google Maps [Place ID](https://developers.google.com/maps/documentation/places/web-service/place-id) of the location.",
+                    "examples": [
+                        "ChIJk_s92NyipBIRUMnDG8Kq2Js"
+                    ]
+                },
+                "address": {
+                    "type": "string",
+                    "title": "Address",
+                    "description": "Address of the location.",
+                    "examples": [
+                        "C/ de Mallorca, 401\n08013 Barcelona\nEspanya"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "description": "Name of the location.",
+                    "examples": [
+                        "La Sagrada Familia"
+                    ]
+                },
+                "semanticType": {
+                    "type": "string",
+                    "title": "Semantic Type",
+                    "description": "Place type based on semantic information specific to the user.",
+                    "$ref": "#/$defs/semanticType",
+                    "examples": [
+                        "TYPE_HOME"
+                    ]
+                },
+                "accuracyMetres": {
+                    "type": "integer",
+                    "title": "Accuracy in meters",
+                    "description": "Approximate accuracy radius of the location measurement, in meters. A lower value means better precision.",
+                    "examples": [
+                        19
+                    ],
+                    "minimum": 0
+                },
+                "locationConfidence": {
+                    "type": "number",
+                    "title": "Location Confidence",
+                    "description": "",
+                    "examples": [
+                        100.0
+                    ],
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "isCurrentLocation": {
+                    "type": "boolean",
+                    "title": "Is Current Location",
+                    "description": "",
+                    "examples": [
+                        true
+                    ]
+                },
+                "calibratedProbability": {
+                    "type": "number",
+                    "title": "Calibrated Probability",
+                    "description": "",
+                    "examples": [
+                        100.0
+                    ],
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "sourceInfo": {
+                    "type": "object",
+                    "title": "Source Information",
+                    "description": "Information on the source that provided the location.",
+                    "properties": {
+                        "deviceTag": {
+                            "type": "integer",
+                            "title": "Device Tag",
+                            "description": "Integer identifier (specific to Location History) associated with the device that obtained the location. Refer to `deviceSettings` in Settings.json for information about the device with this `deviceTag`.",
+                            "examples": [
+                                1234567890
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "duration": {
+            "type": "object",
+            "title": "Duration",
+            "description": "Duration of time defined by a start timestamp and an end timestamp.",
+            "examples": [
+                {
+                    "startTimestamp": "2022-02-02T10:41:08.315Z",
+                    "endTimestamp": "2022-02-02T10:45:09.962Z"
+                }
+            ],
+            "required": [
+                "startTimestamp",
+                "endTimestamp"
+            ],
+            "properties": {
+                "startTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Start Timestamp",
+                    "description": "",
+                    "examples": [
+                        "2022-02-02T10:41:08.315Z"
+                    ]
+                },
+                "endTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "End Timestamp",
+                    "description": "",
+                    "examples": [
+                        "2022-02-02T10:45:09.962Z"
+                    ]
+                }
+            }
+        },
+        "activity": {
+            "type": "object",
+            "title": "Activity",
+            "description": "",
+            "examples": [
+                {
+                    "activityType": "WALKING",
+                    "probability": 95.93904614448547
+                }
+            ],
+            "properties": {
+                "activityType": {
+                    "type": "string",
+                    "title": "Activity Type",
+                    "description": "Type of activity.",
+                    "$ref": "#/$defs/activityType"
+                },
+                "probability": {
+                    "type": "number",
+                    "title": "Probability",
+                    "description": "Probability (or confidence) that the activity type is correct, in the range 0 to 100.",
+                    "examples": [
+                        95.93904614448547
+                    ],
+                    "minimum": 0,
+                    "maximum": 100
+                }
+            }
+        },
+        "activityType": {
+            "type": "string",
+            "title": "Activity Type",
+            "description": "",
+            "examples": [
+                "STILL"
+            ],
+            "oneOf": [
+                {
+                    "type": "string",
+                    "const": "UNKNOWN_ACTIVITY_TYPE",
+                    "title": "Moving",
+                    "description": "",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "activity_types/moving_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "STILL",
+                    "title": "Still",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/man_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "WALKING",
+                    "title": "Walking",
+                    "description": "",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "activity_types/directions_walk_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "CYCLING",
+                    "title": "Cycling",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/directions_bike_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_VEHICLE",
+                    "title": "In a vehicle",
+                    "description": "",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "activity_types/moving_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "FLYING",
+                    "title": "Flying",
+                    "description": "",
+                    "extra_color": "#3f51b5",
+                    "extra_icon": "activity_types/local_airport_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "RUNNING",
+                    "title": "Running",
+                    "description": "",
+                    "extra_color": "#c2185b",
+                    "extra_icon": "activity_types/directions_run_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_BUS",
+                    "title": "On a bus",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/directions_bus_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_TRAIN",
+                    "title": "On a train",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/directions_railway_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_SUBWAY",
+                    "title": "On the subway",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/subway_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_TRAM",
+                    "title": "On a tram",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/tram_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_FERRY",
+                    "title": "On a ferry",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/directions_boat_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_CABLECAR",
+                    "title": "In a cable car",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/moving_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_FUNICULAR",
+                    "title": "On a funicular",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/moving_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "HIKING",
+                    "title": "Hiking",
+                    "description": "",
+                    "extra_color": "#c2185b",
+                    "extra_icon": "activity_types/hiking_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "KAYAKING",
+                    "title": "Kayaking",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/kayaking_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "KITESURFING",
+                    "title": "Kitesurfing",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/kitesurfing_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "ROWING",
+                    "title": "Rowing",
+                    "description": "",
+                    "extra_color": "#c2185b",
+                    "extra_icon": "activity_types/rowing_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "SAILING",
+                    "title": "Sailing",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/sailing_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "SKATING",
+                    "title": "Skating",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/ice_skating_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "SKIING",
+                    "title": "Skiing",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/downhill_skiing_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "SKATEBOARDING",
+                    "title": "Skateboarding",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/skateboarding_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "SLEDDING",
+                    "title": "Sledding",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/sledding_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "SNOWBOARDING",
+                    "title": "Snowboarding",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/snowboarding_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "SNOWMOBILE",
+                    "title": "Snowmobiling",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/snowmobile_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "SNOWSHOEING",
+                    "title": "Snowshoeing",
+                    "description": "",
+                    "extra_color": "#c2185b",
+                    "extra_icon": "activity_types/snowshoeing_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "SURFING",
+                    "title": "Surfing",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/surfing_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "SWIMMING",
+                    "title": "Swimming",
+                    "description": "",
+                    "extra_color": "#c2185b",
+                    "extra_icon": "activity_types/pool_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "WALKING_NORDIC",
+                    "title": "Nordic walking",
+                    "description": "",
+                    "extra_color": "#c2185b",
+                    "extra_icon": "activity_types/nordic_walking_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_PASSENGER_VEHICLE",
+                    "title": "Driving",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/directions_car_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "MOTORCYCLING",
+                    "title": "Motorcycling",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/motorcycle_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "BOATING",
+                    "title": "Boating",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/directions_boat_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_WHEELCHAIR",
+                    "title": "By wheelchair",
+                    "description": "",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "activity_types/accessible_forward_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "HORSEBACK_RIDING",
+                    "title": "Horseback riding",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/moving_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_GONDOLA_LIFT",
+                    "title": "In a gondola lift",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/moving_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "CATCHING_POKEMON",
+                    "title": "Catching Pok\u00e9mon",
+                    "description": "",
+                    "extra_color": "#db4437",
+                    "extra_icon": "activity_types/catching_pokemon_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "IN_TAXI",
+                    "title": "In a taxi",
+                    "description": "",
+                    "extra_color": "#01579b",
+                    "extra_icon": "activity_types/local_taxi_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "PARAGLIDING",
+                    "title": "Paragliding",
+                    "description": "",
+                    "extra_color": "#4db6ac",
+                    "extra_icon": "activity_types/paragliding_24dp.svg"
+                }
+            ]
+        },
+        "semanticType": {
+            "type": "string",
+            "title": "Semantic Type",
+            "description": "Place type based on semantic information specific to the user.",
+            "examples": [
+                "TYPE_HOME"
+            ],
+            "oneOf": [
+                {
+                    "type": "string",
+                    "const": "TYPE_HOME",
+                    "title": "Type Home",
+                    "description": "The place has been designated as 'Home' by the user. See: [Set or change your home & work addresses](https://support.google.com/maps/answer/3093979?hl=en).",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "semantic_types/home_circled_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "TYPE_WORK",
+                    "title": "Type Work",
+                    "description": "The place has been designated as 'Work' by the user. See: [Set or change your home & work addresses](https://support.google.com/maps/answer/3093979?hl=en).",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "semantic_types/work_circled_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "TYPE_SEARCHED_ADDRESS",
+                    "title": "Type Searched Address",
+                    "description": "The user has searched for this place in the past.",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "semantic_types/schedule_circled_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "TYPE_ALIASED_LOCATION",
+                    "title": "Type Aliased Location",
+                    "description": "The place has been given a private label by the user. See: [Give a place a private label](https://support.google.com/maps/answer/6257830?hl=en).",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "semantic_types/label_circled_24dp.svg"
+                }
+            ]
+        },
+        "simplifiedRawPath": {
+            "type": "object",
+            "title": "Simplified Raw Path",
+            "description": "",
+            "examples": [
+                {
+                    "points": [
+                        {
+                            "latE7": 416032766,
+                            "lngE7": 21841819,
+                            "accuracyMeters": 10,
+                            "timestamp": "2022-03-03T08:27:48Z"
+                        },
+                        {
+                            "latE7": 416016705,
+                            "lngE7": 21861614,
+                            "accuracyMeters": 13,
+                            "timestamp": "2022-03-03T08:30:04Z"
+                        },
+                        {
+                            "latE7": 415986545,
+                            "lngE7": 21823960,
+                            "accuracyMeters": 12,
+                            "timestamp": "2022-03-03T08:33:51Z"
+                        }
+                    ],
+                    "source": "INFERRED",
+                    "distanceMeters": 2413.400132766728
+                }
+            ],
+            "properties": {
+                "points": {
+                    "type": "array",
+                    "title": "Points",
+                    "description": "List of all the recorded points that form the path.",
+                    "items": {
+                        "$ref": "#/$defs/point"
+                    },
+                    "examples": [
+                        [
+                            {
+                                "latE7": 416032766,
+                                "lngE7": 21841819,
+                                "accuracyMeters": 10,
+                                "timestamp": "2022-03-03T08:27:48Z"
+                            },
+                            {
+                                "latE7": 416016705,
+                                "lngE7": 21861614,
+                                "accuracyMeters": 13,
+                                "timestamp": "2022-03-03T08:30:04Z"
+                            },
+                            {
+                                "latE7": 415986545,
+                                "lngE7": 21823960,
+                                "accuracyMeters": 12,
+                                "timestamp": "2022-03-03T08:33:51Z"
+                            }
+                        ]
+                    ]
+                },
+                "source": {
+                    "type": "string",
+                    "title": "Source",
+                    "description": "Source of the location data of the path. One of `BACKFILLED`, `INFERRED`, or `RESNAPPED_FOR_EDIT`.",
+                    "examples": [
+                        "INFERRED"
+                    ],
+                    "enum": [
+                        "BACKFILLED",
+                        "INFERRED",
+                        "RESNAPPED_FOR_EDIT"
+                    ]
+                },
+                "distanceMeters": {
+                    "type": "number",
+                    "title": "Distance in meters",
+                    "description": "Distance traveled with the path, in meters.",
+                    "examples": [
+                        2413.400132766728
+                    ],
+                    "minimum": 0
+                }
+            }
+        },
+        "transitPath": {
+            "type": "object",
+            "title": "Transit Path",
+            "description": "A path taken in a public transit system, such as a bus or a metro. Note that it does not describe an entire transit line, but only a specific journey a user does in a transit line.",
+            "examples": [
+                {
+                    "transitStops": [
+                        {
+                            "latitudeE7": 414083140,
+                            "longitudeE7": 21704000,
+                            "placeId": "ChIJWey1zMWipBIRiNQSzpI4EDQ",
+                            "address": "08025 Barcelona\nEspaña",
+                            "name": "Sant Antoni Maria Claret-Lepant"
+                        },
+                        {
+                            "latitudeE7": 414066427,
+                            "longitudeE7": 21681608,
+                            "placeId": "ChIJ3Wr_xsaipBIRctQDPNF0IHM",
+                            "address": "08025 Barcelona\nEspaña",
+                            "name": "Sant Antoni Maria Claret - Sardenya"
+                        },
+                        {
+                            "latitudeE7": 414049343,
+                            "longitudeE7": 21659001,
+                            "placeId": "ChIJh2lnv8CipBIRpH0ym2Bxo68",
+                            "address": "08025 Barcelona\nEspaña",
+                            "name": "Sant Antoni Maria Claret - Nàpols"
+                        }
+                    ],
+                    "name": "H8",
+                    "hexRgbColor": "009EE0",
+                    "linePlaceId": "ChIJQVEUoLuipBIRJO37wI4yyBs",
+                    "stopTimesInfo": [
+                        {
+                            "scheduledDepartureTimestamp": "2022-03-03T12:42:00Z",
+                            "realtimeDepartureTimestamp": "2022-03-03T12:43:37Z"
+                        },
+                        {
+                            "scheduleArrivalTimestamp": "2022-03-03T12:44:01Z",
+                            "scheduledDepartureTimestamp": "2022-03-03T12:44:01Z",
+                            "realtimeArrivalTimestamp": "2022-03-03T12:45:38Z",
+                            "realtimeDepartureTimestamp": "2022-03-03T12:45:38Z"
+                        },
+                        {
+                            "scheduleArrivalTimestamp": "2022-03-03T12:46:03Z",
+                            "scheduledDepartureTimestamp": "2022-03-03T12:46:03Z",
+                            "realtimeArrivalTimestamp": "2022-03-03T12:47:40Z",
+                            "realtimeDepartureTimestamp": "2022-03-03T12:47:40Z"
+                        },
+                        {
+                            "scheduleArrivalTimestamp": "2022-03-03T12:48:00Z",
+                            "scheduledDepartureTimestamp": "2022-03-03T12:48:00Z",
+                            "realtimeArrivalTimestamp": "2022-03-03T12:49:37Z",
+                            "realtimeDepartureTimestamp": "2022-03-03T12:49:37Z"
+                        }
+                    ],
+                    "source": "INFERRED",
+                    "confidence": 0.9155850640140931,
+                    "distanceMeters": 2341.0
+                }
+            ],
+            "properties": {
+                "transitStops": {
+                    "type": "array",
+                    "title": "Transit Stops",
+                    "description": "List of locations of the transit stops used.",
+                    "items": {
+                        "$ref": "#/$defs/location"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "description": "Name of the transit line.",
+                    "examples": [
+                        "H8"
+                    ]
+                },
+                "hexRgbColor": {
+                    "type": "string",
+                    "title": "Hexadecimal RGB Color",
+                    "description": "Color of the transit line in hexadecimal in the form *RRGGBB*.",
+                    "examples": [
+                        "009EE0"
+                    ]
+                },
+                "linePlaceId": {
+                    "type": "string",
+                    "title": "Line Place ID",
+                    "description": "Google Maps [Place ID](https://developers.google.com/maps/documentation/places/web-service/place-id) of the transit line.",
+                    "examples": [
+                        "ChIJQVEUoLuipBIRJO37wI4yyBs"
+                    ]
+                },
+                "stopTimesInfo": {
+                    "type": "array",
+                    "title": "Stop Times Info",
+                    "description": "Time information (departure and arrival times, both real and scheduled) for each transit stop used.",
+                    "items": {
+                        "type": "object",
+                        "title": "Stop Time Info",
+                        "description": "Departure and/or arrival time information (both real and scheduled) for a stop at a transit line.",
+                        "examples": [
+                            {
+                                "scheduleArrivalTimestamp": "2022-03-03T12:44:01Z",
+                                "scheduledDepartureTimestamp": "2022-03-03T12:44:01Z",
+                                "realtimeArrivalTimestamp": "2022-03-03T12:45:38Z",
+                                "realtimeDepartureTimestamp": "2022-03-03T12:45:38Z"
+                            }
+                        ],
+                        "properties": {
+                            "scheduleArrivalTimestamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "title": "Schedule Arrival Timestamp",
+                                "description": "",
+                                "examples": [
+                                    "2022-03-03T12:44:01Z"
+                                ]
+                            },
+                            "scheduledDepartureTimestamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "title": "Scheduled Departure Timestamp",
+                                "description": "",
+                                "examples": [
+                                    "2022-03-03T12:44:01Z"
+                                ]
+                            },
+                            "realtimeArrivalTimestamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "title": "Realtime Arrival Timestamp",
+                                "description": "",
+                                "examples": [
+                                    "2022-03-03T12:45:38Z"
+                                ]
+                            },
+                            "realtimeDepartureTimestamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "title": "Realtime Departure Timestamp",
+                                "description": "",
+                                "examples": [
+                                    "2022-03-03T12:45:38Z"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "source": {
+                    "type": "string",
+                    "title": "Source",
+                    "description": "Source of the location data of the transit path. Either `BACKFILLED` or `INFERRED`.",
+                    "examples": [
+                        "INFERRED"
+                    ],
+                    "enum": [
+                        "BACKFILLED",
+                        "INFERRED"
+                    ]
+                },
+                "confidence": {
+                    "type": "number",
+                    "title": "Confidence",
+                    "description": "",
+                    "examples": [
+                        0.9155850640140931
+                    ],
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "distanceMeters": {
+                    "type": "number",
+                    "title": "Distance in meters",
+                    "description": "Distance traveled with the transit path, in meters.",
+                    "examples": [
+                        396.34176716755843
+                    ],
+                    "minimum": 0
+                }
+            }
+        },
+        "waypoint": {
+            "type": "object",
+            "title": "Waypoint",
+            "description": "",
+            "examples": [
+                {
+                    "latE7": 414216106,
+                    "lngE7": 21684775
+                }
+            ],
+            "properties": {
+                "latE7": {
+                    "type": "integer",
+                    "title": "Latitude",
+                    "description": "Latitude coordinate of the waypoint. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).",
+                    "examples": [
+                        414216106
+                    ],
+                    "minimum": -900000000,
+                    "maximum": 900000000
+                },
+                "lngE7": {
+                    "type": "integer",
+                    "title": "Longitude",
+                    "description": "Longitude coordinate of the waypoint. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).",
+                    "examples": [
+                        21684775
+                    ],
+                    "minimum": -1800000000,
+                    "maximum": 1800000000
+                }
+            }
+        },
+        "point": {
+            "type": "object",
+            "title": "Point",
+            "description": "",
+            "examples": [
+                {
+                    "latE7": 416032766,
+                    "lngE7": 21841819,
+                    "accuracyMeters": 10,
+                    "timestamp": "2022-03-03T08:27:48Z"
+                }
+            ],
+            "properties": {
+                "latE7": {
+                    "type": "integer",
+                    "title": "Latitude",
+                    "description": "Latitude coordinate of the point. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -900000000 to +900000000 (divide value by 10^7 for the usual range -90° to +90°).",
+                    "examples": [
+                        414216106
+                    ],
+                    "minimum": -900000000,
+                    "maximum": 900000000
+                },
+                "lngE7": {
+                    "type": "integer",
+                    "title": "Longitude",
+                    "description": "Longitude coordinate of the point. Degrees multiplied by 10^7 and rounded to the nearest integer, in the range -1800000000 to +1800000000 (divide value by 10^7 for the usual range -180° to +180°).",
+                    "examples": [
+                        21684775
+                    ],
+                    "minimum": -1800000000,
+                    "maximum": 1800000000
+                },
+                "accuracyMeters": {
+                    "type": "integer",
+                    "title": "Accuracy in meters",
+                    "description": "Approximate accuracy radius of the location measurement, in meters. A lower value means better precision.",
+                    "examples": [
+                        10
+                    ]
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Timestamp",
+                    "description": "Timestamp of the point.",
+                    "examples": [
+                        "2022-03-03T08:27:48Z"
+                    ]
+                }
+            }
+        },
+        "editConfirmationStatus": {
+            "type": "string",
+            "title": "Edit Confirmation Status",
+            "description": "Indicates wether the user has manually edited the entry. Can be `NOT_CONFIRMED` or `CONFIRMED`.",
+            "examples": [
+                "CONFIRMED"
+            ],
+            "enum": [
+                "NOT_CONFIRMED",
+                "CONFIRMED"
+            ]
+        },
+        "editActionMetadata": {
+            "type": "object",
+            "title": "Edit-Action Metadata",
+            "description": "",
+            "properties": {
+                "activitySegment": {
+                    "type": "object",
+                    "title": "Activity Segment",
+                    "description": "",
+                    "properties": {
+                        "activityType": {
+                            "type": "string",
+                            "title": "Activity Type",
+                            "description": "",
+                            "$ref": "#/$defs/activityType",
+                            "examples": [
+                                "WALKING"
+                            ]
+                        },
+                        "activityConfidence": {
+                            "type": "number",
+                            "title": "Confidence",
+                            "description": "",
+                            "examples": [
+                                98.705695
+                            ],
+                            "minimum": 0,
+                            "maximum": 100
+                        }
+                    }
+                },
+                "placeVisitSegment": {
+                    "type": "object",
+                    "title": "Place Visit Segment",
+                    "description": "",
+                    "properties": {
+                        "location": {
+                            "type": "object",
+                            "title": "Location",
+                            "description": "",
+                            "$ref": "#/$defs/location"
+                        }
+                    }
+                },
+                "editHistory": {
+                    "type": "object",
+                    "title": "Edit History",
+                    "description": "",
+                    "properties": {
+                        "editEvent": {
+                            "type": "array",
+                            "title": "Edit Event",
+                            "description": "",
+                            "items": {
+                                "type": "object",
+                                "title": "Edit Event",
+                                "description": "",
+                                "properties": {
+                                    "editOperation": {
+                                        "type": "array",
+                                        "title": "Edit Operation",
+                                        "description": "",
+                                        "items": {
+                                            "type": "string",
+                                            "title": "Edit Operation",
+                                            "description": "",
+                                            "examples": [
+                                                "CREATE"
+                                            ],
+                                            "enum": [
+                                                "CREATE",
+                                                "CONFIRM",
+                                                "MODIFY_TIME",
+                                                "MODIFY_LOCATION",
+                                                "MODIFY_ACTIVITY_TYPE",
+                                                "MODIFY_UNCHANGED"
+                                            ]
+                                        }
+                                    },
+                                    "uiConfiguration": {
+                                        "type": "object",
+                                        "title": "UI Configuration",
+                                        "description": "",
+                                        "properties": {
+                                            "uiActivitySegmentConfiguration": {
+                                                "type": "string",
+                                                "title": "UI Activity Segment Configuration",
+                                                "description": "",
+                                                "examples": [
+                                                    "DEFAULT_ACTIVITY_SEGMENT_CONFIGURATION"
+                                                ],
+                                                "enum": [
+                                                    "DEFAULT_ACTIVITY_SEGMENT_CONFIGURATION",
+                                                    "UNPERSONALIZED_EDIT_ACTIVITY_SEGMENT",
+                                                    "UNKNOWN_UI_ACTIVITY_SEGMENT_CONFIGURATION"
+                                                ]
+                                            },
+                                            "uiPlaceVisitConfiguration": {
+                                                "type": "string",
+                                                "title": "UI Place Visit Configuration",
+                                                "description": "",
+                                                "examples": [
+                                                    "DEFAULT_PLACE_VISIT_CONFIGURATION"
+                                                ],
+                                                "enum": [
+                                                    "DEFAULT_PLACE_VISIT_CONFIGURATION",
+                                                    "YES_NO_OTHER_PLACE_VISIT",
+                                                    "FORCED_NEIGHBORHOOD",
+                                                    "UNPERSONALIZED_EDIT_PLACE_VISIT"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "originalCandidates": {
+                    "type": "object",
+                    "title": "Original Candidates",
+                    "description": "",
+                    "properties": {
+                        "placeVisitSegment": {
+                            "type": "object",
+                            "title": "Place Visit Segment",
+                            "description": "",
+                            "properties": {
+                                "placeVisitCandidate": {
+                                    "type": "array",
+                                    "title": "Place Visit Candidate",
+                                    "description": "",
+                                    "items": {
+                                        "type": "object",
+                                        "title": "Original Candidates",
+                                        "description": "",
+                                        "properties": {
+                                            "location": {
+                                                "type": "object",
+                                                "title": "Location",
+                                                "description": "",
+                                                "$ref": "#/$defs/location"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "parkingEvent": {
+            "type": "object",
+            "title": "Parking Event",
+            "description": "",
+            "examples": [
+                {
+                    "location": {
+                        "latitudeE7": 412518975,
+                        "longitudeE7": 21683133,
+                        "accuracyMetres": 19
+                    },
+                    "method": "EXITING_VEHICLE_SIGNAL",
+                    "locationSource": "FROM_RAW_LOCATION",
+                    "timestamp": "2022-02-27T14:47:16.731Z"
+                }
+            ],
+            "properties": {
+                "location": {
+                    "type": "object",
+                    "title": "Location",
+                    "description": "",
+                    "$ref": "#/$defs/location"
+                },
+                "method": {
+                    "type": "string",
+                    "title": "Method",
+                    "description": "",
+                    "examples": [
+                        "EXITING_VEHICLE_SIGNAL"
+                    ],
+                    "enum": [
+                        "PERSONAL_VEHICLE_CONFIDENCE",
+                        "END_OF_ACTIVITY_SEGMENT",
+                        "EXITING_VEHICLE_SIGNAL",
+                        "UNDEFINED"
+                    ]
+                },
+                "locationSource": {
+                    "type": "string",
+                    "title": "Location Source",
+                    "description": "",
+                    "examples": [
+                        "FROM_RAW_LOCATION"
+                    ],
+                    "enum": [
+                        "FROM_RAW_LOCATION",
+                        "NOT_FROM_RAW_LOCATION",
+                        "UNKNOWN"
+                    ]
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Timestamp",
+                    "description": "",
+                    "examples": [
+                        "2022-02-27T14:47:16.731Z"
+                    ]
+                }
+            }
+        }
+    }
+}

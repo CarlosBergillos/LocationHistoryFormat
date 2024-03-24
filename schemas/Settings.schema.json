@@ -1,0 +1,286 @@
+{
+    "$id": "https://locationhistoryformat.com/schemas/Settings.schema.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "Settings",
+    "description": "The `Settings.json` file in a Google Takeout Location History extraction. Contains information about the Google account settings related to Location History, information about the devices associated, and other auxiliary metadata.",
+    "examples": [
+        {
+            "createdTime": "2013-05-15T21:53:59.385Z",
+            "modifiedTime": "2020-07-01T21:27:31.880Z",
+            "historyEnabled": true,
+            "deviceSettings": [
+                {
+                    "deviceTag": 1234567890,
+                    "reportingEnabled": true,
+                    "legalCountryCode": "es",
+                    "devicePrettyName": "ONEPLUS A6013",
+                    "platformType": "ANDROID",
+                    "deviceCreationTime": "2019-01-07T18:13:23.713Z",
+                    "latestLocationReportingSettingChange": {
+                        "reportingEnabledModificationTime": "2019-01-07T18:13:24.673Z"
+                    },
+                    "androidOsLevel": 28,
+                    "deviceSpec": {
+                        "manufacturer": "OnePlus",
+                        "brand": "OnePlus",
+                        "product": "OnePlus6T",
+                        "device": "OnePlus6T",
+                        "model": "ONEPLUS A6013",
+                        "isLowRam": false
+                    }
+                }
+            ],
+            "retentionWindowDays": 2147483647,
+            "hasReportedLocations": true,
+            "hasSetRetention": false
+        }
+    ],
+    "properties": {
+        "createdTime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created Time",
+            "description": "Timestamp (as an ISO 8601 string) when Location History was first available on this Google account.",
+            "examples": [
+                "2013-05-15T21:53:59.385Z"
+            ]
+        },
+        "modifiedTime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Modified Time",
+            "description": "Timestamp (as an ISO 8601 string) when any Location History setting was last modified on this Google account.",
+            "examples": [
+                "2020-07-01T21:27:31.880Z"
+            ]
+        },
+        "historyEnabled": {
+            "type": "boolean",
+            "title": "History Enabled",
+            "description": "Whether Location History is enabled on this Google account (controlled in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page).",
+            "examples": [
+                true
+            ]
+        },
+        "deviceSettings": {
+            "type": "array",
+            "title": "Device Settings",
+            "description": "List of devices associated with the Location History information on this Google account.",
+            "items": {
+                "$ref": "#/$defs/deviceSettings"
+            }
+        },
+        "retentionWindowDays": {
+            "type": "integer",
+            "title": "Retention Window Days",
+            "description": "Number of days the Location History information is retained in this Google account. Corresponds to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.\nThis value should be ignored if [#/properties/hasSetRetention] is false.",
+            "examples": [
+                540
+            ]
+        },
+        "hasReportedLocations": {
+            "type": "boolean",
+            "title": "Has Reported Locations",
+            "description": "Whether this Google account has any reported Location History information.",
+            "examples": [
+                true
+            ]
+        },
+        "hasSetRetention": {
+            "type": "boolean",
+            "title": "Has Set Retention",
+            "description": "Whether this Google account has configured the auto-delete setting (retention) for the Location History data. Corresponds to the *Auto-delete* setting in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page.\nSee also [#/properties/retentionWindowDays].",
+            "examples": [
+                false
+            ]
+        }
+    },
+    "$defs": {
+        "deviceSettings": {
+            "type": "object",
+            "title": "Device Settings",
+            "description": "Information about a device associated with the Google Location History account.",
+            "examples": [
+                {
+                    "deviceTag": 1234567890,
+                    "reportingEnabled": true,
+                    "legalCountryCode": "es",
+                    "devicePrettyName": "ONEPLUS A6013",
+                    "platformType": "ANDROID",
+                    "deviceCreationTime": "2019-01-07T18:13:23.713Z",
+                    "latestLocationReportingSettingChange": {
+                        "reportingEnabledModificationTime": "2019-01-07T18:13:24.673Z"
+                    },
+                    "androidOsLevel": 28,
+                    "deviceSpec": {
+                        "manufacturer": "OnePlus",
+                        "brand": "OnePlus",
+                        "product": "OnePlus6T",
+                        "device": "OnePlus6T",
+                        "model": "ONEPLUS A6013",
+                        "isLowRam": false
+                    }
+                }
+            ],
+            "properties": {
+                "deviceTag": {
+                    "type": "integer",
+                    "title": "Device Tag",
+                    "description": "Integer identifier (specific to Location History) of the device.",
+                    "examples": [
+                        1234567890
+                    ]
+                },
+                "reportingEnabled": {
+                    "type": "boolean",
+                    "title": "Reporting Enabled",
+                    "description": "Whether this device is configured to report Location History information (controlled in the [Activity Controls](https://myactivity.google.com/activitycontrols?settings=location) page).",
+                    "examples": [
+                        true
+                    ]
+                },
+                "legalCountryCode": {
+                    "type": "string",
+                    "title": "Legal Country Code",
+                    "description": "Two-letter [ISO 3166 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).",
+                    "examples": [
+                        "es"
+                    ],
+                    "helpWanted": "The meaning of this field is uncertain."
+                },
+                "devicePrettyName": {
+                    "type": "string",
+                    "title": "Device Pretty Name",
+                    "description": "Pretty name of the device, recommended for user-facing applications.",
+                    "examples": [
+                        "ONEPLUS A6013"
+                    ]
+                },
+                "platformType": {
+                    "type": "string",
+                    "title": "Platform Type",
+                    "description": "Platform of the device. Valid values are: `ANDROID`, `IOS` and `UNKNOWN`.",
+                    "examples": [
+                        "ANDROID"
+                    ],
+                    "enum": [
+                        "ANDROID",
+                        "IOS",
+                        "UNKNOWN"
+                    ]
+                },
+                "deviceCreationTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "Device Creation Time",
+                    "description": "Timestamp (as an ISO 8601 string) of the first time this device was available for Location History reporting on this Google account.",
+                    "examples": [
+                        "2019-01-07T18:13:23.713Z"
+                    ]
+                },
+                "latestLocationReportingSettingChange": {
+                    "type": "object",
+                    "title": "Latest Location Reporting Setting Change",
+                    "description": "Information on the latest change(s) to Location History settings on this Google account.",
+                    "helpWanted": "Are properties other than `reportingEnabledModificationTime` possible?",
+                    "examples": [
+                        {
+                            "reportingEnabledModificationTime": "2019-01-07T18:13:24.673Z"
+                        }
+                    ],
+                    "properties": {
+                        "reportingEnabledModificationTime": {
+                            "type": "string",
+                            "title": "Reporting Enabled Modification Time",
+                            "description": "Time that Location History reporting was enabled or disabled for the last time on this Google account.",
+                            "examples": [
+                                "2019-01-07T18:13:24.673Z"
+                            ]
+                        }
+                    }
+                },
+                "androidOsLevel": {
+                    "type": "integer",
+                    "title": "Android OS Level",
+                    "description": "The version of the device's operating system (only applies to Android devices). Corresponds to the API Level (e.g. 28 is Android 9 *Pie*).",
+                    "examples": [
+                        28
+                    ]
+                },
+                "deviceSpec": {
+                    "type": "object",
+                    "title": "Device Specification",
+                    "description": "Technical information and specifications about the device.",
+                    "$ref": "#/$defs/deviceSpec"
+                }
+            }
+        },
+        "deviceSpec": {
+            "type": "object",
+            "title": "Device Specification",
+            "description": "Technical information and specifications about a device.",
+            "examples": [
+                {
+                    "manufacturer": "OnePlus",
+                    "brand": "OnePlus",
+                    "product": "OnePlus6T",
+                    "device": "OnePlus6T",
+                    "model": "ONEPLUS A6013",
+                    "isLowRam": false
+                }
+            ],
+            "properties": {
+                "manufacturer": {
+                    "type": "string",
+                    "title": "Manufacturer",
+                    "description": "Manufacturer of the device.",
+                    "examples": [
+                        "OnePlus"
+                    ]
+                },
+                "brand": {
+                    "type": "string",
+                    "title": "Brand",
+                    "description": "Brand of the device.",
+                    "examples": [
+                        "OnePlus"
+                    ]
+                },
+                "product": {
+                    "type": "string",
+                    "title": "Product",
+                    "description": "Product name of the device.",
+                    "examples": [
+                        "OnePlus6T"
+                    ]
+                },
+                "device": {
+                    "type": "string",
+                    "title": "Device",
+                    "description": "Name of the device.",
+                    "examples": [
+                        "OnePlus6T"
+                    ]
+                },
+                "model": {
+                    "type": "string",
+                    "title": "Model",
+                    "description": "Model of the device.",
+                    "examples": [
+                        "ONEPLUS A6013"
+                    ]
+                },
+                "isLowRam": {
+                    "type": "boolean",
+                    "title": "Is Low Ram",
+                    "description": "Whether the device is considered low-ram.",
+                    "examples": [
+                        false
+                    ],
+                    "helpWanted": "Is it maybe related to [Google Maps Go](https://support.google.com/maps/answer/7566112)?"
+                }
+            }
+        }
+    }
+}
