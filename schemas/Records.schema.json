@@ -333,6 +333,8 @@
                         "cell",
                         "GPS",
                         "gps",
+                        "MANUAL",
+                        "manual",
                         "VISIT_ARRIVAL",
                         "visit_arrival",
                         "VISIT_DEPARTURE",
