@@ -890,10 +890,10 @@
                 {
                     "type": "string",
                     "const": "UNKNOWN_ACTIVITY_TYPE",
-                    "title": "Moving",
-                    "description": "",
+                    "title": "Uknown Activity",
+                    "description": "Type used when unable to detect the current activity.",
                     "extra_color": "#03a9f4",
-                    "extra_icon": "activity_types/moving_24dp.svg"
+                    "extra_icon": "activity_types/unknown_24dp.svg"
                 },
                 {
                     "type": "string",
@@ -1232,6 +1232,14 @@
                     "description": "The place has been given a private label by the user. See: [Give a place a private label](https://support.google.com/maps/answer/6257830?hl=en).",
                     "extra_color": "#03a9f4",
                     "extra_icon": "semantic_types/label_circled_24dp.svg"
+                },
+                {
+                    "type": "string",
+                    "const": "TYPE_UNKNOWN",
+                    "title": "Type Unknown Location",
+                    "description": "Location type is unknown",
+                    "extra_color": "#03a9f4",
+                    "extra_icon": "semantic_types/unknown_24dp.svg"
                 }
             ]
         },
