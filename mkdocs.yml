@@ -64,6 +64,7 @@ nav:
     - reference/index.md
     - Records.json: reference/records.md
     - Settings.json: reference/settings.md
+    - Timeline Edits.json: reference/timeline-edits.md
     - Semantic Location History: reference/semantic.md
   - FAQ: faq.md
   - Contributing: contributing.md
